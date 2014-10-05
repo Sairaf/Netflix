@@ -2,18 +2,17 @@
 #include "Filme.h"
 
 Filme::Filme(string titulo, string genero, const Data& dt)
-//:dataDeLancamento(dt)
+:dataDeLancamento(dt)
 {
-	Filme::setTitulo(titulo);
+	this->titulo = titulo;
 	this->genero = genero;
-	this->dataDeLancamento = dt;
 }
 
 Filme::Filme()
 :dataDeLancamento()
 {
-    this->titulo = " ";
-	this->genero = " ";
+ this->titulo = " ";
+ this->genero = " ";
 }
 
 void Filme::setTitulo(const string& tit)
@@ -26,9 +25,9 @@ void Filme::setGenero(const string& gen)
  this->titulo = titulo;	
 }
 
-void Filme::setDatadeLancamento(const Data& dat)
+void Filme::setDataDeLancamento(const Data& data)
 {
- this->dataDeLancamento = dat;	
+ dataDeLancamento = data;
 }
 
 string Filme::getTitulo() const
@@ -45,10 +44,11 @@ Data Filme::getDataDeLancamento() const
 {
  return this->dataDeLancamento;	
 }
-
-void Filme::AdicionarFilme(string titulo, string genero, const Data& dt)
+/*
+void Filme::AdicionarFilme(Filme fm[], const string titulo, const string genero, const Data& dt, int pos)
 {
-	this->titulo = titulo;
-	this->genero = genero;
-	this->dataDeLancamento = dt(dt);	
+	fm[pos].setTitulo(titulo);
+	fm[pos].setGenero(genero);
+	fm[pos].setDataDeLancamento(dt);
 }
+*/

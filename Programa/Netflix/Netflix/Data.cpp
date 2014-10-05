@@ -18,6 +18,33 @@ Data::Data(int d, int m, int a)
 
 }
 
+void Data::setAno(const int& ano) 
+{
+ this->ano = ano;
+}
+void Data::setDia(const int& dia) 
+{
+this->dia = dia;
+}
+
+void Data::setMes(const int& mes) 
+{
+ this->mes = mes;
+}
+	
+int Data::getAno() const 
+{
+ return ano;
+}
+int Data::getDia() const
+{
+ return dia;
+}
+int Data::getMes() const 
+{
+ return mes;
+}
+
 void Data::print() const
 {
    cout << dia << '/' << mes << '/' << ano;

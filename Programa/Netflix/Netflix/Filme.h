@@ -11,12 +11,11 @@ class Filme
 private:
 	string titulo;
 	string genero;
-	const Data dataDeLancamento;
+	Data dataDeLancamento;
 public:
 	//construtors
 	Filme();
-	~Filme();
-	Filme(string, string, const Data&);
+	Filme(string, string, const  Data&);
 
 	//setters
 
@@ -24,12 +23,13 @@ public:
 	void setGenero(const string&);
 	void setDataDeLancamento(const Data&);
 
+
 	// getters
 	string getTitulo() const;
 	string getGenero() const;
 	Data getDataDeLancamento() const;
 
-	void AdicionarFilme(const string,const string, const Data&);
+	void AdicionarFilme(Filme[], const string,const string, const Data&, int);
 
 
 	
