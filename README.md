@@ -3,21 +3,31 @@ Netflix
 
 Planejamento:
 
-- Criar pelo menos 4 atributos v
-- Criar pelo menos 4 funÁıes (sem contar get e set) v
-- Iniciar todos os atributos v
-- Iniciar 3 construtores (Default, cÛpia e um normal) v
-- Ter atributo string v
-- Ter atributo static (Velocidade m·xima?) v
-- Ter atributo const static (cnpj) v
-- Dois mÈtodos constantes
-- um array v
-- uma funÁ„o inline (mensagem de boas vindas) v
-- mÈtodo com passagem por referÍncia
-- MÈtodo static (chamado no main)
-- composiÁ„o com a classe Data v
+- Criar pelo menos 4 atributos 
+- Criar pelo menos 4 fun√ß√µes (sem contar get e set) 
+- Iniciar todos os atributos 
+- Iniciar 3 construtores (Default, c√≥pia e um normal) 
+- Ter atributo string 
+- Ter atributo static (Velocidade m√°xima?) 
+- Ter atributo const static (cnpj) 
+- Dois m√©todos constantes
+- um array 
+- uma fun√ß√£o inline (mensagem de boas vindas) 
+- m√©todo com passagem por refer√™ncia
+- M√©todo static (chamado no main)
+- composi√ß√£o com a classe Data 
+- 
+- ==============================================
+- 
+- Altera√ß√µes para sexta feira (10/10/2014):
+- 
+- vector usando o push.back
+- friend operator insercao -Imprimir na tela-
+- operador de atribui√ß√£o
+- aloca√ß√£o din√¢mica de mem√≥ria
+
 
 NOTA:
-- MÈtodos declarados no cpp devem ser relacionados a classe. Sen„o devem ser declarados no main.
-- MÈtodos inline devem ser o mais curtos possÌveis.
-- N„o declarar nada no fim do .h  
+- M√©todos declarados no cpp devem ser relacionados a classe. Sen√£o devem ser declarados no main.
+- M√©todos inline devem ser o mais curtos poss√≠veis.
+- N√£o declarar nada no fim do .h  
