@@ -68,7 +68,7 @@ void Netflix::ListarUsuario(Netflix *ntf, int tamanho)
  
 void Netflix::AdicionarFilme(Netflix *ntf, string titulo, int pos)
 {
- //int aux;	 
+ 
 
  if((pos < MAXFILMES) || (pos >=0) )
  {
@@ -77,12 +77,7 @@ void Netflix::AdicionarFilme(Netflix *ntf, string titulo, int pos)
  }else
  {
   cout << "Limite de filmes atingido. " << endl;	 
-  /*cout << "Deseja substituir pelo valor mais velho? (1 - para sim; 0 - para nao" << endl;	 
-  cout << "Mais velho
-  if(aux == 1)
-  {
-	  
-  }*/
+
  }
 } 
   
