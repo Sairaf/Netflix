@@ -1,32 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Session Name="G:\Abner\Programacao\Programasfeitos\ProjetosGiteye\Netflix\Programa\Netflix\Netflix.workspace">
-  <int Value="1" Name="m_selectedTab"/>
-  <wxString Value="G:\Abner\Programacao\Programasfeitos\ProjetosGiteye\Netflix\Programa\Netflix\Netflix.workspace" Name="m_workspaceName"/>
+<Session Name="G:\Totally not Linux\giteye64\projetosGitEye\Netflix\Programa\Netflix\Netflix.workspace">
+  <int Value="2" Name="m_selectedTab"/>
+  <wxString Value="G:\Totally not Linux\giteye64\projetosGitEye\Netflix\Programa\Netflix\Netflix.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="G:\Abner\Programacao\Programasfeitos\ProjetosGiteye\Netflix\Programa\Netflix\Netflix\Netflix.h" Name="FileName"/>
-      <int Value="33" Name="FirstVisibleLine"/>
-      <int Value="32" Name="CurrentLine"/>
+      <wxString Value="G:\Totally not Linux\giteye64\projetosGitEye\Netflix\Programa\Netflix\Netflix\Netflix.cpp" Name="FileName"/>
+      <int Value="21" Name="FirstVisibleLine"/>
+      <int Value="57" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds">
+        <IntVectorItem Value="10"/>
+        <IntVectorItem Value="22"/>
+        <IntVectorItem Value="33"/>
+        <IntVectorItem Value="40"/>
+        <IntVectorItem Value="62"/>
+        <IntVectorItem Value="69"/>
+        <IntVectorItem Value="90"/>
+        <IntVectorItem Value="118"/>
+        <IntVectorItem Value="123"/>
+        <IntVectorItem Value="128"/>
+        <IntVectorItem Value="139"/>
+        <IntVectorItem Value="144"/>
+        <IntVectorItem Value="154"/>
+        <IntVectorItem Value="159"/>
+        <IntVectorItem Value="164"/>
+      </IntVector>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="G:\Totally not Linux\giteye64\projetosGitEye\Netflix\Programa\Netflix\Netflix\Netflix.h" Name="FileName"/>
+      <int Value="20" Name="FirstVisibleLine"/>
+      <int Value="38" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="G:\Abner\Programacao\Programasfeitos\ProjetosGiteye\Netflix\Programa\Netflix\Netflix\Netflix.cpp" Name="FileName"/>
-      <int Value="99" Name="FirstVisibleLine"/>
-      <int Value="117" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds">
-        <IntVectorItem Value="11"/>
-        <IntVectorItem Value="38"/>
-        <IntVectorItem Value="101"/>
-        <IntVectorItem Value="106"/>
-        <IntVectorItem Value="111"/>
-      </IntVector>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="G:\Abner\Programacao\Programasfeitos\ProjetosGiteye\Netflix\Programa\Netflix\Netflix\Data.cpp" Name="FileName"/>
-      <int Value="15" Name="FirstVisibleLine"/>
-      <int Value="19" Name="CurrentLine"/>
+      <wxString Value="G:\Totally not Linux\giteye64\projetosGitEye\Netflix\Programa\Netflix\Netflix\Main.cpp" Name="FileName"/>
+      <int Value="51" Name="FirstVisibleLine"/>
+      <int Value="62" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

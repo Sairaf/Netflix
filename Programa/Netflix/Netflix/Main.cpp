@@ -11,13 +11,11 @@ void MenuPrincipal();
 int main(int argc, char** argv)
 {
  float download, velAtual = 0.0, ganhos;	
- int pos = 0, pos2 = 0, dia, mes, ano;
+ int pos = 0, pos2 = 0, numUsuarios;
  Data data;
- string login, senha, titulo, genero;	
- vector <Usuario> usuarios;	
- vector <Filme> filmes;
- Netflix netflix;
-//nome, vector<Filme> filmes, vector <Usuario> usuarios 
+ string login, senha, titulo, cnpj;	
+ Netflix netflix(cnpj, login, senha);
+
  int opcao;
  
  netflix.Welcome();
@@ -31,26 +29,16 @@ int main(int argc, char** argv)
    {
     case 1:
 		system("cls");
-		cout << "hue" << endl;
+
 		cout << "Digite o login do usuario:" << endl;
 		cin >> login;
 		cout << "Digite a senha do usuario:" << endl;
 		cin >> senha;
-		cout << "Digite o dia da inscricao do usuario:" << endl;
-		cin >> dia;
-		cout << "Digite o mes inscricao do usuario:" << endl;	
-		cin >> mes;
-		cout << "Digite o ano inscricao do usuario:" << endl;
-		cin >> ano;
-		data.setDia(dia);
-		data.setMes(mes);
-		data.setAno(ano);
-		netflix.AdicionarUsuario(netflix, pos, login, senha, data);
-		pos++;
+		netflix.AdicionarUsuario(&netflix,login, senha);
 		cout << endl;
 		cout << endl;
-		cout << "Usuario numero " << pos << " Adicionado" << endl;
-		cout << "Total de usuarios" << netflix.getQuantidadeUsuarios() <<  endl;
+		cout << "Usuario adicionado com sucesso!!!" << endl;
+		cout << endl;
 		system("pause");
 		system("cls");
  	    MenuPrincipal();
@@ -58,45 +46,40 @@ int main(int argc, char** argv)
 	break;
   case 2:
 		system("cls");
-		cout << "hue" << endl;
 		cout << "Digite o titulo do filme:" << endl;
 		cin >> titulo;
-		cout << "Digite o genero do filme:" << endl;
-		cin >> genero;
-		cout << "Digite o dia do lancamento do filme:" << endl;
-		cin >> dia;
-		cout << "Digite o mes do lancamento do filme:" << endl;	
-		cin >> mes;
-		cout << "Digite o ano do lancamento do filme:" << endl;
-		cin >> ano;
-		data.setDia(dia);
-		data.setMes(mes);
-		data.setAno(ano);
-		netflix.AdicionarFilme(netflix, pos, titulo, genero, data);
-		pos2++;
+		netflix.AdicionarFilme(&netflix,titulo, pos);
+		pos++;
 		cout << endl;
 		cout << endl;
-		cout << "Filme numero " << pos2 << " Adicionado" << endl;
-		cout << "Total de filmes" << netflix.getQuantidadeFilmes() <<  endl;
+		cout << "Total de filmes: " << netflix.getQuantidadeFilmes() <<  endl;
+		cout << endl;
 		system("pause");
 		system("cls");
  	    MenuPrincipal();
 	    cin >> opcao;		
   break;
   case 3:
-  cout << "DATABASE WOW WOW" <<endl;
+        if(login.size() != 0)
+		{	
+         netflix.ListarUsuario(&netflix, pos);
+		 system("pause");
+		 system("cls");
+ 	     MenuPrincipal();
+	     cin >> opcao;			
+		}else
+		{
+		 cout << "Erro. Não há usuario declarado" << endl;	
+		} 
+		system("pause");
+		system("cls");
+		MenuPrincipal();
+	    cin >> opcao;			
   break;
   case 4:
-  cout << "DATABASE WOW WOW" <<endl;
-  break;
-  case 5:
-       cout << "DATABASE WOW WOW" <<endl;        
-  	   MenuPrincipal();
-	   cin >> opcao;
-  break;
-  case 6:
 		download = netflix.CalculoDownload(netflix.getVelMaxima(),velAtual);
 		system("cls");
+		
 		if(download > netflix.getVelMaxima())
 		{
 		 cout << "Velocidade de download: " << netflix.getVelMaxima()<< " MBPS"<< endl;	  
@@ -104,22 +87,31 @@ int main(int argc, char** argv)
 		{
 		 cout << "Velocidade de download: " << download << " MBPS"<< endl;	  	  
 		}
+		cout << endl;
+		system("pause");
+		system("cls");
 		MenuPrincipal();
-	    cin >> opcao;		
+	    cin >> opcao;	
   break;
-  case 7:
-        ganhos = netflix.CalculoGanhos(netflix.getQuantidadeUsuarios(), netflix.getMensalidade());
+  case 5:
+	    cout << "Digite o numero de usuarios a ser calculado o lucro" << endl;
+		cin >> numUsuarios;
+        ganhos = netflix.CalculoGanhos(numUsuarios, netflix.getMensalidade());
+		
 		if(ganhos > 0)
 		{
-		 cout << "Ganhos somente com o pagamento das mensalidades"<< ganhos;		
+		 cout << "Ganhos somente com o pagamento das mensalidades: "<< ganhos << "dolares. " << endl;		
+		 cout << endl;
 		}
+		system("pause");
+		system("cls");
 		MenuPrincipal();
-	    cin >> opcao;		
+	    cin >> opcao;	
   break;
-  case 8:
-      system("cls");
- 	  MenuPrincipal();
-	  cin >> opcao;			  
+  case 6:
+        system("cls");
+ 	    MenuPrincipal();
+	    cin >> opcao;			    	
   break;
   case 0:
 		system("pause");
@@ -128,6 +120,8 @@ int main(int argc, char** argv)
   default: 
         system("cls");
         cout << "ERRO: OPERACAO INVALIDA" <<endl;
+		MenuPrincipal();
+	    cin >> opcao;	
   break;
   }
  }while(opcao != 0);	 
@@ -135,17 +129,14 @@ int main(int argc, char** argv)
  return 0; 
 }
 
-
 void MenuPrincipal()
 {
  cout << "Escolha uma das opcoes abaixo" << endl;
  cout << "1 - Adicionar Usuario" << endl;
- cout << "2 - Adicionar Filme" << endl;
- cout << "3-  Listar Usuario" << endl;
- cout << "4 - Listar filmes disponiveis" << endl;
- cout << "5 - Adicionar filme a lista de um usuario" << endl;
- cout << "6 - Verificar velocidade de Download" << endl;	
- cout << "7 - Calcular ganhos com mensalidAdes:" << endl;
- cout << "8 - Limpar tela" << endl;
+ cout << "2 - Adicionar filme a lista de um usuario" << endl;
+ cout << "3 - Listar usuario e filmes deste" << endl;
+ cout << "4 - Verificar velocidade de Download" << endl;	
+ cout << "5 - Calcular ganhos com mensalidades com N nummero de usuarios:" << endl;
+ cout << "6 - Limpar tela" << endl;
  cout << "0 - Sair" << endl;
 }

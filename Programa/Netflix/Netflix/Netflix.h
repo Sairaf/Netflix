@@ -5,11 +5,10 @@
 //=============================================
 #include "Data.h"
 //==============================================
-#define MAXFILMES 50
-#define MAXUSUARIOS 30
+#define MAXFILMES 10
 
-using std::string;
-using std::vector;
+using namespace std;
+
 class Netflix
 {
 private:
@@ -22,7 +21,6 @@ private:
 	vector <string> tituloFilme;
 	static Data data;
 //==========================================	
-	static int quantidadeUsuarios;
 	static int quantidadeFilmes;
 	
 	
@@ -37,34 +35,31 @@ public:
       //setters
 	  void setCnpj(const string&) ;
 	  void setListaDeFilmes(const string&) ;
-      void setListaDeUsuarios(const string&) ;
 	  void setQuantidadeFilmes(const int&)  ;
-	  void setQuantidadeUsuarios(const int&) ;
-      void setVelMaxima(const float&); 
+	  void setVelMaxima(const float&); 
 	  void setLogin(const string&);
 	  void setSenha(const string&);
-	  void setTitulo(const string&);
+	  void setTitulo(const string&,const int&);
 	
 
   //getters
 	  
 	  string getCnpj() const;
 	  const string& getListaDeFilmes() const ;
-	  const string& getListaDeUsuarios() const ;
 	  int getQuantidadeFilmes() const ;
-	  int getQuantidadeUsuarios() const;
 	  string getLogin() const;
 	  string getSenha() const;
-	  string getTitulo() const;
+	  string getTitulo(const int&) const;
 	  float getVelMaxima() const ;
 	  float getMensalidade() const;
 	  
-	  inline void Welcome(){cout<< "Bem vindo :D\n"<<endl;};
+	  inline void Welcome(){cout<< "Bem vindo ao sistema Netflix :D. \n"<<endl;};
 	  
-	  void AdicionarUsuario(Netflix, int, string, string, Data);
-	  void AdicionarFilme(Netflix, int, string, string, Data);
+	  void AdicionarUsuario(Netflix*, string, string);
+	  void AdicionarFilme(Netflix*, string, int);
 	  
-	  void ListarUsuarios(Netflix*, int);
+
+	  void ListarUsuario(Netflix*, int);
 	  const float CalculoDownload(float, float);
-	  static float CalculoGanhos(int,const float);
+	  static const float CalculoGanhos(int,const float);
 };
