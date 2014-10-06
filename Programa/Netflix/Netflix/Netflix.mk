@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=ABGerson
-Date                   :=10/04/14
+Date                   :=10/06/14
 CodeLitePath           :="C:\Program Files\CodeLite"
 LinkerName             :=C:/MinGW-4.8.1/bin/g++.exe 
 SharedObjectLinkerName :=C:/MinGW-4.8.1/bin/g++.exe -shared -fPIC
@@ -63,7 +63,7 @@ AS       := C:/MinGW-4.8.1/bin/as.exe
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
 UNIT_TEST_PP_SRC_DIR:=C:\UnitTest++-1.3
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Filme.cpp$(ObjectSuffix) $(IntermediateDirectory)/Usuario.cpp$(ObjectSuffix) $(IntermediateDirectory)/Netflix.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Netflix.cpp$(ObjectSuffix) $(IntermediateDirectory)/Main.cpp$(ObjectSuffix) 
 
 
 
@@ -90,14 +90,6 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "G:/Abner/Programacao/Programasfeitos/ProjetosGiteye/Netflix/Programa/Netflix/Netflix/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/main.cpp$(DependSuffix) -MM "main.cpp"
-
-$(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) "main.cpp"
-
 $(IntermediateDirectory)/Data.cpp$(ObjectSuffix): Data.cpp $(IntermediateDirectory)/Data.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "G:/Abner/Programacao/Programasfeitos/ProjetosGiteye/Netflix/Programa/Netflix/Netflix/Data.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/Data.cpp$(DependSuffix): Data.cpp
@@ -106,22 +98,6 @@ $(IntermediateDirectory)/Data.cpp$(DependSuffix): Data.cpp
 $(IntermediateDirectory)/Data.cpp$(PreprocessSuffix): Data.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Data.cpp$(PreprocessSuffix) "Data.cpp"
 
-$(IntermediateDirectory)/Filme.cpp$(ObjectSuffix): Filme.cpp $(IntermediateDirectory)/Filme.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "G:/Abner/Programacao/Programasfeitos/ProjetosGiteye/Netflix/Programa/Netflix/Netflix/Filme.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Filme.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Filme.cpp$(DependSuffix): Filme.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Filme.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Filme.cpp$(DependSuffix) -MM "Filme.cpp"
-
-$(IntermediateDirectory)/Filme.cpp$(PreprocessSuffix): Filme.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Filme.cpp$(PreprocessSuffix) "Filme.cpp"
-
-$(IntermediateDirectory)/Usuario.cpp$(ObjectSuffix): Usuario.cpp $(IntermediateDirectory)/Usuario.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "G:/Abner/Programacao/Programasfeitos/ProjetosGiteye/Netflix/Programa/Netflix/Netflix/Usuario.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Usuario.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Usuario.cpp$(DependSuffix): Usuario.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Usuario.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Usuario.cpp$(DependSuffix) -MM "Usuario.cpp"
-
-$(IntermediateDirectory)/Usuario.cpp$(PreprocessSuffix): Usuario.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Usuario.cpp$(PreprocessSuffix) "Usuario.cpp"
-
 $(IntermediateDirectory)/Netflix.cpp$(ObjectSuffix): Netflix.cpp $(IntermediateDirectory)/Netflix.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "G:/Abner/Programacao/Programasfeitos/ProjetosGiteye/Netflix/Programa/Netflix/Netflix/Netflix.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Netflix.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/Netflix.cpp$(DependSuffix): Netflix.cpp
@@ -129,6 +105,14 @@ $(IntermediateDirectory)/Netflix.cpp$(DependSuffix): Netflix.cpp
 
 $(IntermediateDirectory)/Netflix.cpp$(PreprocessSuffix): Netflix.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Netflix.cpp$(PreprocessSuffix) "Netflix.cpp"
+
+$(IntermediateDirectory)/Main.cpp$(ObjectSuffix): Main.cpp $(IntermediateDirectory)/Main.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "G:/Abner/Programacao/Programasfeitos/ProjetosGiteye/Netflix/Programa/Netflix/Netflix/Main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Main.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Main.cpp$(DependSuffix): Main.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Main.cpp$(DependSuffix) -MM "Main.cpp"
+
+$(IntermediateDirectory)/Main.cpp$(PreprocessSuffix): Main.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Main.cpp$(PreprocessSuffix) "Main.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

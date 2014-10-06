@@ -1,9 +1,5 @@
-Debug/Netflix.cpp.o: Netflix.cpp Netflix.h Data.h Usuario.h Filme.h
+Debug/Netflix.cpp.o: Netflix.cpp Netflix.h Data.h
 
 Netflix.h:
 
 Data.h:
-
-Usuario.h:
-
-Filme.h:

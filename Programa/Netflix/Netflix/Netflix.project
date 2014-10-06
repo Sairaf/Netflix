@@ -94,10 +94,6 @@
     <File Name="Data.h"/>
     <File Name="Data.cpp"/>
     <File Name="Netflix.h"/>
-    <File Name="Usuario.h"/>
-    <File Name="Filme.h"/>
-    <File Name="Filme.cpp"/>
-    <File Name="Usuario.cpp"/>
     <File Name="Netflix.cpp"/>
     <File Name="Main.cpp"/>
   </VirtualDirectory>

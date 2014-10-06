@@ -1,1 +1,9 @@
-Debug/main.cpp.o: main.cpp
+Debug/Main.cpp.o: Main.cpp Netflix.h Data.h Usuario.h Filme.h
+
+Netflix.h:
+
+Data.h:
+
+Usuario.h:
+
+Filme.h:
