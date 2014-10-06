@@ -17,7 +17,7 @@ private:
 	const static float MENSALIDADE;
 //============================================
 	string usuarioLogin;
-    string usuarioSenha;
+        string usuarioSenha;
 	vector <string> tituloFilme;
 	static Data data;
 //==========================================	
@@ -25,11 +25,12 @@ private:
 	
 	
 public:
+
       //construtores
 	  
 	  Netflix();
 	  Netflix(string, string,string);
-      Netflix(const Netflix&);
+          Netflix(const Netflix&);
 	 ~Netflix();
 
       //setters
@@ -42,7 +43,7 @@ public:
 	  void setTitulo(const string&,const int&);
 	
 
-  //getters
+      //getters
 	  
 	  string getCnpj() const;
 	  const string& getListaDeFilmes() const ;
@@ -52,7 +53,8 @@ public:
 	  string getTitulo(const int&) const;
 	  float getVelMaxima() const ;
 	  float getMensalidade() const;
-	  
+
+     //Outros métodos
 	  inline void Welcome(){cout<< "Bem vindo ao sistema Netflix :D. \n"<<endl;};
 	  
 	  void AdicionarUsuario(Netflix*, string, string);
