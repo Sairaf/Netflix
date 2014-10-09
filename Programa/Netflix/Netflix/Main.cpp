@@ -60,9 +60,10 @@ int main(int argc, char** argv)
 	    cin >> opcao;		
   break;
   case 3:
+        
         if(login.size() != 0)
 		{	
-         netflix.ListarUsuario(&netflix, pos);
+         cout << netflix << endl; 
 		 system("pause");
 		 system("cls");
  	     MenuPrincipal();

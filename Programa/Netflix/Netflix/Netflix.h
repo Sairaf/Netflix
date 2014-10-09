@@ -11,6 +11,9 @@ using namespace std;
 
 class Netflix
 {
+	
+friend ostream &operator<<(ostream &, const Netflix &); 
+	
 private:
 	string cnpj;
 	static float velMaxima; // Dada em MBPS

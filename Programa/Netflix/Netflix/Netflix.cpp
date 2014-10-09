@@ -24,10 +24,8 @@ Netflix::Netflix(string cnpj, string login, string senha)
  
   setLogin(login) ;
   setSenha(senha);
-  for(int j = 0; j< 10; j++)
-   {
-	this->setTitulo(" ", j) ;  
-   }
+  this->tituloFilme.push_back("tatatete ") ;  
+   
 }
 
 Netflix::~Netflix()
@@ -110,6 +108,18 @@ void Netflix::AdicionarFilme(Netflix *ntf, string titulo, int pos)
   }
  }
   
+ostream &operator<<(ostream &output, const Netflix& ntf)  
+{
+ output <<"Usuario: "<< ntf.getLogin()<< endl;
+ output <<"Senha:  "<< ntf.getSenha()<< endl;
+ int i = 0;
+ for(i; i < ntf.quantidadeFilmes; i++)
+ //output << ntf.getLogin();
+ output << "Filme numero " << i << ": "<< ntf.getTitulo(i) << endl;
+ return output;
+}
+  
+  
 void Netflix::setCnpj(const string& cnpj) 
  {
   this->cnpj = cnpj;	 
@@ -130,6 +140,11 @@ void Netflix::setLogin(const string& login)
   this->tituloFilme[pos] = titulo;
   }
  
+string Netflix::getCnpj() const
+{
+ return this->cnpj;	
+}
+
 
 string Netflix::getLogin() const
 {
