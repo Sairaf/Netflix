@@ -25,9 +25,8 @@ Requisitos de implementação (2):
 - Operator=
 - vector push_back
 
- Requisitos de implementação (3):
- - Duas classes
- - Classes devem possuir:
+Requisitos de implementação (3):
+- Duas classes. Classes devem possuir:
  - Operator =
  - Alocação dinâmica - se houver vazamento de memória a classe toda é desconsiderada
  - Usar o destrutor
