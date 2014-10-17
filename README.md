@@ -1,23 +1,36 @@
 Netflix
 =======
 
-Planejamento:
+Requisitos funcionais:
+- Criar pelo menos 4 atributos ok
+- Criar pelo menos 4 fun√ß√µes (sem contar get e set) ok
 
-- Criar pelo menos 4 atributos v
-- Criar pelo menos 4 funÁıes (sem contar get e set) v
-- Iniciar todos os atributos v
-- Iniciar 3 construtores (Default, cÛpia e um normal) v
-- Ter atributo string v
-- Ter atributo static (Velocidade m·xima?) v
-- Ter atributo const static (cnpj) v
-- Dois mÈtodos constantes
-- um array v
-- uma funÁ„o inline (mensagem de boas vindas) v
-- mÈtodo com passagem por referÍncia
-- MÈtodo static (chamado no main)
-- composiÁ„o com a classe Data v
+Requisitos de implementa√ß√£o
 
-NOTA:
-- MÈtodos declarados no cpp devem ser relacionados a classe. Sen„o devem ser declarados no main.
-- MÈtodos inline devem ser o mais curtos possÌveis.
-- N„o declarar nada no fim do .h  
+- Iniciar todos os atributos ok
+- Iniciar 3 construtores (Default, c√≥pia e um normal) ok
+- Ter atributo string ok
+- Ter atributo static ok
+- Ter atributo const static  ok
+- Dois m√©todos constantes ok
+- um array ok
+- uma fun√ß√£o inline (mensagem de boas vindas) ok
+- m√©todo com passagem por refer√™ncia ok
+- M√©todo static (chamado no main) ok
+- composi√ß√£o com a classe Data ok
+
+Requisitos de implementa√ß√£o (2):
+- Aloca√ß√£o din√¢mica de mem√≥ria. 
+- fried Operator<<
+- Operator=
+- vector push_back
+
+ Requisitos de implementa√ß√£o (3):
+ - Duas classes
+ - Classes devem possuir:
+ - Operator =
+ - Aloca√ß√£o din√¢mica - se houver vazamento de mem√≥ria a classe toda √© desconsiderada
+ - Usar o destrutor
+ - Construtor de c√≥pia
+ - Operator << friend
+ - Um const static
