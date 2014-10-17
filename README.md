@@ -33,3 +33,6 @@ Requisitos de implementação (3):
  - Construtor de cópia
  - Operator << friend
  - Um const static
+ 
+
+OBS: O branch aonde se encontra a atividade para o dia 20/10/2014 se encontra no branch Netflix_4classes
