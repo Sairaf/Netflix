@@ -2,8 +2,9 @@
 #include "Usuario.h"
 
 Usuario::Usuario()
-:dataDeInscricao()
+//:dataDeInscricao()
 {
+/*
  this->login = " ";
  this->senha = " ";
   
@@ -11,13 +12,13 @@ Usuario::Usuario()
  filmesComprados->setTitulo("");
  filmesComprados->setGenero("");
  //filmesComprados->setDataDeLancamento(13/05/2014);
- this-> quantidadefilmesComprados = 0; 
+ this-> quantidadefilmesComprados = 0; */
+ Usuario();
 }
 
 Usuario::~Usuario()
 {
- Usuario us;	
- delete [] us.filmesComprados;	
+ delete [] Usuario::filmesComprados;	
 }
 
 Usuario::Usuario(const string login, const string senha, const Data& data, vector<Filme>& fAssistidos)

@@ -39,7 +39,7 @@ public:
 
       //setters
 	  void setCnpj(const string&) ;
-	  void setFilmeComprados()
+	  void setFilmeComprados(const Filme&, const int&);
 	  void setListaDeFilmes(const string&) ;
 	  void setQuantidadeFilmes(const int&)  ;
 	  void setVelMaxima(const float&); 
@@ -62,7 +62,7 @@ public:
 	  int   getExisteUsuario() const;
 	  
 	  const inline void Welcome(){cout<< "Bem vindo ao sistema Netflix :D. \n"<<endl;};
-	  void AdicionarFilme(Netflix *,const int&,  const string& ,const string& , const Data&);  
+	  void AdicionarFilme(Netflix *, Filme*, const int&,  const string& ,const string& , const Data&);  
 	  void AdicionarUsuario(Netflix*, const int&,const string&,const string&, const Data&);
 	  void ListarUsuarios(Netflix*, int);
 	  float CalculoDownload(float, float);

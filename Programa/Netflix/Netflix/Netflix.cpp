@@ -11,7 +11,7 @@ Netflix::Netflix()
 {
  quantidadeUsuarios++;	
  quantidadeFilmes++;
- 
+ int pos = 0;
  listaDeUsuarios = new Usuario[MAXUSUARIO];
  listaDeFilmes = new Filme[MAXFILMES];
 
@@ -22,7 +22,7 @@ Netflix::Netflix()
   this->listaDeUsuarios[i].setDataDeInscricao(Data(1,1,1990));
    for(int j = 0; j< 10; j++)
    {
-	this->listaDeUsuarios[i].setfilmesComprados(listaDeFilmes[j]);    
+	this->listaDeUsuarios[i].setfilmesComprados(listaDeFilmes[j], pos);    
    }
  } 
  
@@ -39,7 +39,7 @@ Netflix::Netflix(string cnpj, Filme filmes,  Usuario usuarios )
  this->cnpj = cnpj;	
  listaDeUsuarios = new Usuario[quantidadeUsuarios];
  listaDeFilmes = new Filme[quantidadeFilmes];
- 
+ int pos = 0;
  for(int i = 0; i <= this->quantidadeUsuarios; i++)
  {
   this->listaDeUsuarios[i].setLogin(usuarios.getLogin()) ;
@@ -48,7 +48,7 @@ Netflix::Netflix(string cnpj, Filme filmes,  Usuario usuarios )
   
   for(int j = 0; j< 10; j++)
    {
-	this->listaDeUsuarios[i].setfilmesComprados(listaDeFilmes[j]);    
+	this->listaDeUsuarios[i].setfilmesComprados(listaDeFilmes[j], pos);    
    }
  } 
   for(int k = 0; k <= quantidadeFilmes; k++)
@@ -78,7 +78,7 @@ Netflix::Netflix(const Netflix& netflixCpy)
   this->listaDeUsuarios[i].setDataDeInscricao(netflixCpy.listaDeUsuarios[i].getDataDeInscricao());
   for(int j = 0; j< 10; j++)
    {
-	this->listaDeUsuarios[i].setfilmesComprados(netflixCpy.listaDeFilmes[j]);    
+	this->listaDeUsuarios[i] = netflixCpy.listaDeUsuarios[i];
    }
  } 
   for(int k = 0; k < quantidadeFilmes; k++)
@@ -116,18 +116,19 @@ void Netflix::ListarUsuarios(Netflix * ntf, int tamanho)
   }
  }
  
- void Netflix::AdicionarFilme(Netflix* ntf,const int& pos, const string& titulo,const string& genero, const Data& data)
+ /*
+ void Netflix::AdicionarFilme(Netflix* ntf, Filme* fm, const int& pos, const string& titulo,const string& genero, const Data& data)
  {
-  Filme *auxFilme;	 
+  //Filme *auxFilme;	 
   if(quantidadeFilmes < MAXFILMES)	 
   {
-   ntf->listaDeFilmes->AdicionarFilme(auxFilme,titulo,genero,data);   
+   ntf->listaDeUsuarios->A 
    quantidadeFilmes++;
   }else
   {
    cout << "Limite de filmes atingido" << endl;	  
   }
- }
+ }*/
   
  
 float Netflix::CalculoDownload(float velMaxima, float velAtual)

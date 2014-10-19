@@ -11,11 +11,11 @@ void MenuPrincipal();
 int main(int argc, char** argv)
 {
  float download, velAtual = 0.0, ganhos;	
- int pos = 0, pos2 = 0, dia, mes, ano;
+ int pos = 0, pos2 = 0, dia, mes, ano, escolhido = MAXFILMES+ 1;
  Data data;
  string login, senha, titulo, genero;	
- vector <Usuario> usuarios;	
- vector <Filme> filmes;
+ Usuario* usuariosPtr;	
+ Filme* filmesPtr;
  Netflix *netflix;
 //nome, vector<Filme> filmes, vector <Usuario> usuarios 
  int opcao;
@@ -24,14 +24,14 @@ int main(int argc, char** argv)
  MenuPrincipal();
  cin >> opcao;
  
-
+ //usuariosPtr = new Usuario;
+// filmesPtr = new Filme;
   do
   {
    switch (opcao)
    {
     case 1:
-		system("cls");
-		cout << "hue" << endl;
+	    system("cls");
 		cout << "Digite o login do usuario:" << endl;
 		cin >> login;
 		cout << "Digite a senha do usuario:" << endl;
@@ -45,7 +45,7 @@ int main(int argc, char** argv)
 		data.setDia(dia);
 		data.setMes(mes);
 		data.setAno(ano);
-		netflix->AdicionarUsuario(netflix, pos, login, senha, data);
+		//netflix->AdicionarUsuario(netflix, pos, login, senha, data);
 		pos++;
 		cout << endl;
 		cout << endl;
@@ -72,7 +72,13 @@ int main(int argc, char** argv)
 		data.setDia(dia);
 		data.setMes(mes);
 		data.setAno(ano);
-		netflix->AdicionarFilme(netflix, pos, titulo, genero, data);
+		while((escolhido > MAXFILMES) || (escolhido < 0) )
+		{
+		 cout << "Digite a qual usuario voce deseja adicionar este filme" << endl;
+		 cin >> escolhido;
+		}
+		
+		
 		pos2++;
 		cout << endl;
 		cout << endl;
@@ -89,6 +95,7 @@ int main(int argc, char** argv)
 	   cin >> opcao;
   break;
   case 4:
+        system("cls");
 		download = netflix->CalculoDownload(netflix->getVelMaxima(),velAtual);
 		system("cls");
 		if(download > netflix->getVelMaxima())
@@ -102,6 +109,7 @@ int main(int argc, char** argv)
 	    cin >> opcao;		
   break;
   case 5:
+        system("cls");
         ganhos = netflix->CalculoGanhos(netflix->getQuantidadeUsuarios(), netflix->getMensalidade());
 		if(ganhos > 0)
 		{
@@ -111,12 +119,15 @@ int main(int argc, char** argv)
 	    cin >> opcao;		
   break;
   case 0:
+        system("cls");
 		system("pause");
 		return 0;
   break;
   default: 
         system("cls");
         cout << "ERRO: OPERACAO INVALIDA" <<endl;
+		MenuPrincipal();
+	    cin >> opcao;				
   break;
   }
  }while(opcao != 0);	 

@@ -9,7 +9,6 @@
 #include "Data.h"	
 //==================================================
 #define MAXFILMES 10
-#define MAXUSUARIO 10
 
 using namespace std;
 
@@ -21,7 +20,6 @@ class Usuario
 		 string login;
 		 string senha;
 		 Data dataDeInscricao;
-		 int numUsuarios;
 		 Filme* filmesComprados;
 		 int quantidadefilmesComprados;
 		 

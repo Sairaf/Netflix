@@ -1,40 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Session Name="G:\Abner\Programacao\Programasfeitos\NetflixOld\Programa\Netflix\Netflix.workspace">
-  <int Value="4" Name="m_selectedTab"/>
-  <wxString Value="G:\Abner\Programacao\Programasfeitos\NetflixOld\Programa\Netflix\Netflix.workspace" Name="m_workspaceName"/>
+<Session Name="G:\Abner\Programacao\Programasfeitos\ProjetosGiteye\Netflix4\Programa\Netflix\Netflix.workspace">
+  <int Value="0" Name="m_selectedTab"/>
+  <wxString Value="G:\Abner\Programacao\Programasfeitos\ProjetosGiteye\Netflix4\Programa\Netflix\Netflix.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="G:\Abner\Programacao\Programasfeitos\NetflixOld\Programa\Netflix\Netflix\Netflix.cpp" Name="FileName"/>
-      <int Value="212" Name="FirstVisibleLine"/>
-      <int Value="222" Name="CurrentLine"/>
+      <wxString Value="G:\Abner\Programacao\Programasfeitos\ProjetosGiteye\Netflix4\Programa\Netflix\Netflix\Filme.cpp" Name="FileName"/>
+      <int Value="27" Name="FirstVisibleLine"/>
+      <int Value="40" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds">
+        <IntVectorItem Value="31"/>
+      </IntVector>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="G:\Abner\Programacao\Programasfeitos\ProjetosGiteye\Netflix4\Programa\Netflix\Netflix\Filme.h" Name="FileName"/>
+      <int Value="15" Name="FirstVisibleLine"/>
+      <int Value="31" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="G:\Abner\Programacao\Programasfeitos\NetflixOld\Programa\Netflix\Netflix\Netflix.h" Name="FileName"/>
-      <int Value="52" Name="FirstVisibleLine"/>
-      <int Value="74" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="G:\Abner\Programacao\Programasfeitos\NetflixOld\Programa\Netflix\Netflix\Usuario.cpp" Name="FileName"/>
-      <int Value="62" Name="FirstVisibleLine"/>
-      <int Value="74" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="G:\Abner\Programacao\Programasfeitos\NetflixOld\Programa\Netflix\Netflix\Filme.cpp" Name="FileName"/>
-      <int Value="24" Name="FirstVisibleLine"/>
+      <wxString Value="G:\Abner\Programacao\Programasfeitos\ProjetosGiteye\Netflix4\Programa\Netflix\Netflix\Netflix.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
       <int Value="0" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="G:\Abner\Programacao\Programasfeitos\NetflixOld\Programa\Netflix\Netflix\Main.cpp" Name="FileName"/>
-      <int Value="40" Name="FirstVisibleLine"/>
-      <int Value="47" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

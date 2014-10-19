@@ -1,44 +1,46 @@
 #include <iostream>
 #include "Filme.h"
 
-int Filme::numeroFilmes;
+int Filme::quantidadeAtores = 0;
 
-Filme::Filme(string titulo,string gen, const Data& dt)
-:dataDeLancamento(dt)
+Filme::Filme(string titulo,string gen, string* atoress)
 {
-  Filme aux;		
+  int i;	
   this->setTitulo(titulo);
   this->setGenero(gen);
-  this->setNumeroFilmes(0);
+  
+  this->atores = new string[MAXATORES]; // Maximo 3 atores princiapis por filme
+  
+  for(i = 0; i< MAXATORES; i++)
+  {
+   this->atores[i] = atoress[i];
+  }
+  delete [] atoress;
+  if(MAXATORES > 0)
+  {
+   this->quantidadeAtores = MAXATORES;	   
+  }
 }
 
 Filme::~Filme()
 {
+	delete [] Filme::atores;
 }
 
 Filme::Filme()
-:dataDeLancamento()
+:titulo(" "), genero(" "), atores(NULL), quantidadeAtores(0)
 {
- this->titulo = " ";
- this->genero = " "; 
- this->setNumeroFilmes(0);
-}
-Filme::Filme(const Filme& fm)
-{
- this->titulo = fm.titulo;
- this->genero = fm.genero;
- this->dataDeLancamento = fm.dataDeLancamento;	
- this->numeroFilmes = fm.numeroFilmes;
+ cout << "Filme iniciado com valores default" << endl; 	
 }
 
-void AdicionarFilme(Filme* fm, const string& titulo,const string& genero, const Data& data)
+Filme::Filme(const Filme& fm)
 {
-  fm->setTitulo(titulo);
-  fm->setGenero(genero);
-  fm->setDataDeLancamento(data);
-  fm->setNumeroFilmes(0);
-  cout << "Numero de filmes: " << fm->getNumeroFilmes() << endl;
+ int i;	
+ this->titulo = fm.titulo;
+ this->genero = fm.genero;
+ this->atores = fm.atores;
 }
+
 
 void Filme::setTitulo(const string& tit)
 { 
@@ -65,24 +67,6 @@ void Filme::setGenero(const string& gen)
  }
 
 
-void Filme::setDataDeLancamento(const Data& data)
-{
- int auxData;	
- auxData = data.VerificaDia(data.getDia());
- if(auxData == 1)
- {
-  cout << "Data invalida" << endl;
- }else
- {
-  this->dataDeLancamento = data;
- }
-}
-
-void Filme::setNumeroFilmes(const int& i )
-{
- this->numeroFilmes+= i;  	
-}
-
 string Filme::getTitulo() const
 {
  return this->titulo;	
@@ -92,17 +76,6 @@ string Filme::getGenero() const
 {
  return this->genero;	
 }
-
-Data Filme::getDataDeLancamento() const
-{
- return this->dataDeLancamento;	
-}
-
-int Filme::getNumeroFilmes() const
-{
- return this->numeroFilmes;	
-}
-
 
 ostream &operator<<(ostream &output, const Filme& fm)
 {
