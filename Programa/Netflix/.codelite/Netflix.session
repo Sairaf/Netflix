@@ -1,47 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Session Name="G:\Totally not Linux\giteye64\projetosGitEye\Netflix\Programa\Netflix\Netflix.workspace">
-  <int Value="2" Name="m_selectedTab"/>
-  <wxString Value="G:\Totally not Linux\giteye64\projetosGitEye\Netflix\Programa\Netflix\Netflix.workspace" Name="m_workspaceName"/>
+<Session Name="G:\Abner\Programacao\Programasfeitos\NetflixOld\Programa\Netflix\Netflix.workspace">
+  <int Value="4" Name="m_selectedTab"/>
+  <wxString Value="G:\Abner\Programacao\Programasfeitos\NetflixOld\Programa\Netflix\Netflix.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="G:\Totally not Linux\giteye64\projetosGitEye\Netflix\Programa\Netflix\Netflix\Netflix.cpp" Name="FileName"/>
-      <int Value="21" Name="FirstVisibleLine"/>
-      <int Value="57" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds">
-        <IntVectorItem Value="10"/>
-        <IntVectorItem Value="22"/>
-        <IntVectorItem Value="33"/>
-        <IntVectorItem Value="40"/>
-        <IntVectorItem Value="62"/>
-        <IntVectorItem Value="69"/>
-        <IntVectorItem Value="90"/>
-        <IntVectorItem Value="118"/>
-        <IntVectorItem Value="123"/>
-        <IntVectorItem Value="128"/>
-        <IntVectorItem Value="139"/>
-        <IntVectorItem Value="144"/>
-        <IntVectorItem Value="154"/>
-        <IntVectorItem Value="159"/>
-        <IntVectorItem Value="164"/>
-      </IntVector>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="G:\Totally not Linux\giteye64\projetosGitEye\Netflix\Programa\Netflix\Netflix\Netflix.h" Name="FileName"/>
-      <int Value="20" Name="FirstVisibleLine"/>
-      <int Value="38" Name="CurrentLine"/>
+      <wxString Value="G:\Abner\Programacao\Programasfeitos\NetflixOld\Programa\Netflix\Netflix\Netflix.cpp" Name="FileName"/>
+      <int Value="212" Name="FirstVisibleLine"/>
+      <int Value="222" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="G:\Totally not Linux\giteye64\projetosGitEye\Netflix\Programa\Netflix\Netflix\Main.cpp" Name="FileName"/>
-      <int Value="51" Name="FirstVisibleLine"/>
-      <int Value="62" Name="CurrentLine"/>
+      <wxString Value="G:\Abner\Programacao\Programasfeitos\NetflixOld\Programa\Netflix\Netflix\Netflix.h" Name="FileName"/>
+      <int Value="52" Name="FirstVisibleLine"/>
+      <int Value="74" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="G:\Abner\Programacao\Programasfeitos\NetflixOld\Programa\Netflix\Netflix\Usuario.cpp" Name="FileName"/>
+      <int Value="62" Name="FirstVisibleLine"/>
+      <int Value="74" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="G:\Abner\Programacao\Programasfeitos\NetflixOld\Programa\Netflix\Netflix\Filme.cpp" Name="FileName"/>
+      <int Value="24" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="G:\Abner\Programacao\Programasfeitos\NetflixOld\Programa\Netflix\Netflix\Main.cpp" Name="FileName"/>
+      <int Value="40" Name="FirstVisibleLine"/>
+      <int Value="47" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
   </TabInfoArray>
   <SerializedObject Name="m_breakpoints">
-    <long Value="0" Name="Count"/>
+    <long Value="2" Name="Count"/>
+    <SerializedObject Name="Breakpoint0">
+      <wxString Value="G:\Abner\Programacao\Programasfeitos\NetflixOld\Programa\Netflix\Netflix\Usuario.cpp" Name="file"/>
+      <int Value="63" Name="lineno"/>
+      <wxString Value="" Name="function_name"/>
+      <wxString Value="" Name="memory_address"/>
+      <int Value="1" Name="bp_type"/>
+      <int Value="0" Name="watchpoint_type"/>
+      <wxString Value="" Name="watchpt_data"/>
+      <CData Name="commandlist"/>
+      <bool Value="0" Name="regex"/>
+      <bool Value="0" Name="is_temp"/>
+      <bool Value="1" Name="is_enabled"/>
+      <int Value="0" Name="ignore_number"/>
+      <wxString Value="" Name="conditions"/>
+      <int Value="0" Name="origin"/>
+    </SerializedObject>
+    <SerializedObject Name="Breakpoint1">
+      <wxString Value="G:\Abner\Programacao\Programasfeitos\NetflixOld\Programa\Netflix\Netflix\Usuario.h" Name="file"/>
+      <int Value="35" Name="lineno"/>
+      <wxString Value="" Name="function_name"/>
+      <wxString Value="" Name="memory_address"/>
+      <int Value="1" Name="bp_type"/>
+      <int Value="0" Name="watchpoint_type"/>
+      <wxString Value="" Name="watchpt_data"/>
+      <CData Name="commandlist"/>
+      <bool Value="0" Name="regex"/>
+      <bool Value="0" Name="is_temp"/>
+      <bool Value="1" Name="is_enabled"/>
+      <int Value="0" Name="ignore_number"/>
+      <wxString Value="" Name="conditions"/>
+      <int Value="0" Name="origin"/>
+    </SerializedObject>
   </SerializedObject>
 </Session>
