@@ -16,28 +16,23 @@ Método static (chamado no main) ok
 
 Requisitos de implementação (2):
 
-Alocação dinâmica de memória. ok
-fried Operator<< ok 
-Operator= ok 
-vector push_back
-Requisitos de implementação (3):
+Operator = ok 
+Alocação dinâmica - se houver vazamento de memória a classe toda é desconsiderada ok
+Usar o destrutor ok 
+Construtor de cópia ok
+Operator << friend ok 
+Um const static ok
 
-Duas classes. Classes devem possuir:
-Operator =
-Alocação dinâmica - se houver vazamento de memória a classe toda é desconsiderada
-Usar o destrutor
-Construtor de cópia
-Operator << friend
-Um const static
+A classe filme.h deverá armazenar o titulo de um filme, seu genero (ação, comédia, etc.), e qual(is) é(são) o(s) ator(es)/atriz(es) principais
 
-
-
-
-
-
-
-
-
+atributos:
+titulo: string - Recebe o título de um filme
+genero: string - Recebe o gênero deste filme
+atores: *string - Recebe os atores principais do filme em questão
+quantidadeAtores: int - Recebe o número de atores principais. Esta variázel é utilizada para ter um controle na adição de novos atores
+Métodos:
+<<friend>> operator << : método friend que facilita a escrita na tela dos atributos, pois nãos será necessário colocar um cout para cada um
+operator = : O método de atribuição funciona similarmente ao vetor de cópia.
 */
 
 
