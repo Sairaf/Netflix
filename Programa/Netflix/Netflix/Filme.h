@@ -25,14 +25,21 @@ Um const static ok
 
 A classe filme.h deverá armazenar o titulo de um filme, seu genero (ação, comédia, etc.), e qual(is) é(são) o(s) ator(es)/atriz(es) principais
 
-atributos:
+Atributos:
 titulo: string - Recebe o título de um filme
 genero: string - Recebe o gênero deste filme
 atores: *string - Recebe os atores principais do filme em questão, alocando memória para cada novo ator
 quantidadeAtores: int - Recebe o número de atores principais. Esta variázel é utilizada para ter um controle na adição de novos atores
+preco: float - Preço de um filme. Será importante na classe Usuario, quando este for comprar algo. Por ser const static, possui um valor padrão
+
 Métodos:
+
 <<friend>> operator << : método friend que facilita a escrita na tela dos atributos, pois nãos será necessário colocar um cout para cada um
 operator = : O método de atribuição funciona similarmente ao vetor de cópia.
+setters para os atributos titulo e genero
+getters para os atributos titulo, genero e preco
+construtores de cópia, default e com passagem de parâmetros
+destrutor
 */
 
 
@@ -59,7 +66,6 @@ private:
 	string* atores;
 	static int quantidadeAtores;
 	const static float preco;
-	//Data dataDeLancamento;
 
 public:
 	//construtors
@@ -70,7 +76,7 @@ public:
     
 	//setters
 
-    void setNumeroFilmes(const int&);
+        void setNumeroFilmes(const int&);
 	void setTitulo(const string&);
 	void setGenero(const string&);
 	
