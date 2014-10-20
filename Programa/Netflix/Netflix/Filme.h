@@ -16,9 +16,9 @@ Método static (chamado no main) ok
 
 Requisitos de implementação (2):
 
-Alocação dinâmica de memória.
-fried Operator<<
-Operator=
+Alocação dinâmica de memória. ok
+fried Operator<< ok 
+Operator= ok 
 vector push_back
 Requisitos de implementação (3):
 
