@@ -20,19 +20,19 @@ Requisitos de implementação
 - composição com a classe Data ok
 
 Requisitos de implementação (2):
-- Alocação dinâmica de memória. 
-- fried Operator<<
-- Operator=
-- vector push_back
+- Alocação dinâmica de memória. ok
+- fried Operator<<ok
+- Operator=ok
+- vector push_backok
 
 Requisitos de implementação (3):
 - Duas classes. Classes devem possuir:
- - Operator =
- - Alocação dinâmica - se houver vazamento de memória a classe toda é desconsiderada
- - Usar o destrutor
- - Construtor de cópia
- - Operator << friend
- - Um const static
+ - Operator = ok
+ - Alocação dinâmica - se houver vazamento de memória a classe toda é desconsiderada ok
+ - Usar o destrutor ok
+ - Construtor de cópia ok
+ - Operator << friend ok
+ - Um const static ok
  
 
 OBS: O branch aonde se encontra a atividade para o dia 20/10/2014 se encontra no branch Netflix_4classes
