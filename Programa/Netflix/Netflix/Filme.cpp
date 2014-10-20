@@ -2,24 +2,20 @@
 #include "Filme.h"
 
 int Filme::quantidadeAtores = 0;
-
-Filme::Filme(string titulo,string gen, string* atoress)
+const float Filme::preco = 3.0;
+Filme::Filme(string titulo,string gen, string* ator)
 {
   int i;	
   this->setTitulo(titulo);
   this->setGenero(gen);
   
-  this->atores = new string[MAXATORES]; // Maximo 3 atores princiapis por filme
-  
-  for(i = 0; i< MAXATORES; i++)
+  this->atores = new string[MAXATORES];
+  for(i = 0; i < MAXATORES; i++)
   {
-   this->atores[i] = atoress[i];
+   if(ator[i] != "\0")	  
+   this->atores[i] = ator[i]	  ;
   }
-  delete [] atoress;
-  if(MAXATORES > 0)
-  {
-   this->quantidadeAtores = MAXATORES;	   
-  }
+  delete [] ator;
 }
 
 Filme::~Filme()
@@ -28,14 +24,13 @@ Filme::~Filme()
 }
 
 Filme::Filme()
-:titulo(" "), genero(" "), atores(NULL), quantidadeAtores(0)
+:titulo(" "), genero(" "), atores(NULL)
 {
  cout << "Filme iniciado com valores default" << endl; 	
 }
 
 Filme::Filme(const Filme& fm)
 {
- int i;	
  this->titulo = fm.titulo;
  this->genero = fm.genero;
  this->atores = fm.atores;
@@ -66,7 +61,6 @@ void Filme::setGenero(const string& gen)
   this->genero = aux;
  }
 
-
 string Filme::getTitulo() const
 {
  return this->titulo;	
@@ -77,22 +71,37 @@ string Filme::getGenero() const
  return this->genero;	
 }
 
+float Filme::getPreco() const
+{
+ return this->preco;	
+}
+
 ostream &operator<<(ostream &output, const Filme& fm)
 {
+ int i;	
  output << "Titulo do Filme: " << fm.getTitulo() << endl;
- output << "Data de Lancamento: " << fm.getDataDeLancamento();	
  output << "Genero : " << fm.getGenero( )<< endl;
+ //fm.atores = new string[3];
+ for(i = 0; i < fm.quantidadeAtores; i++)
+ {
+  output <<"Ator principal de numero" << i << fm.atores[i]	;
+	 
+ }
+ 
  return output;
 }
 
 Filme Filme::operator=(const Filme& fm) const
 {
- //int i;	
+ int i;	
  Filme aux;
  aux.setTitulo(fm.getTitulo());	
- aux.setDataDeLancamento(fm.getDataDeLancamento());
  aux.setGenero(fm.getGenero());
-// aux.numeroFilmes++;
+ for(int i = 0; i< fm.quantidadeAtores;i++)
+ {
+  if(fm.atores[i] != "\0")	 
+  aux.atores[i] = fm.atores[i];
+ }
  return aux;
  }
 

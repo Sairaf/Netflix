@@ -6,11 +6,10 @@
 #include <vector>
 //=================================================
 #include "Filme.h"
-#include "Data.h"	
 //==================================================
 #define MAXFILMES 10
 
-using namespace std;
+//using namespace std;
 
 class Usuario
 {
@@ -19,23 +18,21 @@ class Usuario
  private:
 		 string login;
 		 string senha;
-		 Data dataDeInscricao;
 		 Filme* filmesComprados;
-		 int quantidadefilmesComprados;
-		 
+		 static int qtdFilmesComprados;
+		 static float saldoConta;
  public:
 		//construtores
 		
 		 Usuario();
 		 Usuario(const Usuario&);
 		~Usuario();
-		 Usuario(const string,const string, const Data&, vector <Filme>&);
+		 Usuario(const string,const string, Filme&);
 		
 		//setters
 		
 		void setLogin(const string&);
 		void setSenha(const string&);
-		void setDataDeInscricao(const Data&);
 		void setfilmesComprados(const Filme&, const int&);
 		void setQuantidadefilmesComprados(const int&);
 		void setNumUsuarios(const int&);
@@ -45,12 +42,11 @@ class Usuario
 		int    getNumUsuarios() const;
 		string getLogin() const;
 		string getSenha() const;
-		Data   getDataDeInscricao() const;
-		Filme*  getfilmesComprados () const;
-		int    getQuantidadefilmesComprados() const;
+		Filme* getfilmesComprados () const;
+		int    getQtdfilmesComprados() const;
+		float  getSaldoConta() const;
 		
-		void Adicionar(Usuario* us, const string&, const string&, const Data&);
-		void AlugarFilme(Usuario&,const Filme);
+		void ComprarFilme(Usuario*,const Filme&);
 		Usuario operator<<(const Usuario);
 };
 

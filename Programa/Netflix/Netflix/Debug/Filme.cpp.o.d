@@ -1,5 +1,3 @@
-Debug/Filme.cpp.o: Filme.cpp Filme.h Data.h
+Debug/Filme.cpp.o: Filme.cpp Filme.h
 
 Filme.h:
-
-Data.h:

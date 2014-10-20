@@ -4,13 +4,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Data.h"
 //==========================
 
 #define MAXATORES 2
-
-using std::string;
-using std::vector;
+using namespace std;
 
 class Filme
 {
@@ -22,6 +19,7 @@ private:
 	string genero;	
 	string* atores;
 	static int quantidadeAtores;
+	const static float preco;
 	//Data dataDeLancamento;
 
 public:
@@ -41,6 +39,7 @@ public:
 	string getTitulo() const;
 	string getGenero() const;
 	int getNumeroFilmes() const;
+	float getPreco() const;
 	
     Filme operator=(const Filme&) const;
     

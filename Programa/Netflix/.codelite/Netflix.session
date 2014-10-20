@@ -4,23 +4,7 @@
   <wxString Value="G:\Abner\Programacao\Programasfeitos\ProjetosGiteye\Netflix4\Programa\Netflix\Netflix.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="G:\Abner\Programacao\Programasfeitos\ProjetosGiteye\Netflix4\Programa\Netflix\Netflix\Filme.cpp" Name="FileName"/>
-      <int Value="27" Name="FirstVisibleLine"/>
-      <int Value="40" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds">
-        <IntVectorItem Value="31"/>
-      </IntVector>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="G:\Abner\Programacao\Programasfeitos\ProjetosGiteye\Netflix4\Programa\Netflix\Netflix\Filme.h" Name="FileName"/>
-      <int Value="15" Name="FirstVisibleLine"/>
-      <int Value="31" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="G:\Abner\Programacao\Programasfeitos\ProjetosGiteye\Netflix4\Programa\Netflix\Netflix\Netflix.cpp" Name="FileName"/>
+      <wxString Value="H:\thundercats.cpp" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
       <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
