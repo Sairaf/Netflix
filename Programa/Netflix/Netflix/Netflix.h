@@ -40,7 +40,7 @@ destrutor
 <<friend>> operator << : Facilita a escrita na tela dos atributos
 operator = : Funciona similarmente a um construtor de cópia
 void AdicionarUsuario: Adiciona um usuário e sua lista de filme na listaDeUsuario enquanto a quantidade não for maior que o limite
-const void AdicionarUsuario: Adiciona um usuário e sua lista de filme na listaDeUsuario enquanto a quantidade não for maior que o limite
+const void ListarUsuarios: Escreve todos os usuários
 
 
 */
