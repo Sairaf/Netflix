@@ -30,28 +30,23 @@ Usuario::Usuario(const string login, const string senha, Filme& fAssistidos)
   this->filmesComprados[qtdFilmesComprados] = fAssistidos;
   qtdFilmesComprados++;
  }
- /*
- for(i = 0; i < MAXFILMES; i++)
- {
-   auxFilme[i] = this->filmesComprados[i];
- }
- 
- delete [] this->filmesComprados;
- this->filmesComprados = new Filme[++qtdFilmesComprados];
-
- for(i = 0; i < MAXFILMES-1; i++)
- {
-   this->filmesComprados[i] = auxFilme[i] ;
- }
- this->filmesComprados[MAXFILMES-1] = fAssistidos;
- delete [] auxFilme;*/
 }
 
-Usuario::Usuario(const Usuario &usuarioCpy)
+ostream &operator<<(ostream &output, const Usuario& us)
+{
+ int i;	
+ output << "Login: " << us.getLogin() << endl;
+ output << "Senha: " << us.getSenha() << endl;
+ for(i = 0; i < us.getQtdfilmesComprados(); i++)
+ {
+  output <<"Filme de numero" << i <<" : "<< us.getfilmesComprados()	;	 
+ }
+}
+
+Usuario Usuario::operator=(const Usuario &usuarioCpy)
 {
  login = usuarioCpy.login;
  senha = usuarioCpy.senha;
- //dataDeInscricao = usuarioCpy.dataDeInscricao;
  this->filmesComprados = usuarioCpy.filmesComprados;
 }
 
