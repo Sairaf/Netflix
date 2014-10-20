@@ -1,7 +1,7 @@
 /*
-Filme.h 
+filme.h 
 
-Função: Armazenar os atributos básicos de um filme
+Função filme.h: Armazenar os atributos básicos de um filme
 
 Iniciar todos os atributos ok
 Iniciar 3 construtores (Default, cópia e um normal) ok
