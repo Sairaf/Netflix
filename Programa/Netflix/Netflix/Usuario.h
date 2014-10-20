@@ -43,14 +43,7 @@ operator = : Funciona similarmente a um construtor de cópia
 void ComprarFilme: Adiciona um filme a conta do usuário. ELe pode comprar até alcançar o limite determinado por MAXFILMES
 
 
-
 */
-
-
-
-
-
-
 #ifndef USUARIO_H
 #define USUARIO_H
 //=================================================
@@ -62,12 +55,11 @@ void ComprarFilme: Adiciona um filme a conta do usuário. ELe pode comprar até 
 //==================================================
 #define MAXFILMES 10
 
-//using namespace std;
 
 class Usuario
 {
 
- friend ostream& operator<<(const ostream, Usuario&)	;
+ friend ostream& operator<<(const ostream, const Usuario&)	;
  private:
 		 string login;
 		 string senha;
@@ -100,7 +92,7 @@ class Usuario
 		float  getSaldoConta() const;
 		
 		void ComprarFilme(Usuario*,const Filme&);
-		Usuario operator=(const Usuario);
+		Usuario operator=(const Usuario&);
 };
 
 #endif // USUARIO_H
