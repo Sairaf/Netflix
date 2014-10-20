@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="Netflix" Database="/Abner/Programacao/Programasfeitos/ProjetosGiteye/Netflix/Programa/Netflix/.codelite/Netflix.tags">
   <Project Name="Netflix" Path="Netflix/Netflix.project" Active="Yes"/>
+  <Project Name="Ordenacao" Path="Ordenacao/Ordenacao.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Project Name="Netflix" ConfigName="Debug"/>
+      <Project Name="Ordenacao" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="Netflix" ConfigName="Release"/>
+      <Project Name="Ordenacao" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

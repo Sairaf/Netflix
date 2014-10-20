@@ -1,8 +1,8 @@
 .PHONY: clean All
 
 All:
-	@echo "----------Building project:[ Netflix - Debug ]----------"
-	@cd "Netflix" && $(MAKE) -f  "Netflix.mk"
+	@echo "----------Building project:[ Ordenacao - Debug ]----------"
+	@cd "Ordenacao" && $(MAKE) -f  "Ordenacao.mk"
 clean:
-	@echo "----------Cleaning project:[ Netflix - Debug ]----------"
-	@cd "Netflix" && $(MAKE) -f  "Netflix.mk" clean
+	@echo "----------Cleaning project:[ Ordenacao - Debug ]----------"
+	@cd "Ordenacao" && $(MAKE) -f  "Ordenacao.mk" clean
