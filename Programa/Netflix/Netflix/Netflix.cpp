@@ -3,133 +3,178 @@
 
 const float Netflix::MENSALIDADE = 17;
 float       Netflix::velMaxima = 50;
-int			Netflix::quantidadeFilmes = 0;
-Data        Netflix::data(Data(06,10,2014));
+int         Netflix::existeUsuario = 0;
+int			Netflix::quantidadeFilmes = 1;
+string      Netflix::cnpj = "DESCONHECIDO";
 
-Netflix::Netflix()
-: cnpj("00.000.000/0000-00"), tituloFilme(MAXFILMES)
+Netflix::Netflix(string login, string senha)
+:usuarioLogin(login), usuarioSenha(senha)
 {
  
-  setLogin("default") ;
-  setSenha("default");
-  for(int j = 0; j< 10; j++)
-   {
-	this->setTitulo("default", j);
-   }
 }
 
-Netflix::Netflix(string cnpj, string login, string senha)
-: cnpj(cnpj), tituloFilme(MAXFILMES)
+Netflix::Netflix(string login, string senha, string  tituloFilme)
 {
- 
-  setLogin(login) ;
-  setSenha(senha);
-  for(int j = 0; j< 10; j++)
-   {
-	this->setTitulo(" ", j) ;  
-   }
+  this->setLogin(login) ;
+  this->setSenha(senha);  
+  this->setTitulo(tituloFilme);
 }
 
 Netflix::~Netflix()
 {
- 
+ delete Netflix::tituloFilme;
+
 }
 
 
 Netflix::Netflix(const Netflix& netflixCpy)
-:cnpj(netflixCpy.cnpj), tituloFilme(netflixCpy.tituloFilme)
+:tituloFilme(netflixCpy.tituloFilme)
 {
- 
   setLogin(netflixCpy.usuarioLogin) ;
   setSenha(netflixCpy.usuarioSenha);
-  for(int j = 0; j< 10; j++)
+  for(int j = 0; j< MAXFILMES; j++)
    {
 	this->tituloFilme[j] = netflixCpy.tituloFilme[j];  
    }
  }		
  
- 
-void Netflix::ListarUsuario(Netflix *ntf, int tamanho)
- {
+ /*
+const void Netflix::ListarUsuario(Netflix *ntf, int tamanho)
+{ 
+ int i;
   cout << "Usuario: "<< ntf->getLogin() <<endl;
   cout << "Senha: "<< ntf->getSenha()<<endl;
-  for(int i = 0; i < tamanho; i++)
-  {
-   cout << "Filmes Alugados: "<< ntf->getTitulo(i) <<endl;  
-  }
+ for(i=0; i < ntf->quantidadeFilmes; i++)
+ {
+  cout << "Filme numero " << i << ": "<< ntf->tituloFilme[i] << endl;
  }
- 
+ }
+ */
  void Netflix::AdicionarUsuario(Netflix* ntf, string lg, string snh)
  {
-   ntf->setLogin(lg);	  
-   ntf->setSenha(snh);
-  
+	delete ntf->tituloFilme; 
+	ntf->quantidadeFilmes = 1;
+    ntf->setLogin(lg);	  
+    ntf->setSenha(snh);
+    ntf->tituloFilme = new string;
+	existeUsuario = 1;
  }
  
-void Netflix::AdicionarFilme(Netflix *ntf, string titulo, int pos)
+void Netflix::AdicionarFilme(Netflix *ntf, string titulo)
 {
- 
-
- if((pos < MAXFILMES) || (pos >=0) )
- {
-  ntf->setTitulo(titulo, pos)  ;	 
-  quantidadeFilmes++;
- }else
- {
-  cout << "Limite de filmes atingido. " << endl;	 
-
- }
+  ntf->setTitulo(titulo)  ;	 
+  this->quantidadeFilmes++;
 } 
   
  
- const float Netflix::CalculoDownload(float velMaxima, float velAtual)
+ float Netflix::CalculoDownload(float velMaxima, float velAtual)
  {
   velAtual = -1;	 
   float velDownload;
   while(velAtual < 0)
   {
-
    cout << "Digite a velocidade de sua conexao"<< endl;
    cin >> velAtual;	  
   }
-  
   velDownload = velAtual/8;	 
   
   return velDownload;
  }
  
- const float Netflix::CalculoGanhos(int nUsuarios, const float MENSALIDADE)
- {
+float Netflix::CalculoGanhos(int nUsuarios, const float MENSALIDADE)
+{
   if(nUsuarios > 0)
   {	 
-   float ganhos = nUsuarios* MENSALIDADE;
+   float ganhos = nUsuarios * MENSALIDADE;
    return ganhos;
   }else
   {
    cout << "Valor invalido. Usuarios tem de ser maior que zero." << endl;	  
+   return 0;
   }
  }
   
+ostream &operator<<(ostream &output, const Netflix& ntf)  
+{
+ int i;	
+ output <<"Usuario: "<< ntf.getLogin()<< endl;
+ output <<"Senha:  "<< ntf.getSenha()<< endl;
+ for(i=0; i < ntf.quantidadeFilmes; i++)
+ {
+  output << "Filme numero " << i << ": "<< ntf.tituloFilme[i] << endl;
+ }
+ return output;
+}
+  
+Netflix Netflix::operator=(const Netflix& ntf) const
+{
+ Netflix aux;	
+ aux.usuarioLogin = ntf.usuarioLogin;
+ aux.usuarioSenha = ntf.usuarioSenha;
+ aux.tituloFilme = ntf.tituloFilme;
+ return aux;
+ 
+}
+  
 void Netflix::setCnpj(const string& cnpj) 
  {
-  this->cnpj = cnpj;	 
+  if((cnpj != "\0") && (this->cnpj.size() > 14)	 )
+  {
+   this->cnpj = cnpj;	 
+  }
  }
  
 void Netflix::setLogin(const string& login) 
 {
- this->usuarioLogin = login;	 
+ if(usuarioLogin != "\0")	
+ {
+  this->usuarioLogin = login;	 
+ }
 }
  
  void Netflix::setSenha(const string& senha) 
  {
-  this->usuarioSenha = senha;	 
+  if(senha != "\0")	 
+   this->usuarioSenha = senha;	  
  }
- 
- void Netflix::setTitulo(const string& titulo, const int& pos) 
+
+void Netflix::setTitulo(const string& titulo) 
+{
+if((this->getQuantidadeFilmes() < MAXFILMES)&& (titulo != "\0")) 	 
  {
-  this->tituloFilme[pos] = titulo;
+  int i;	 
+  string* auxTitulo = new string[getQuantidadeFilmes()];
+
+  for( i = 0; i <this->getQuantidadeFilmes();i++)
+  { 
+   auxTitulo[i] = this->tituloFilme[i];  
   }
+  delete this->tituloFilme;
+  
+  this->tituloFilme = new string[getQuantidadeFilmes()+1];
+  
+  for(i = 0; i <this->getQuantidadeFilmes(); i++)
+  {
+	this->tituloFilme[i] = auxTitulo[i];  
+  }
+  
+  this->tituloFilme[getQuantidadeFilmes()] = titulo;
+  delete [] auxTitulo;
+  
+  }else if (getQuantidadeFilmes() < MAXFILMES)
+ {
+  cout << "Titulo invalido" << endl;	 
+ }else
+ {
+  cout << "Limite atingido" << endl;	 
+ }
+}  
  
+string Netflix::getCnpj() const
+{
+ return this->cnpj;	
+}
+
 
 string Netflix::getLogin() const
 {
@@ -159,4 +204,9 @@ int Netflix::getQuantidadeFilmes() const
 float Netflix::getMensalidade () const
 {
  return MENSALIDADE;	 
+}
+
+int Netflix::getExisteUsuario () const 
+{
+ return existeUsuario;	
 }

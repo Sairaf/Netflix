@@ -6,31 +6,34 @@
 #include "Data.h"
 //==============================================
 #define MAXFILMES 10
-
+#define MAXUSUARIO 10
 using namespace std;
 
 class Netflix
 {
+	
+friend ostream &operator<<(ostream &, const Netflix &); 
+	
 private:
-	string cnpj;
+	static string cnpj;
+	static int existeUsuario;
 	static float velMaxima; // Dada em MBPS
 	const static float MENSALIDADE;
 //============================================
 	string usuarioLogin;
-        string usuarioSenha;
-	vector <string> tituloFilme;
+    string usuarioSenha;
+	string* tituloFilme;
 	static Data data;
 //==========================================	
 	static int quantidadeFilmes;
 	
 	
 public:
-
       //construtores
 	  
-	  Netflix();
-	  Netflix(string, string,string);
-          Netflix(const Netflix&);
+	  Netflix(string usuarioLogin = "Default", string senha = "1rfdew");
+	  Netflix(string,string,string);
+      Netflix(const Netflix&);
 	 ~Netflix();
 
       //setters
@@ -40,10 +43,10 @@ public:
 	  void setVelMaxima(const float&); 
 	  void setLogin(const string&);
 	  void setSenha(const string&);
-	  void setTitulo(const string&,const int&);
-	
+	  void setTitulo(const string&);
+	  void setExisteUsuario(const int&);
 
-      //getters
+  //getters
 	  
 	  string getCnpj() const;
 	  const string& getListaDeFilmes() const ;
@@ -53,15 +56,16 @@ public:
 	  string getTitulo(const int&) const;
 	  float getVelMaxima() const ;
 	  float getMensalidade() const;
-
-     //Outros métodos
-	  inline void Welcome(){cout<< "Bem vindo ao sistema Netflix :D. \n"<<endl;};
+	  int   getExisteUsuario() const;
+	  
+	  const inline void Welcome(){cout<< "Bem vindo ao sistema Netflix. "<<endl;};
 	  
 	  void AdicionarUsuario(Netflix*, string, string);
-	  void AdicionarFilme(Netflix*, string, int);
-	  
+	  void AdicionarFilme(Netflix*, string);
 
-	  void ListarUsuario(Netflix*, int);
-	  const float CalculoDownload(float, float);
-	  static const float CalculoGanhos(int,const float);
+	  const void ListarUsuario(Netflix*, int);
+	  float CalculoDownload(float, float);
+	  static float CalculoGanhos(int,const float);
+	  
+	  Netflix operator=(const Netflix&) const;
 };

@@ -8,6 +8,10 @@ Data::Data(int d, int m, int a)
 {
     if ( m > 0 && m <= 12 ) // validate the month
         mes = m;
+	else
+	{
+	 mes = 1;	
+	}
     
     if ( a < 0 )
         ano = 1900;
