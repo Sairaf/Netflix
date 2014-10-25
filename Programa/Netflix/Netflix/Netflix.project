@@ -96,5 +96,10 @@
     <File Name="Netflix.h"/>
     <File Name="Netflix.cpp"/>
     <File Name="Main.cpp"/>
+    <File Name="Usuario.h"/>
+    <File Name="Filme.h"/>
+    <File Name="Filme.cpp"/>
   </VirtualDirectory>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
 </CodeLite_Project>

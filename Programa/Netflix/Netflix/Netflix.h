@@ -75,7 +75,7 @@ private:
 	const static float MENSALIDADE;
 //============================================
 	string usuarioLogin;
-        string usuarioSenha;
+    string usuarioSenha;
 	string* tituloFilme;
 	static Data data;
 //==========================================	

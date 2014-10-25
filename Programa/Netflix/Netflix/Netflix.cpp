@@ -2,7 +2,7 @@
 #include "Netflix.h"
 
 const float Netflix::MENSALIDADE = 17;
-float       Netflix::velMaxima = 50;
+float       Netflix::velMaxima = 15;
 int         Netflix::existeUsuario = 0;
 int			Netflix::quantidadeFilmes = 1;
 string      Netflix::cnpj = "DESCONHECIDO";
@@ -78,6 +78,18 @@ void Netflix::AdicionarFilme(Netflix *ntf, string titulo)
   }
   velDownload = velAtual/8;	 
   
+  /*
+ Você pode assistir online em qualquer nível de velocidade de banda larga, no entanto, a própria empresa recomenda uma velocidade mínima de 500 kbps (0,5 MB).
+
+Veja abaixo as velocidades de download:
+
+0,5 megabits por segundo – velocidade de conexão de banda larga mínima necessária
+1,5 megabits por segundo –recomendada para apreciar melhor os filmes/séries;
+3,0 megabits por segundo – recomendada para qualidade de DVD.
+5,0 megabits por segundo – recomendada para qualidade de HD.
+7,0 megabits por segundo – recomendada para qualidade Super HD
+12 megabits por segundo – recomendada para qualidade 3D. 
+  */
   return velDownload;
  }
  

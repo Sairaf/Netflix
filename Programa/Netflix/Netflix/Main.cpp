@@ -13,8 +13,8 @@ int main()
 {
  float download, velAtual = 0.0, ganhos;	
  int dia, mes , ano, numUsuarios;
- string login, senha, titulo, cnpj, op;	
- Netflix netflix;
+ string login= "lecarlos", senha, titulo, cnpj, op;	
+ Netflix netflix(login);
  int opcao;
  
  cout << "Digite o dia de hoje" << endl;
@@ -30,9 +30,9 @@ int main()
  netflix.setCnpj(cnpj);
  
  netflix.Welcome();
- cout << " Hoje e dia: ";
+ cout << " Hoje e dia:";
  data.print();
-cout << endl;
+ cout << endl;
  MenuPrincipal();
  cin >> opcao;
  system("cls");
@@ -46,7 +46,8 @@ cout << endl;
 		{
 		  system("cls");
           cout << "Digite o login do usuario:" << endl;
-		  cin >> login;
+		  cin.sync();
+		  getline(cin,login);
 		  cout << "Digite a senha do usuario:" << endl;
 		  cin.sync();
 		  cin >> senha;
