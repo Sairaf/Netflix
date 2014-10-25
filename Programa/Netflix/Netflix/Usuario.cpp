@@ -128,6 +128,34 @@ void Usuario::AdicionarFilmeAConta(Usuario* usuario, Filme& filme)
 void Usuario::AdicionarAparelhoAConta(Usuario* usuario, const string& aparelho)
 {
  usuario->setAparelho(aparelho);    
+} 
+
+void Usuario::setLogin(const string& login)
+{
+ if(login.empty() != 0 && login.size() << 50)
+ {
+  this->login = login;                  
+ }else
+ {
+  cout << "Login invalido. Recebendo o login ""Usuario"" " << endl;
+  this->login = "Usuario";    
+ }                         
 }     
 
-
+void Usuario::setSenha(const string& senha)
+{
+ if(senha.empty() != 0)
+ {
+  this->senha= senha;               
+ }else
+ {
+  cout << "Senha invalido. Recebendo a senha ""Senha"" " << endl;
+  this->login = "Senha";          
+ }                      
+}     
+    
+//==========================================================================
+UsuarioOuro::UsuarioOuro(const string& login, const string& senha, int hd)
+:Usuario(login, senha), hd(1)
+{              
+}                

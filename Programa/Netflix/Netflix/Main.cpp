@@ -1,3 +1,5 @@
+//Utiliza o insert/header do DevCpp aqui
+
 #include <iostream>
 #include <cstdlib>
 #include <vector>
@@ -48,9 +50,11 @@ int main()
           cout << "Digite o login do usuario:" << endl;
 		  cin.sync();
 		  getline(cin,login);
+//colocar alguma condição para aceitar strings vazias aqui		  
 		  cout << "Digite a senha do usuario:" << endl;
 		  cin.sync();
 		  cin >> senha;
+		  
 		  netflix.AdicionarUsuario(&netflix,login, senha);
 		  cout << endl;
 		  cout << endl;

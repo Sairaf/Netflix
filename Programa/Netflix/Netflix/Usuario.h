@@ -10,7 +10,7 @@
 class Usuario
 {
  friend ostream &operator<<(ostream&, const Usuario&);
- private:	
+ protected:	
 		string login;
 		string senha;
 		string* aparelhoRegistrado;
@@ -20,32 +20,32 @@ class Usuario
 		float saldoConta;
         float mensalidade;
         Data inscricao(int dia = 1, int mes = 1, int ano = 2014);
-protected:        
-       //setters
-       void setLogin(const string&);
-       void setSenha(const string&);
-       void setSaldoConta(const float&);
-       void setAparelho(const string&);
+       
+        //setters
+        void setLogin(const string&);
+        void setSenha(const string&);
+        void setSaldoConta(const float&);
+        void setAparelho(const string&);
 public:
 
-       Usuario(string login = "Usuario", string senha = "senha");
-       virtual ~Usuario();
-       Usuario(string, string, string, float);
-       Usuario(const Usuario&);
+        Usuario(string login = "Usuario", string senha = "senha");
+        virtual ~Usuario();
+        Usuario(string, string, string, float);
+        Usuario(const Usuario&);
                                    
-       string  getLogin() const;
-       string  getSenha() const;
-       string* getAparelho () const; 
-       float   getMensalidade () const;
-       float   getSaldo() const;
-       int     getQtdAparelho() const;
+        string  getLogin() const;
+        string  getSenha() const;
+        string* getAparelho () const; 
+        float   getMensalidade () const;
+        float   getSaldo() const;
+        int     getQtdAparelho() const;
        
        
-       //void InformacoesGeraisConta(Usuario*);
-       void AdicionarFilmeAConta(Usuario*,  Filme&);
-       void AdicionarCreditosAConta(Usuario*,const float&);
-       virtual void AdicionarAparelhoAConta(Usuario*, const string&);
-       Usuario operator=(const Usuario&);    
+        //void InformacoesGeraisConta(Usuario*);
+        void AdicionarFilmeAConta(Usuario*,  Filme&);
+        void AdicionarCreditosAConta(Usuario*,const float&);
+        virtual void AdicionarAparelhoAConta(Usuario*, const string&);
+        Usuario operator=(const Usuario&);    
        
 };
 
@@ -53,21 +53,20 @@ public:
 class UsuarioOuro : public Usuario
 {
  friend ostream &operator<<(ostream&, const UsuarioOuro&);      
- private: 
-          int maxApRegistrados;       
+ protected:
           int hd;          
           int qtdPerfil;
           string* perfil;
- protected:
+
           void setPerfil(const string&);                            
  public:
-          UsuarioOuro(string login = "Usuario", string senha = "senha");         
+          UsuarioOuro(const string& login = "Usuario",const string& senha = "senha", int hd = 1);         
           UsuarioOuro(const UsuarioOuro&);
-          UsuarioOuro(string, string, string, float);
+          UsuarioOuro(string, string, string,int,  float);
           virtual ~UsuarioOuro();             
        
           UsuarioOuro operator=(const UsuarioOuro&);
-          void AdicionarPerfil(UsuarioOuro&, const string&);
+          virtual void AdicionarPerfil(UsuarioOuro&, const string&);
           virtual void AdicionarAparelhoAconta(Usuario*, const string&);
           
 };
@@ -76,9 +75,11 @@ class UsuarioPlatina : public UsuarioOuro
 {
  friend ostream &operator<<(ostream&, const UsuarioPlatina&);           
  private:
-        int maxApRegistrados;         
+        int qtdPaises; 
         string* paisesPossibiladeAcesso; 
         int ultraHd;
+ protected:          
+        void setPais(const string&);                                                      
  public:
         UsuarioPlatina(string nome = "Usuario", string senha = "senha");
         UsuarioPlatina(const UsuarioPlatina&);
@@ -86,6 +87,7 @@ class UsuarioPlatina : public UsuarioOuro
         virtual ~UsuarioPlatina();             
            
         UsuarioPlatina operator=(const UsuarioPlatina&);
+        virtual void AdicionarPerfil(UsuarioPlatina&, const string&);
         virtual void AdicionarAparelhoAconta(Usuario*, string);   
                
 };
