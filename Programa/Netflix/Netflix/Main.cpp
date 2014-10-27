@@ -15,9 +15,11 @@ int main()
 {
  float download, velAtual = 0.0, ganhos;	
  int dia, mes , ano, numUsuarios;
- string login= "lecarlos", senha, titulo, cnpj, op;	
- Netflix netflix(login);
+ string login, senha, titulo, cnpj, op;	
  int opcao;
+  
+ Empresa* empresa = new Netflix;
+
  
  cout << "Digite o dia de hoje" << endl;
  cin >> dia;
@@ -29,9 +31,9 @@ int main()
  system("cls");
  cout <<  "Digite o cnpj da Empresa:" << endl;
  cin >> cnpj;
- netflix.setCnpj(cnpj);
+ empresa->setCnpj(cnpj);
  
- netflix.Welcome();
+ empresa->Welcome();
  cout << " Hoje e dia:";
  data.print();
  cout << endl;
@@ -50,12 +52,10 @@ int main()
           cout << "Digite o login do usuario:" << endl;
 		  cin.sync();
 		  getline(cin,login);
-//colocar alguma condição para aceitar strings vazias aqui		  
 		  cout << "Digite a senha do usuario:" << endl;
 		  cin.sync();
-		  cin >> senha;
-		  
-		  netflix.AdicionarUsuario(&netflix,login, senha);
+		  cin >> senha;	  
+//     	  empresa-> 
 		  cout << endl;
 		  cout << endl;
 		  cout << "Usuario adicionado com sucesso!!!" << endl;
@@ -72,10 +72,10 @@ int main()
 		cout << "Digite o titulo do filme:" << endl;
 		cin >> titulo;
 		cin.sync();
-		netflix.AdicionarFilme(&netflix,titulo);
+//		netflix.AdicionarFilme(&netflix,titulo);
 		cout << endl;
 		cout << endl;
-		cout << "Total de filmes: " << netflix.getQuantidadeFilmes() <<  endl;
+//		cout << "Total de filmes: " << netflix.getQuantidadeFilmes() <<  endl;
 		cout << endl;
 		system("pause");
 		system("cls");
@@ -86,7 +86,7 @@ int main()
   case 3:
         if(login.size() != 0)
 		{	
-         cout << netflix << endl; 
+//         cout << netflix << endl; 
 		 system("pause");
 		 system("cls");
 		}else

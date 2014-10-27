@@ -73,42 +73,36 @@ class Netflix: public Empresa
 friend ostream &operator<<(ostream &, const Netflix &); 
 	
 private:
-	static int existeUsuario;
 	static float velMaxima; // Dada em MBPS
 //============================================
-    Usuario* ListaUsuario;
-//	Filme* ListaFilme;
+    Usuario* listaUsuario;
 	static Data data;
+	int qtdUsuarios;
 //==========================================	
-	static int qtdFilmes;
-	static int qtdUsuarios;
 	
 public:
       //construtores
 	  
-	  Netflix(string nome, string cnpj, Data data);
-	  Netflix(Usuario*,Data);
+	  Netflix(string nomeEmpresa = "Netflix", string cnpj = "000.000.000/0000-00");
+      Netflix(const string& ,const string&,const int&,const string&);
       Netflix(const Netflix&);
 	 ~Netflix();
 
       //setters
-	  void setExisteUsuario(const int&);
+	  void setUsuario(const Usuario*);
 
       //getters
 	  
-	  string* getListaDeFilmes() const ;
-	  int getQuantidadeFilmes() const ;
 	  float getVelMaxima() const ;
 	  float getMensalidade() const;
 	  int   getExisteUsuario() const;
+	  int   getQtdUsuario() const;
 	  
 	  const inline void Welcome(){cout<< "Bem vindo ao sistema Netflix. "<<endl;};
 	  
 	  void AdicionarUsuario(Netflix*, Usuario*);
-
-	  const void ListarUsuario(Netflix*, int);
 	  float CalculoDownload(float, float);
-	  static float CalculoGanhos(int,const float);
+	  static float CalculoGanhos(Netflix*);
 	  
 	  Netflix operator=(const Netflix&) const;
 };

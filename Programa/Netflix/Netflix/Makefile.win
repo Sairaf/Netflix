@@ -5,8 +5,8 @@ CPP  = g++.exe
 CC   = gcc.exe
 WINDRES = windres.exe
 RES  = 
-OBJ  = Data.o Filme.o Main.o Netflix.o Usuario.o UsuarioOuro.o Empresa.o $(RES)
-LINKOBJ  = Data.o Filme.o Main.o Netflix.o Usuario.o UsuarioOuro.o Empresa.o $(RES)
+OBJ  = Data.o Filme.o Main.o Netflix.o Usuario.o Empresa.o $(RES)
+LINKOBJ  = Data.o Filme.o Main.o Netflix.o Usuario.o Empresa.o $(RES)
 LIBS =  -L"lib"  
 INCS =  -I"include" 
 CXXINCS =  -I"lib/gcc/mingw32/3.4.2/include"  -I"include/c++/3.4.2/backward"  -I"include/c++/3.4.2/mingw32"  -I"include/c++/3.4.2"  -I"include" 
@@ -40,9 +40,6 @@ Netflix.o: Netflix.cpp
 
 Usuario.o: Usuario.cpp
 	$(CPP) -c Usuario.cpp -o Usuario.o $(CXXFLAGS)
-
-UsuarioOuro.o: UsuarioOuro.cpp
-	$(CPP) -c UsuarioOuro.cpp -o UsuarioOuro.o $(CXXFLAGS)
 
 Empresa.o: Empresa.cpp
 	$(CPP) -c Empresa.cpp -o Empresa.o $(CXXFLAGS)

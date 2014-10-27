@@ -16,16 +16,17 @@ class Empresa
            int     qtdEnderecos;
            string* enderecos;
            int     numFuncionarios;
- 
-           void setNome(const string&);
-           void setCnpj(const string&);
-           void setEndereco(const string&);
-           void setFuncionarios(const int&);
+           
  public:                      
            Empresa(string nome = "Default", string cnpj = "000.000.000/0000-00");
            Empresa(const string& ,const string&,const int&,const string&);
            virtual ~Empresa();
            Empresa(const Empresa&);
+           virtual const inline void Welcome(){cout<< "Bem vindo ao sistema Netflix. "<<endl;}; 
+           void setNome(const string&);
+           void setCnpj(const string&);
+           void setEndereco(const string&);
+           void setFuncionarios(const int&); 
            
            string  getNome() const;
            string  getCnpj() const;
@@ -34,6 +35,7 @@ class Empresa
            string* getEnderecos() const;
            
            Empresa operator=(const Empresa&);
+           virtual float CalculoGanhos(float, float);
            void AdicionarEndereco(Empresa*, const string&);                   
 };      
 

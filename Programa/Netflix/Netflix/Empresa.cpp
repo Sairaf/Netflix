@@ -1,7 +1,7 @@
 #include "Empresa.h"
 
-Empresa::Empresa(string cnpj)
-:cnpj("000.000.000./0000-00")
+Empresa::Empresa(string nomeEmpresa, string cnpj)
+:nomeEmpresa("DEFAULT"), cnpj("000.000.000./0000-00")
 {
  this->setEndereco("N/A");
  this->qtdEnderecos = 1;
@@ -78,6 +78,12 @@ void Empresa::setNome(const string& nome)
   this->nomeEmpresa = "Default";   
  }                           
 }     
+
+float CalculoGanhos(float saldo, float prejuizo)
+{
+ float total = (saldo - prejuizo)/10;
+ return total;     
+}      
 
 void Empresa::setCnpj(const string& cnpj)
 {
