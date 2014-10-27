@@ -20,12 +20,13 @@ class Usuario
 		float saldoConta;
         float mensalidade;
         Data inscricao(int dia = 1, int mes = 1, int ano = 2014);
-       
+        //bool hd;
+       // bool ultraHd;        
         //setters
         void setLogin(const string&);
         void setSenha(const string&);
         void setSaldoConta(const float&);
-        void setAparelho(const string&);
+        virtual void setAparelho(const string&);         
 public:
 
         Usuario(string login = "Usuario", string senha = "senha");
@@ -40,56 +41,16 @@ public:
         float   getSaldo() const;
         int     getQtdAparelho() const;
        
-       
+        virtual const inline void welcome(){cout << "Bem vindo, usuario normal " << endl;};
         //void InformacoesGeraisConta(Usuario*);
         void AdicionarFilmeAConta(Usuario*,  Filme&);
         void AdicionarCreditosAConta(Usuario*,const float&);
         virtual void AdicionarAparelhoAConta(Usuario*, const string&);
         Usuario operator=(const Usuario&);    
-       
+        void verificarDisponibilidadeHd(const bool&);
 };
 
 
-class UsuarioOuro : public Usuario
-{
- friend ostream &operator<<(ostream&, const UsuarioOuro&);      
- protected:
-          int hd;          
-          int qtdPerfil;
-          string* perfil;
 
-          void setPerfil(const string&);                            
- public:
-          UsuarioOuro(const string& login = "Usuario",const string& senha = "senha", int hd = 1);         
-          UsuarioOuro(const UsuarioOuro&);
-          UsuarioOuro(string, string, string,int,  float);
-          virtual ~UsuarioOuro();             
-       
-          UsuarioOuro operator=(const UsuarioOuro&);
-          virtual void AdicionarPerfil(UsuarioOuro&, const string&);
-          virtual void AdicionarAparelhoAconta(Usuario*, const string&);
-          
-};
-
-class UsuarioPlatina : public UsuarioOuro
-{
- friend ostream &operator<<(ostream&, const UsuarioPlatina&);           
- private:
-        int qtdPaises; 
-        string* paisesPossibiladeAcesso; 
-        int ultraHd;
- protected:          
-        void setPais(const string&);                                                      
- public:
-        UsuarioPlatina(string nome = "Usuario", string senha = "senha");
-        UsuarioPlatina(const UsuarioPlatina&);
-        UsuarioPlatina(string, string, string, float);
-        virtual ~UsuarioPlatina();             
-           
-        UsuarioPlatina operator=(const UsuarioPlatina&);
-        virtual void AdicionarPerfil(UsuarioPlatina&, const string&);
-        virtual void AdicionarAparelhoAconta(Usuario*, string);   
-               
-};
 
 #endif // USUARIO_H

@@ -91,15 +91,14 @@ Usuario Usuario::operator=(const Usuario& usuario)
 }
 
 void Usuario::AdicionarCreditosAConta(Usuario* usuario,const float& saldo)
-{
- usuario->setSaldoConta(saldo);    
+{   
+ usuario->setSaldoConta(usuario->saldoConta + saldo);    
 }     
 
 void Usuario::AdicionarFilmeAConta(Usuario* usuario, Filme& filme)
 {
  int i;    
  Filme* auxFilme;     
- usuario->filmesConta =  new Filme[usuario->qtdFilmesConta]; 
  auxFilme =  new Filme[usuario->qtdFilmesConta]; 
  if(usuario->qtdFilmesConta == 0)
  {
@@ -126,13 +125,14 @@ void Usuario::AdicionarFilmeAConta(Usuario* usuario, Filme& filme)
 }      
 
 void Usuario::AdicionarAparelhoAConta(Usuario* usuario, const string& aparelho)
-{
+{   
  usuario->setAparelho(aparelho);    
 } 
 
+
 void Usuario::setLogin(const string& login)
 {
- if(login.empty() != 0 && login.size() << 50)
+ if(login.empty() != 0 && login.size() < 50)
  {
   this->login = login;                  
  }else
@@ -141,6 +141,8 @@ void Usuario::setLogin(const string& login)
   this->login = "Usuario";    
  }                         
 }     
+
+
 
 void Usuario::setSenha(const string& senha)
 {
@@ -154,8 +156,43 @@ void Usuario::setSenha(const string& senha)
  }                      
 }     
     
-//==========================================================================
-UsuarioOuro::UsuarioOuro(const string& login, const string& senha, int hd)
-:Usuario(login, senha), hd(1)
-{              
-}                
+void Usuario::setSaldoConta(const float& saldo)
+{
+ if(saldo > 0)
+ {
+  this->saldoConta = saldo;        
+ }else
+ {
+  cout << "Valor invalido para o saldo. Este sera definido como ""0"" " << endl;
+  this->saldoConta = 0;   
+ }                     
+}         
+    
+void Usuario::setAparelho(const string& aparelho)
+{
+ if(this->qtdAparelhoRegistrado == 0 && aparelho.empty() !=0  && aparelho.size() < 30)
+ {
+   this->aparelhoRegistrado = new string;
+   this->aparelhoRegistrado[0] = aparelho; 
+   this->qtdAparelhoRegistrado++;  
+ }else
+ {
+  cout << "Limite de aparelhos atingido" << endl;    
+ }        
+}    
+
+string Usuario::getLogin() const
+{
+ return this->login;      
+}       
+
+string Usuario::getSenha () const
+{
+ return this->senha;      
+}       
+
+float Usuario::getSaldo () const
+{
+ return this->saldoConta;     
+}               
+

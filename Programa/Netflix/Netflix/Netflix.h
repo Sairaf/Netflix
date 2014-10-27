@@ -58,36 +58,38 @@ friend ostream &operator<<(ostream &, const Netflix &) : Método friend que auxi
 #include <string>
 //=============================================
 #include "Data.h"
+#include "Usuario.h"
+#include "UsuarioOuro.h"
+#include "Empresa.h"
 //==============================================
 #define MAXFILMES 10
 #define MAXUSUARIO 10
+
 using namespace std;
 
-class Netflix
+class Netflix: public Empresa
 {
 	
 friend ostream &operator<<(ostream &, const Netflix &); 
 	
 private:
-	static string cnpj;
 	static int existeUsuario;
 	static float velMaxima; // Dada em MBPS
 	const static float MENSALIDADE;
 //============================================
-	string usuarioLogin;
-    string usuarioSenha;
-	string* tituloFilme;
+    Usuario* ListaUsuario;
+	Filme* ListaFilme;
 	static Data data;
 //==========================================	
-	static int quantidadeFilmes;
-	
+	static int qtdFilmes;
+	static int qtdUsuarios;
 	
 public:
       //construtores
 	  
 	  Netflix(string usuarioLogin = "Default", string senha = "1rfdew");
 	  Netflix(string,string,string);
-          Netflix(const Netflix&);
+      Netflix(const Netflix&);
 	 ~Netflix();
 
       //setters
