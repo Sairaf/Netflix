@@ -196,3 +196,7 @@ float Usuario::getSaldo () const
  return this->saldoConta;     
 }               
 
+float Usuario::getMensalidade () const
+{
+ return this->mensalidade;     
+}      

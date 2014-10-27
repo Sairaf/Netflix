@@ -29,7 +29,7 @@ Netflix::Netflix(const Netflix& netflixCpy)
 }		
 
 
-void Netflix::AdicionarUsuario(Netflix* netflix, Usuario* usuario)
+void Netflix::AdicionarUsuario(Netflix*& netflix, Usuario usuario)
 {
  netflix->setUsuario(usuario);
  netflix->qtdUsuarios++;
@@ -98,6 +98,25 @@ Netflix Netflix::operator=(const Netflix& ntf) const
  
 }
   
+void Netflix::setUsuario(const Usuario& usuario)
+{
+ int i;        
+ Usuario* auxUsuario = new Usuario[this->qtdUsuarios];
+ for(i = 0; i < this->qtdUsuarios; i++)
+ {
+  auxUsuario[i] = this->listaUsuario[i];      
+ }                
+ 
+ delete [] this->listaUsuario;
+ this->listaUsuario = new Usuario[qtdUsuarios++];
+
+ for(i = 0; i < this->qtdUsuarios-1; i++)
+ {
+   this->listaUsuario[i] = auxUsuario[i];      
+ }                
+  this->listaUsuario[this->qtdUsuarios] = usuario;
+}          
+  
 float Netflix::getVelMaxima() const
 {
  return velMaxima;	
@@ -107,3 +126,8 @@ int Netflix::getQtdUsuario() const
 {
  return this->qtdUsuarios;         
 }     
+
+Usuario* Netflix::getLista() const
+{
+ return this->listaUsuario;        
+}         

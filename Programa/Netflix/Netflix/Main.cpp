@@ -13,15 +13,15 @@ void MenuPrincipal();
 
 int main()
 {
- float download, velAtual = 0.0, ganhos;	
+ float download, velAtual = 0.0, ganhos,  saldo;	
+ float avaliacao, bilheteria;    
  int dia, mes , ano, numUsuarios;
- string login, senha, titulo, cnpj, op;	
+ string titulo, sinopse, diretor, *atores;
+ string login, senha, cnpj,apRegistrado;	
  int opcao;
   
- Usuario auxUsuario; 
- Empresa* empresa;
- empresa = new Netflix;
-
+ Netflix* netflix;
+ Usuario* auxUsuario = netflix->getLista();
  
  cout << "Digite o dia de hoje" << endl;
  cin >> dia;
@@ -33,9 +33,9 @@ int main()
  system("cls");
  cout <<  "Digite o cnpj da Empresa:" << endl;
  cin >> cnpj;
- empresa->setCnpj(cnpj);
+ netflix->setCnpj(cnpj);
  
- empresa->Welcome();
+ netflix->Welcome();
  cout << " Hoje e dia:";
  data.print();
  cout << endl;
@@ -43,7 +43,7 @@ int main()
  cin >> opcao;
  system("cls");
  
-  
+
   do
   {
    switch (opcao)
@@ -57,7 +57,14 @@ int main()
 		  cout << "Digite a senha do usuario:" << endl;
 		  cin.sync();
 		  cin >> senha;	  
-     	  Usuario auxUsuario2(login, senha);
+		  cout << "Digite o aparelho de aonde realizas seu cadastro:" << endl;
+		  cin.sync();
+		  cin >> apRegistrado;	  
+		  cout << "Digite o saldo de seu cartao de credito:" << endl;
+		  cin.sync();
+		  cin >> saldo;	   
+     	  Usuario auxUsuario2(login, senha, apRegistrado, saldo);
+          netflix->AdicionarUsuario(netflix, auxUsuario2);
 		  cout << endl;
 		  cout << endl;
 		  cout << "Usuario adicionado com sucesso!!!" << endl;
@@ -70,22 +77,39 @@ int main()
 		 }
   break;
   case 2:
+       {
 		system("cls");
 		cout << "Digite o titulo do filme:" << endl;
-		cin >> titulo;
 		cin.sync();
-		netflix.AdicionarFilme(&netflix,titulo);
+		getline(cin,titulo);
+		cout <<"Digite o titulo do filme:" << endl;
+		cin.sync();
+		getline(cin,sinopse);
+		cout <<"Digite o diretor do filme:" << endl;
+		cin.sync();
+		getline(cin,diretor);
+		cout <<"Digite o nome do ator principaç:" << endl;
+		cin.sync();
+		atores = new string;
+		getline(cin,atores[0]);
+		cout <<"Digite a bilheteria do filme:" << endl;
+		cin >> bilheteria;
+		cout <<"Digite a recepcao critica do filme:" << endl;
+        cin >> avaliacao;
+        Filme filme(titulo, sinopse, diretor, atores, bilheteria, avaliacao); 
+		auxUsuario->AdicionarFilmeAConta(auxUsuario, filme);
 		cout << endl;
 		cout << endl;
-		cout << "Total de filmes: " << netflix.getQuantidadeFilmes() <<  endl;
+	//	cout << "Total de filmes: " << netflix.getQuantidadeFilmes() <<  endl;
 		cout << endl;
 		system("pause");
 		system("cls");
  	    MenuPrincipal();
 	    cin >> opcao;		
 		cin.sync();
+       }
   break;
-  case 3:
+/*  case 3:
         if(login.size() != 0)
 		{	
          cout << netflix << endl; 
@@ -102,6 +126,7 @@ int main()
 		cin.sync();
   break;
   case 4:
+       /*
 		download = netflix.CalculoDownload(netflix.getVelMaxima(),velAtual);
 		system("cls");
 		cout << "CNPJ: " <<netflix.getCnpj() << endl;
@@ -120,7 +145,7 @@ int main()
         cin.sync();		
   break;
   case 5:
-        system("cls");
+       /*system("cls");
         cout << "CNPJ: " <<netflix.getCnpj() << endl;
 	    cout << "Digite o numero de usuarios a ser calculado o lucro" << endl;
 		cin >> numUsuarios;
@@ -135,7 +160,7 @@ int main()
 		system("cls");
 		MenuPrincipal();
 	    cin >> opcao;	
-		cin.sync();
+		cin.sync();*/
   break;
   case 0:
 		system("pause");

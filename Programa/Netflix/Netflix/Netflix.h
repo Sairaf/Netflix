@@ -86,7 +86,7 @@ public:
 	 ~Netflix();
 
       //setters
-	  void setUsuario(const Usuario*);
+	  void setUsuario(const Usuario&);
 
       //getters
 	  
@@ -94,10 +94,11 @@ public:
 	  float getMensalidade() const;
 	  int   getExisteUsuario() const;
 	  int   getQtdUsuario() const;
+	  Usuario* getLista () const;
 	  
 	  const inline void Welcome(){cout<< "Bem vindo ao sistema Netflix. "<<endl;};
 	  
-	  void AdicionarUsuario(Netflix*, Usuario*);
+	  void AdicionarUsuario(Netflix*&, Usuario);
 	  float CalculoDownload(float, float);
 	  static float CalculoGanhos(Netflix*);
 	  
