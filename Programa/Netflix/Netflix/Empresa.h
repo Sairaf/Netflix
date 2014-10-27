@@ -22,8 +22,8 @@ class Empresa
            void setEndereco(const string&);
            void setFuncionarios(const int&);
  public:                      
-           Empresa(string cnpj = "000.000.000/0000-00");
-           Empresa(const string&,const int&,const string&, const string& );
+           Empresa(string nome = "Default", string cnpj = "000.000.000/0000-00");
+           Empresa(const string& ,const string&,const int&,const string&);
            virtual ~Empresa();
            Empresa(const Empresa&);
            

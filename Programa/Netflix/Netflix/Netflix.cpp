@@ -1,14 +1,11 @@
 #include <iostream>
 #include "Netflix.h"
 
-const float Netflix::MENSALIDADE = 17;
 float       Netflix::velMaxima = 15;
 int         Netflix::existeUsuario = 0;
-int			Netflix::quantidadeFilmes = 1;
-string      Netflix::cnpj = "DESCONHECIDO";
 
-Netflix::Netflix(string login, string senha)
-:usuarioLogin(login), usuarioSenha(senha)
+Netflix::Netflix(string nome, string cnpj)
+:empresa(
 {
  
 }

@@ -14,7 +14,7 @@ Empresa::~Empresa()
  delete [] enderecos;                  
 }                   
 
-Empresa::Empresa(const string& cnpj,const int& numFuncionarios, const string& endereco, const string& nome)
+Empresa::Empresa( const string& nome,const string& cnpj,const int& numFuncionarios, const string& endereco)
 {
  this->setCnpj(cnpj);
  this->setFuncionarios(numFuncionarios);
