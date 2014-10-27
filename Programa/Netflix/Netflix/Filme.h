@@ -20,8 +20,6 @@ class Filme
 	friend ostream &operator<<(ostream&, const Filme&);
 private:
 	string nomeFilme;
-	//string* genero;
-	//int duracaoFilme;
 	string sinopse;
 	string diretorFilme; 
 	string* atores;
@@ -52,7 +50,7 @@ public:
 	float   getAvaliacaoCritica () const;
 	string* getAtores() const;
 
-	//void AdicionarFilme(string, string, string, string*, float, float);
+
 
 	Filme operator=(const Filme&) const;
  

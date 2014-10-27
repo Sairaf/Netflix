@@ -5,6 +5,11 @@
 #include <iostream>
 #include <string>
 
+#include "Data.h"
+#include "Usuario.h"
+
+
+
 using namespace std;
 
 class Empresa
@@ -22,7 +27,7 @@ class Empresa
            Empresa(const string& ,const string&,const int&,const string&);
            virtual ~Empresa();
            Empresa(const Empresa&);
-           virtual const inline void Welcome(){cout<< "Bem vindo ao sistema Netflix. "<<endl;}; 
+           virtual  const inline void Welcome(){cout<< "Bem vindo ao sistema Netflix. "<<endl;}; 
            void setNome(const string&);
            void setCnpj(const string&);
            void setEndereco(const string&);

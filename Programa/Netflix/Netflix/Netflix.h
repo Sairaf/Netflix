@@ -57,9 +57,6 @@ friend ostream &operator<<(ostream &, const Netflix &) : Método friend que auxi
 #include <cstdlib>
 #include <string>
 //=============================================
-#include "Data.h"
-#include "Usuario.h"
-#include "UsuarioOuro.h"
 #include "Empresa.h"
 //==============================================
 #define MAXFILMES 10
@@ -72,7 +69,7 @@ class Netflix: public Empresa
 	
 friend ostream &operator<<(ostream &, const Netflix &); 
 	
-private:
+protected:     
 	static float velMaxima; // Dada em MBPS
 //============================================
     Usuario* listaUsuario;

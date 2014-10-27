@@ -18,7 +18,9 @@ int main()
  string login, senha, titulo, cnpj, op;	
  int opcao;
   
- Empresa* empresa = new Netflix;
+ Usuario auxUsuario; 
+ Empresa* empresa;
+ empresa = new Netflix;
 
  
  cout << "Digite o dia de hoje" << endl;
@@ -55,7 +57,7 @@ int main()
 		  cout << "Digite a senha do usuario:" << endl;
 		  cin.sync();
 		  cin >> senha;	  
-//     	  empresa-> 
+     	  Usuario auxUsuario2(login, senha);
 		  cout << endl;
 		  cout << endl;
 		  cout << "Usuario adicionado com sucesso!!!" << endl;
@@ -72,10 +74,10 @@ int main()
 		cout << "Digite o titulo do filme:" << endl;
 		cin >> titulo;
 		cin.sync();
-//		netflix.AdicionarFilme(&netflix,titulo);
+		netflix.AdicionarFilme(&netflix,titulo);
 		cout << endl;
 		cout << endl;
-//		cout << "Total de filmes: " << netflix.getQuantidadeFilmes() <<  endl;
+		cout << "Total de filmes: " << netflix.getQuantidadeFilmes() <<  endl;
 		cout << endl;
 		system("pause");
 		system("cls");
@@ -86,7 +88,7 @@ int main()
   case 3:
         if(login.size() != 0)
 		{	
-//         cout << netflix << endl; 
+         cout << netflix << endl; 
 		 system("pause");
 		 system("cls");
 		}else

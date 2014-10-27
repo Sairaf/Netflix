@@ -19,9 +19,7 @@ class Usuario
 		Filme* filmesConta;
 		float saldoConta;
         float mensalidade;
-        Data inscricao(int dia = 1, int mes = 1, int ano = 2014);
-        //bool hd;
-       // bool ultraHd;        
+      
         //setters
         void setLogin(const string&);
         void setSenha(const string&);
@@ -45,9 +43,8 @@ public:
         //void InformacoesGeraisConta(Usuario*);
         void AdicionarFilmeAConta(Usuario*,  Filme&);
         void AdicionarCreditosAConta(Usuario*,const float&);
-        virtual void AdicionarAparelhoAConta(Usuario*, const string&);
+        void AdicionarAparelhoAConta(Usuario*, const string&);
         Usuario operator=(const Usuario&);    
-        void verificarDisponibilidadeHd(const bool&);
 };
 
 
