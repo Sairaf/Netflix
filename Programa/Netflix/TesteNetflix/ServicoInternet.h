@@ -7,6 +7,8 @@ using namespace std;
 
 class ServicoInternet //ex: Amazon, Steam, Twitch,' Google Play
 {
+ friend ostream& operator<<(ostream&, const ServicoInternet&);
+ 
  protected:	
 		   string nomeServico;
 		   string cnpj;
@@ -14,20 +16,22 @@ class ServicoInternet //ex: Amazon, Steam, Twitch,' Google Play
 		   string descricaoServico;
 		   string enderecoSede;
 		   Usuario* usuariosRegistrados;
-		   int numeroUsuario;
+		   int numeroUsuarios;
 		   Data dataCriacao;
 		 //string* linkSite;
  public:		   
-		   ServicoInternet(string nome = "Servico", string cnpj = "000-000-000/0000-00");
-		   ServicoInternet(string, string, int, string, string) ;
+		   ServicoInternet(string nomeServico = "Servico", string cnpj = "000-000-000/0000-00");
+		   ServicoInternet(string, string, int, string, string, int, int, int, int);
 		   ServicoInternet(const ServicoInternet&);
-		   ~ServicoInternet();
+		   virtual ~ServicoInternet();
 		   
 		   void setNome(const string&);
 		   void setCnpj(const string&);
 		   void setEndereco(const string&);
 		   void setDescricao(const string&);
 		   void setUsuario(const Usuario&);
+		   void setNumeroUsuarios(const int&);
+		   void setQuantidadeFuncionarios(const int&);
 		   void setData(const Data&);
 		   
 		   string   getNome 					() const;
@@ -40,4 +44,5 @@ class ServicoInternet //ex: Amazon, Steam, Twitch,' Google Play
 		   Data     getData 					() const;
 		   
 		   void Adicionar_Usuario_Ao_Servico(ServicoInternet *, Usuario*);
+		   ServicoInternet operator=(const ServicoInternet&);
 }

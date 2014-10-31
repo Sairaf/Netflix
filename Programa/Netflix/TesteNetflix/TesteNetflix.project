@@ -100,5 +100,8 @@
     <File Name="../Netflix/Filme.cpp"/>
     <File Name="ServicoStreaming.h"/>
     <File Name="ServicoInternet.h"/>
+    <File Name="ServicoInternet.cpp"/>
+    <File Name="../Netflix/Data.h"/>
+    <File Name="../Netflix/Data.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>
