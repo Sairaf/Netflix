@@ -48,3 +48,29 @@ ServicoInternet::ServicoInternet(const ServicoInternet servicoCpy)
   this->usuariosRegistrados[cont] = servicoCpy.usuariosRegistrados[cont];
  }
 }
+
+ostream &operator<<(ostream& output, const ServicoInternet& servico)
+{
+ int cont;	
+ output <<"Nome do servico: "<< servico.getNome() << endl;
+ output <<"Cnpj: " << servico.getCnpj() << endl;
+ output <<"Descricao do servico: " <<servico.getDescricao() << endl;
+ output <<"Data de criacao desta: " <<servico.getData() << endl;
+ output <<"Endereco de sua sede: " <<servico.getEndereco() << endl;
+ output <<"Numero de funcionarios trabalhando na empresa, atualmente: " << servico.getQuantidadeFuncionarios() << endl;
+ output <<"Numero de usuarios cadastrados: ", servico.getNumeroUsuarios();
+ if(servico.usuariosRegistrados == NULL)
+ {
+  output <<"Memoria insuficiente para armazenar os usuarios" <<endl;	 
+ }else
+ {
+  output <<"Usuarios do servico: " << endl;	 
+  for(cont = 0; cont < servico.numeroUsuarios; cont++)
+  {
+  output <<"=====================================================" << endl
+  output <<servico.usuariosRegistrados[cont] << endl; 	 
+  output <<"=====================================================" << endl
+  } 
+ }
+ return output;
+}
