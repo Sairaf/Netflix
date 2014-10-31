@@ -57,14 +57,14 @@ friend ostream &operator<<(ostream &, const Netflix &) : Método friend que auxi
 #include <cstdlib>
 #include <string>
 //=============================================
-#include "Empresa.h"
+
 //==============================================
 #define MAXFILMES 10
 #define MAXUSUARIO 10
 
 using namespace std;
 
-class Netflix: public Empresa
+class Netflix: 
 {
 	
 friend ostream &operator<<(ostream &, const Netflix &); 
