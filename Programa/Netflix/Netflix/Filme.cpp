@@ -1,18 +1,24 @@
 #include "Filme.h"
 
 Filme::Filme(string nomeFilme, string sinopse)
-:nomeFilme("Default"), sinopse("======")
+:nomeFilme(nomeFilme), sinopse(sinopse)
 {
- 
+ this->numAtores = 0;
+ this->setDiretorFilme("Desconhecido");
+ this->atores = new string[numAtores];
+ this->setAtores("Desconhecido");
+ this->setBilheteria(0);
+ this->setAvaliacaoCritica(0);
 }
 
 Filme::~Filme()
 {
- delete [] this->atores;	
+ delete [] this->atores;
 }
 
-Filme::Filme(string nomeFilme, string sinopse, string diretor, string* atores, float bilheteria, float nota )
+Filme::Filme(string nomeFilme, string sinopse, string diretor, string atores, float bilheteria, float nota )
 {
+ this->numAtores = 0;
  this->setNomeFilme(nomeFilme);
  this->setSinopse(sinopse);
  this->setDiretorFilme(diretor);
@@ -22,27 +28,31 @@ Filme::Filme(string nomeFilme, string sinopse, string diretor, string* atores, f
 
 Filme::Filme(const Filme& filmeCpy)
 {
+ int cont;
+ this->numAtores =filmeCpy.numAtores;
  this->nomeFilme = filmeCpy.nomeFilme;
  this->sinopse 	= filmeCpy.sinopse;
  this->bilheteria = filmeCpy.bilheteria;
  this->diretorFilme = filmeCpy.diretorFilme;
- this->atores = filmeCpy.atores;
  this->avaliacaoCritica = filmeCpy.avaliacaoCritica;
+ for(cont = 0 ; cont < this->numAtores;cont++)
+  this->setAtores(filmeCpy.atores[cont]);
+
 }
 
 ostream& operator<<(ostream& output, const Filme& filme)
 {
- int i;	
- output << "Nome do filme: " << filme.getNomeFilme() << endl;
+ int i;
+ output << "Nome do filme: " << filme.nomeFilme << endl;
  output << "Sinopse: " << filme.getSinopse() << endl;
- output << "Diretor: " << filme.getDiretorFilme() << endl;
- output << "Atores principais: ";	 
- if(filme.atores->size() == 0)
+ output << "Diretor do filme: " << filme.getDiretorFilme() << endl;//filme.getDiretorFilme() << endl;
+ output << "Atores principais: " << endl;
+ if(filme.atores == NULL)
  {
-  output << endl;
- }else if (filme.atores->size() > 0)
+  output << "Nao existe espaço suficiente na memoria para acomodar este vetor" << endl;
+ }else
  {
-  for(i = 0; i < (int)filme.atores->size(); i++)	 
+  for(i = 0; i < filme.numAtores; i++)
   {
    output << "| "<<filme.atores[i] << " |" << endl;
   }
@@ -53,63 +63,66 @@ ostream& operator<<(ostream& output, const Filme& filme)
 }
 
 
-Filme Filme::operator=(const Filme& filme) const
+Filme* Filme::operator=(const Filme& filme)
 {
- Filme auxFilme;
- auxFilme.setNomeFilme(filme.getNomeFilme())	;
- auxFilme.setAtores(filme.getAtores());
- auxFilme.setAvaliacaoCritica(filme.getAvaliacaoCritica());
- auxFilme.setBilheteria(filme.getBilheteria());
- auxFilme.setDiretorFilme(filme.getDiretorFilme());
- auxFilme.setSinopse(filme.getSinopse());
- return auxFilme;
+ int cont;
+ this->nomeFilme = filme.nomeFilme;
+ this->avaliacaoCritica = filme.avaliacaoCritica;
+ this->bilheteria = filme.bilheteria;
+ this->diretorFilme = filme.diretorFilme;
+ this->sinopse = filme.sinopse;
+ for(cont = 0; cont < this->numAtores; cont++)
+ {
+  this->atores[cont] = filme.atores[cont];
+ }
+return this;
 }
 
 void Filme::setNomeFilme(const string& nomeFilme)
 {
  if((nomeFilme.empty() == false && nomeFilme.size() < 200 ))
  {
-  this->nomeFilme = nomeFilme;	 
+  this->nomeFilme = nomeFilme;
  }else
  {
-  cout << "O nome do filme e invalido ou muito grande. O nome recebera ""Nome indefinido"" " << endl; 	 
-  this->nomeFilme =  "Nome indefinido";	 
+  cout << "O nome do filme e invalido ou muito grande. O nome recebera ""Nome indefinido"" " << endl;
+  this->nomeFilme =  "Nome indefinido";
  }
 }
 
 void Filme::setAvaliacaoCritica(const float& nota)
 {
- if((nota > 0 && nota <= 10))	
+ if(nota >= 0 && nota <= 10)
  {
-  this->avaliacaoCritica = nota;	 
+  this->avaliacaoCritica = nota;
  }else
  {
-  cout << "Nota da avaliacao critica e invalida. este atributo recebera valor 0" << endl;	 
-  this->avaliacaoCritica = 0;	 
+  cout << "Nota da avaliacao critica e invalida. este atributo recebera valor 0" << endl;
+  this->avaliacaoCritica = 0;
  }
 }
-
-void Filme::setBilheteria(const float &bilheteria)
+void Filme::setBilheteria(const float &saldo)
 {
- if(bilheteria > 0)	
+ if(saldo >= 0)
  {
-  this->bilheteria = bilheteria;	 
+  this->bilheteria = saldo;
  }else
  {
   cout << "Bilheteria invalida. Recebendo o valor 0" << endl;
-  this->bilheteria = 0;	 
+  this->bilheteria = 0;
  }
 }
 
-void Filme::setDiretorFilme(const string& nomeDiretor) 
+void Filme::setDiretorFilme(const string& nomeDiretor)
 {
  if((nomeDiretor.empty() == false && nomeDiretor.size() < 100 ))
  {
-  this->diretorFilme = nomeDiretor;	 
+  this->diretorFilme = nomeDiretor;
+
  }else
  {
-  cout << "Nome do diretor invalido ou muito grande. Configurado como ""Diretor desconhecido"" " << endl;	 
-  this->diretorFilme = "Diretor desconhecido";	 
+  cout << "Nome do diretor invalido ou muito grande. Configurado como ""Diretor desconhecido"" " << endl;
+  this->diretorFilme = "Diretor desconhecido";
  }
 }
 
@@ -117,7 +130,7 @@ void Filme::setSinopse(const string& sinopse)
 {
  if(sinopse.empty() == false)
  {
-  this->sinopse = sinopse;	
+  this->sinopse = sinopse;
  }else
  {
   cout << "Sinopse invalida. Outro valor sera colocado no atributo" << endl	 ;
@@ -125,49 +138,52 @@ void Filme::setSinopse(const string& sinopse)
  }
 }
 
-void Filme::setAtores(const string* atores)
+void Filme::setAtores(const string& ator)
 {
- int i;
- this->atores = new string[atores->size()];
- for(i = 0; i < (int)atores->size(); i++)	
+ int cont;
+ string* auxAtores = new string[numAtores];
+ for(cont = 0; cont < numAtores; cont++)
  {
-  if(atores[i].empty() == true)	 
-  {
-   cout << "Nome invalidos para ator " << i+1 <<". Colocando como nome de ""Indefinido""" << endl;
-   this->atores[i] = "Indefinido" ;  
-  }else
-  {
-   this->atores[i] = atores[i];	  
-  }
- } 
+  auxAtores[cont] = this->atores[cont];
+ }
+
+ delete [] this->atores;
+ this->atores = new string[++numAtores];
+
+ for(cont = 0; cont < numAtores-1;cont++)
+ {
+  this->atores[cont] = auxAtores[cont];
+ }
+ this->atores[numAtores-1] = ator;
+ delete [] auxAtores;
 }
 
 string Filme::getNomeFilme() const
 {
- return this->nomeFilme;	
+ return this->nomeFilme;
 }
 
-string Filme::getDiretorFilme () const
+string Filme::getDiretorFilme() const
 {
- return this->diretorFilme;	
+ return this->diretorFilme;
 }
 
 string Filme::getSinopse() const
 {
- return this->sinopse;	
+ return this->sinopse;
 }
 
 string * Filme::getAtores() const
 {
- return this->atores;	
+ return this->atores;
 }
 
 float Filme::getAvaliacaoCritica() const
 {
- return this->avaliacaoCritica;	
+ return this->avaliacaoCritica;
 }
 
 float Filme::getBilheteria() const
 {
- return this->bilheteria;	
+ return this->bilheteria;
 }

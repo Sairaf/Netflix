@@ -1,13 +1,12 @@
 /*isempty() = Verifica se uma string e vazia
- * atoi() = verifica se uma string e numero e pega esta parte 
+ * atoi() = verifica se uma string e numero e pega esta parte
 
 */
-
-
 #ifndef FILME_H
 #define FILME_H
 
 #include <cstdlib>
+#include <vector>
 #include <iostream>
 #include <string>
 
@@ -20,15 +19,16 @@ class Filme
 	friend ostream &operator<<(ostream&, const Filme&);
 private:
 	string nomeFilme;
+	int numAtores;
 	string sinopse;
-	string diretorFilme; 
+	string diretorFilme;
 	string* atores;
 	float avaliacaoCritica;
-	float bilheteria;
+    float bilheteria;
 public:
 	//construtores
 	Filme(string nomeFilme = "Default", string sinopse = "Default");
-	Filme(string, string, string, string*, float, float);
+	Filme(string, string, string, string, float, float);
 	Filme(const Filme&);
 	~Filme();
 
@@ -39,7 +39,7 @@ public:
 	void setDiretorFilme(const string&);
 	void setAvaliacaoCritica(const float&);
 	void setBilheteria(const float&);
-	void setAtores(const string*);
+	void setAtores(const string&);
 
 	//getters
 
@@ -52,9 +52,9 @@ public:
 
 
 
-	Filme operator=(const Filme&) const;
- 
-	
+	Filme* operator=(const Filme&) ;
+
+
 };
 
 #endif // FILME_H

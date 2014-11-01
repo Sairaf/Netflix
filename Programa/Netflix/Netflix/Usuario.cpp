@@ -1,202 +1,246 @@
 #include "Usuario.h"
 
+// Assumindo que todos os usuarios são usuarios normais
+
 Usuario::Usuario(string login, string senha)
-:login("default"), senha("default")
+:login(login), senha(senha)
 {
- this->setAparelho("Computador");
- this->setSaldoConta(0.00);
- this->qtdAparelhoRegistrado= 1;           
- this->mensalidade = 17.90;    
+ this->numeroAparelhos= 0;
  this->qtdFilmesConta = 0;
-}                
+ this->setSaldoConta(0.00);
+ this->aparelhoRegistrado = new string;
+ this->aparelhoRegistrado[0] = "Computador";
+ this->filmesConta = new Filme;
+}
+
+
 
 Usuario::Usuario(string login, string senha, string apRegistrado, float saldo)
 {
+ this->numeroAparelhos= 0;
+ this->qtdFilmesConta = 0;
  this->setLogin(login);
  this->setSenha(senha);
  this->setSaldoConta(saldo);
  this->setAparelho(apRegistrado);
- this->mensalidade = 17.90;  
- this->qtdAparelhoRegistrado= 1;           
- this->qtdFilmesConta = 0;
-}                
+
+}
 
 Usuario::~Usuario()
 {
  delete [] aparelhoRegistrado;
- delete [] filmesConta;                  
-}                   
+ delete [] filmesConta;
+}
 
 
 Usuario::Usuario(const Usuario& usuarioCpy)
 {
+ int cont;
  this->login = usuarioCpy.login;
  this->senha = usuarioCpy.senha;
  this->filmesConta = usuarioCpy.filmesConta;
- this->aparelhoRegistrado = usuarioCpy.aparelhoRegistrado;
- this->mensalidade = usuarioCpy.mensalidade;
- this->qtdAparelhoRegistrado= usuarioCpy.qtdAparelhoRegistrado;//*
- this->saldoConta = usuarioCpy.saldoConta;
+ this->numeroAparelhos= usuarioCpy.numeroAparelhos;//*
  this->qtdFilmesConta = usuarioCpy.qtdFilmesConta;//**
-}                       
+ this->saldoConta = usuarioCpy.saldoConta;
+ for(cont = 0; cont < numeroAparelhos; cont++)
+ {
+  this->setAparelho(usuarioCpy.aparelhoRegistrado[cont]);
+ }
+ for(cont = 0; cont < numeroAparelhos; cont++)
+ {
+  this->filmesConta[cont] = usuarioCpy.filmesConta[cont];
+ }
+}
 
 ostream &operator<<(ostream& output, const Usuario& usuario)
 {
- int i;       
+ int cont;
  output << "Login: " << usuario.getLogin() << endl;
  output << "Senha: " << usuario.getSenha() << endl;
  output << "Credito na sua conta: " << usuario.getSaldo() << endl;
- output << "Aparelho registrado em sua conta: ";
- 
- if(usuario.qtdAparelhoRegistrado == 0)
- {
-  output << endl;
- }else  if(usuario.qtdAparelhoRegistrado > 0)
- {
-  for(i = 0; i < usuario.qtdAparelhoRegistrado; i++)	 
-  {
-   output <<"==========================" << endl;     
-   output <<usuario.aparelhoRegistrado[i] <<  endl;
-   output <<"==========================" << endl;
-  }
- }
  output << endl;
- output << "Filmes em sua conta: "<< endl;	 
- if(usuario.qtdFilmesConta == 0)
+ if(usuario.aparelhoRegistrado == NULL)
+ {
+  output << "Problema na alocacao de memoria" <<  endl;
+ }else  if(usuario.numeroAparelhos > 0)
+ {
+  output << "Aparelhos registrados em sua conta: " << endl;
+  for(cont = 0; cont < usuario.numeroAparelhos; cont++)
+  {
+   output <<"=========================="     << endl;
+   output <<usuario.aparelhoRegistrado[cont] <<  endl;
+   output <<"=========================="     << endl;
+  }
+ }else
+ {
+  output << "Nao ha aparelhos registrados nesta conta" << endl;
+ }
+
+ output << endl;
+ if(usuario.filmesConta == NULL)
+ {
+  output << "Problema na alocacao de memoria" <<  endl;
+ }else if(usuario.qtdFilmesConta > 0)
  {
   output << endl;
- }else if (usuario.qtdFilmesConta > 0)
- {
-  for(i = 0; i < usuario.qtdFilmesConta; i++)	 
+  output << "Filmes em sua conta: "<< endl;
+  output << endl;
+  for(cont = 0; cont < usuario.qtdFilmesConta; cont++)
   {
-   output <<"==========================" << endl;     
-   output <<usuario.filmesConta[i] <<  endl;
+   output <<"==========================" << endl;
+   output <<usuario.filmesConta[cont] <<  endl;
    output <<"==========================" << endl;
   }
+ }else
+ {
+  output << "Nao ha filmes registrado nesta conta" << endl;
  }
- 
+ cout << endl;
+ return output;
 }
-                             
-Usuario Usuario::operator=(const Usuario& usuario)
+
+Usuario* Usuario::operator=(const Usuario& usuario)
 {
- Usuario auxUsuario;
- auxUsuario.setLogin(usuario.getLogin());
- auxUsuario.setSenha(usuario.getSenha());
- auxUsuario.setSaldoConta(usuario.getSaldo());
- auxUsuario.aparelhoRegistrado = usuario.aparelhoRegistrado;
- auxUsuario.mensalidade = usuario.mensalidade;
- auxUsuario.qtdAparelhoRegistrado= usuario.qtdAparelhoRegistrado;//*
- auxUsuario.qtdFilmesConta = usuario.qtdFilmesConta;//**  
+ int contador;
+ Usuario *auxUsuario;
+ auxUsuario->setLogin(usuario.getLogin());
+ auxUsuario->setSenha(usuario.getSenha());
+ auxUsuario->setSaldoConta(usuario.getSaldo());
+ auxUsuario->numeroAparelhos= usuario.numeroAparelhos;//*
+ auxUsuario->qtdFilmesConta = usuario.qtdFilmesConta;//**
+ for(contador = 0; contador < numeroAparelhos; contador++)
+ {
+  auxUsuario->aparelhoRegistrado[contador] = usuario.aparelhoRegistrado[contador];
+ }
+
+ for(contador = 0; contador < qtdFilmesConta;contador++)
+ {
+  auxUsuario->filmesConta[contador] = usuario.filmesConta[contador];
+ }
+
  return auxUsuario;
 }
 
 void Usuario::AdicionarCreditosAConta(Usuario* usuario,const float& saldo)
-{   
- usuario->setSaldoConta(usuario->saldoConta + saldo);    
-}     
+{
+ usuario->setSaldoConta(usuario->saldoConta + saldo);
+}
+
+
+
+void Usuario::AdicionarAparelhoAConta(Usuario* usuario, const string& aparelho)
+{
+ usuario->setAparelho(aparelho);
+}
+
 
 void Usuario::AdicionarFilmeAConta(Usuario* usuario, Filme& filme)
 {
- int i;    
- Filme* auxFilme;     
- auxFilme =  new Filme[usuario->qtdFilmesConta]; 
- if(usuario->qtdFilmesConta == 0)
+ int cont;
+ Filme* auxFilme;
+ auxFilme =  new Filme[usuario->qtdFilmesConta];
+ if(usuario->getQtdFilmes() == 0)
  {
-  usuario->filmesConta[0] = filme;     
-  usuario->qtdFilmesConta++;                    
- }else if(usuario->qtdFilmesConta > 0)
+ // cout << "Teste de filme: "<<filme.getNomeFilme() << endl << endl;
+  ++usuario->qtdFilmesConta;
+/*erro*/  usuario->filmesConta[qtdFilmesConta-1]= filme;
+  cout << "Le saída: " << endl << usuario->filmesConta[0] << endl ;
+ }else if(usuario->getQtdFilmes() > 0)
  {
-  for(i = 0; i <usuario->qtdFilmesConta; i++) 
+ for(cont = 0; cont <usuario->qtdFilmesConta; cont++)
+ {
+  auxFilme[cont] = usuario->filmesConta[cont];
+ }
+  delete usuario->filmesConta;
+  this->filmesConta = new Filme[++usuario->qtdFilmesConta];
+  for(cont = 0; cont <usuario->qtdFilmesConta-1; cont++)
   {
-   auxFilme[i] = usuario->filmesConta[i];     
+   usuario->filmesConta[cont] = auxFilme[cont];
   }
-  
-  delete [] usuario->filmesConta;
-  this->filmesConta = new Filme[usuario->qtdFilmesConta++];
-  
-  for(i = 0; i <usuario->qtdFilmesConta-1; i++) 
-  {
-   usuario->filmesConta[i] = auxFilme[i];     
-  }
-   usuario->filmesConta[qtdFilmesConta] = filme;
+
+   usuario->filmesConta[qtdFilmesConta-1] = filme;
+ }
    delete [] auxFilme;
- }                                
- 
-}      
 
-void Usuario::AdicionarAparelhoAConta(Usuario* usuario, const string& aparelho)
-{   
- usuario->setAparelho(aparelho);    
-} 
-
+}
 
 void Usuario::setLogin(const string& login)
 {
- if(login.empty() != 0 && login.size() < 50)
+ if(login.empty() == false && login.size() < 50)
  {
-  this->login = login;                  
+  this->login = login;
  }else
  {
   cout << "Login invalido. Recebendo o login ""Usuario"" " << endl;
-  this->login = "Usuario";    
- }                         
-}     
+  this->login = "Usuario";
+ }
+}
 
 
 
 void Usuario::setSenha(const string& senha)
 {
- if(senha.empty() != 0)
+ if(senha.size() <= 50 && senha.empty() == false)
  {
-  this->senha= senha;               
+  this->senha= senha;
  }else
  {
   cout << "Senha invalido. Recebendo a senha ""Senha"" " << endl;
-  this->login = "Senha";          
- }                      
-}     
-    
+  this->senha = "Senha";
+ }
+}
+
 void Usuario::setSaldoConta(const float& saldo)
 {
- if(saldo > 0)
+ if(saldo >= 0)
  {
-  this->saldoConta = saldo;        
+  this->saldoConta = saldo;
  }else
  {
   cout << "Valor invalido para o saldo. Este sera definido como ""0"" " << endl;
-  this->saldoConta = 0;   
- }                     
-}         
-    
+  this->saldoConta = 0;
+ }
+}
+
 void Usuario::setAparelho(const string& aparelho)
 {
- if(this->qtdAparelhoRegistrado == 0 && aparelho.empty() !=0  && aparelho.size() < 30)
+ int cont;
+ string* auxAparelhos = new string[this->numeroAparelhos];
+ for(cont = 0; cont <this->numeroAparelhos ; cont++)
  {
-   this->aparelhoRegistrado = new string;
-   this->aparelhoRegistrado[0] = aparelho; 
-   this->qtdAparelhoRegistrado++;  
- }else
+  auxAparelhos[cont] = this->aparelhoRegistrado[cont];
+ }
+ delete [] this->aparelhoRegistrado;
+ this->aparelhoRegistrado = new string[++this->numeroAparelhos];
+ for(cont = 0; cont < this->numeroAparelhos-1; cont++)
  {
-  cout << "Limite de aparelhos atingido" << endl;    
- }        
-}    
+  this->aparelhoRegistrado[cont] = auxAparelhos[cont];
+ }
+ this->aparelhoRegistrado[this->numeroAparelhos-1] = aparelho;
+ delete [] auxAparelhos;
+}
 
 string Usuario::getLogin() const
 {
- return this->login;      
-}       
+ return this->login;
+}
 
 string Usuario::getSenha () const
 {
- return this->senha;      
-}       
+ return this->senha;
+}
 
 float Usuario::getSaldo () const
 {
- return this->saldoConta;     
-}               
+ return this->saldoConta;
+}
 
-float Usuario::getMensalidade () const
+int Usuario::getnumeroAparelhos () const
 {
- return this->mensalidade;     
-}      
+ return this->numeroAparelhos;
+}
+
+int Usuario::getQtdFilmes() const
+{
+ return this->qtdFilmesConta;
+}
