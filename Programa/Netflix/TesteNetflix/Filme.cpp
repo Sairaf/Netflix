@@ -13,7 +13,6 @@ Filme::Filme(string nomeFilme, string sinopse)
 
 Filme::~Filme()
 {
- if(this->numAtores != 0)
  delete [] this->atores;
 }
 
@@ -50,7 +49,7 @@ ostream& operator<<(ostream& output, const Filme& filme)
  output << "Atores principais: " << endl;
  if(filme.atores == NULL)
  {
-  output << endl;
+  output << "Nao existe espaço suficiente na memoria para acomodar este vetor" << endl;
  }else
  {
   for(i = 0; i < filme.numAtores; i++)

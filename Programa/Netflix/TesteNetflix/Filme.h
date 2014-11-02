@@ -25,7 +25,6 @@ private:
 	string* atores;
 	float avaliacaoCritica;
     float bilheteria;
-    int duracao;
 public:
 	//construtores
 	Filme(string nomeFilme = "Default", string sinopse = "Default");
