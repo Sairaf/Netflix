@@ -1,5 +1,7 @@
 #include "Filme.h"
 
+const int Filme::MAXATORES = 10;
+
 Filme::Filme(string nomeFilme, string sinopse)
 :nomeFilme(nomeFilme), sinopse(sinopse)
 {
@@ -142,6 +144,9 @@ void Filme::setSinopse(const string& sinopse)
 void Filme::setAtores(const string& ator)
 {
  int cont;
+ if(this->numAtores < MAXATORES)
+ {
+
  string* auxAtores = new string[numAtores];
  for(cont = 0; cont < numAtores; cont++)
  {
@@ -157,6 +162,7 @@ void Filme::setAtores(const string& ator)
  }
  this->atores[numAtores-1] = ator;
  delete [] auxAtores;
+ }
 }
 
 string Filme::getNomeFilme() const

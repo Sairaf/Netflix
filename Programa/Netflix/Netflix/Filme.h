@@ -23,6 +23,7 @@ private:
 	string sinopse;
 	string diretorFilme;
 	string* atores;
+	const static int MAXATORES;
 	float avaliacaoCritica;
     float bilheteria;
     int duracao;

@@ -1,34 +1,40 @@
 #ifndef NETFLIX_H
 #define NETFLIX_H
 #include <vector>
-#include "ServicoStreaming.h"
+#include "Servico.h"
 
 using namespace std;
 
-class Netflix : public ServicoStreaming
+class Netflix : public Servico
 {
  friend ostream& operator<<(ostream&, const Netflix&);
  protected:
-        int numRecomendacoes;
+        float media;
+        int contadorSaldo;
+        int numUsuarios;
         vector <float> saldoEmpresaAno;
-        Filme* Recomendacoes;
-        const float MENSALIDADE = 17.90;
+        Usuario* listaUsuarios;
+        const static float MENSALIDADE;
+
  public:
         Netflix(string nome = "Netflix", string cnpj = "000.00.000/0000-00");
-        Netflix(const string&,const string&,const int&,const string&,const string&,const int &,const int&, const int&,const float&, const string&);
+        Netflix(const string&,const string&,const int&,const string&,const string&,const int &,const int&, const int&, const string&);
         virtual ~Netflix();
         Netflix(const Netflix&);
 
+          inline const void Welcome()
+           {
+            cout << "Bem vindo ao servico: " /*<< this->getNome()*/ << endl << endl;
+           };
 
         void setSaldoConta(const float&);
 
-        float getSaldo() const;
-        const int getMENSALIDADE() const;
+        float getMedia () const;
+        const float getMENSALIDADE() const;
 
-        void AdicionarUsuario(Netflix*,const Usuario&);
-        void AdicionarFilme(Netflix*, const Filme&);
-        const void MediaSaldoAnual(const float&);
-        Netflix& operator=(const Netflix&);
+        void AdicionarUsuario(Netflix*,const Usuario);
+        const void MediaSaldoAnual(Netflix* );
+        Netflix* operator=(const Netflix&);
 };
 
 #endif // NETFLIX_H

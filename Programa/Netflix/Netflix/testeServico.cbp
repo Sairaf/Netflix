@@ -32,6 +32,16 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Data.cpp" />
+		<Unit filename="Data.h" />
+		<Unit filename="Filme.cpp" />
+		<Unit filename="Filme.h" />
+		<Unit filename="Netflix.cpp" />
+		<Unit filename="Netflix.h" />
+		<Unit filename="Servico.cpp" />
+		<Unit filename="Servico.h" />
+		<Unit filename="Usuario.cpp" />
+		<Unit filename="Usuario.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

@@ -6,7 +6,6 @@ Servico::Servico(string nome, string cnpj)
  Data auxData(1,1,1990);
  this->setDescricao("Desconhecido");
  this->setEndereco("Desconhecido");
-// this->setData(auxData);
  this->numeroAparelhos = 0;
  this->aparelhos = new string[this->numeroAparelhos];
 
@@ -50,6 +49,7 @@ ostream &operator<<(ostream& output, const Servico& servico)
  output <<"Cnpj: " << servico.getCnpj() << endl;
  output <<"Descricao do servico: " <<servico.getDescricao() << endl;
  servico.dataCriacao.print();
+ output << endl;
  output <<"Endereco de sua sede: " <<servico.getEndereco() << endl;
  output <<"Numero de aparelhos aonde este servico pode ser acessado: " << servico.getNumeroAparelhos() << endl;
  if(servico.aparelhos == NULL)
@@ -84,6 +84,30 @@ Servico* Servico::operator=(const Servico& servico)
  }
  return auxServico;
 }
+
+void Servico::CadastrarAparelho(Servico* servico, const string& aparelho)
+{
+ int cont;
+ if(aparelho.empty() != false)
+ {
+  string* auxAparelho = new string[servico->numeroAparelhos];
+  for(cont = 0; cont < servico->numeroAparelhos; cont++)
+  {
+   auxAparelho[cont] = servico->aparelhos[cont];
+  }
+  delete servico->aparelhos;
+  servico->aparelhos = new string[++servico->numeroAparelhos];
+  for(cont = 0; cont <servico->numeroAparelhos-1; cont++)
+  {
+   servico->aparelhos[cont] = auxAparelho[cont];
+  }
+
+   servico->aparelhos[servico->numeroAparelhos-1] = aparelho;
+   delete [] auxAparelho;
+ }
+}
+
+
 
  void Servico::setNome(const string& nomeServico)
  {
@@ -164,12 +188,6 @@ void Servico::setQuantidadeFuncionarios(const int& numFuncionarios)
   this->numeroFuncionarios = 0;
  }
 }
-/*
- void Servico::setData(const Data&)
- {
-
- }
-*/
  string Servico::getNome() const
  {
   return this->nomeServico;
@@ -199,9 +217,8 @@ void Servico::setQuantidadeFuncionarios(const int& numFuncionarios)
  {
   return this->numeroAparelhos;
  }
-/*
- Data Servico::getData() const
- {
 
- }
-*/
+Data Servico::getData() const
+{
+ return this->dataCriacao;
+}

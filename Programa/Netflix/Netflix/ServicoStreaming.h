@@ -26,7 +26,7 @@ class ServicoStreaming: public Servico// ex: Twitch, Netflix, WebCast
           float   getVelocidade () const;
 		  float   getEspaco		() const;
 
-          virtual void AdicionarUsuarios (ServicoStreaming*, const Usuario& ) = 0;
+          virtual void CadastrarUsuario (Servico*, const Usuario& ) = 0;
           void AdicionarProtocolo(ServicoStreaming*, const string&);
 		  float calcularEspacoOcupado(const int&,const int&, const int&); // velocidade do encode, duracao do filme em segundos e numero de pessoas assistindo
 		  float calcularVelocidadeStreaming(const float&);

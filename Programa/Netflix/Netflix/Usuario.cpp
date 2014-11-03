@@ -1,6 +1,7 @@
 #include "Usuario.h"
 
 // Assumindo que todos os usuarios são usuarios normais
+int Usuario::maxFilmes = 10;
 
 Usuario::Usuario(string login, string senha)
 :login(login), senha(senha)
@@ -68,31 +69,42 @@ ostream &operator<<(ostream& output, const Usuario& usuario)
  return output;
 }
 
-Usuario* Usuario::operator=(const Usuario& usuario)
+Usuario Usuario::operator=(const Usuario& usuario)
 {
  int contador;
- Usuario *auxUsuario;
- auxUsuario->setLogin(usuario.getLogin());
- auxUsuario->setSenha(usuario.getSenha());
+ this->setLogin(usuario.getLogin());
+ this->setSenha(usuario.getSenha());
+ cout <<"TESTE" << endl;
 // auxUsuario->setSaldoConta(usuario.getSaldo());
- auxUsuario->qtdFilmesConta = usuario.qtdFilmesConta;//**
-
- for(contador = 0; contador < qtdFilmesConta;contador++)
+ this->qtdFilmesConta = usuario.qtdFilmesConta;//**
+ if(this->filmesConta == 0)
  {
-  auxUsuario->filmesConta[contador] = usuario.filmesConta[contador];
+  this->filmesConta = 0;
+ }else if(this->qtdFilmesConta == 1)
+ {
+  this->filmesConta = new Filme();
+  this->filmesConta[0] = usuario.filmesConta[0];
+ }else
+ {
+  this->filmesConta = new Filme[this->qtdFilmesConta];
+  for(contador = 0; contador < this->qtdFilmesConta;contador++)
+ {
+  this->filmesConta[contador] = usuario.filmesConta[contador];
  }
 
- return auxUsuario;
-}
+ }
 
+ return *this;
+}
 
 void Usuario::AdicionarFilmeAConta(Usuario* usuario, Filme& filme)
 {
  int cont;
+ if(qtdFilmesConta < maxFilmes)
+ {
+
  Filme* auxFilme;
  auxFilme =  new Filme[usuario->qtdFilmesConta];
-// if(filme = NULL)
-// {
  if(usuario->getQtdFilmes() == 0)
  {
   ++usuario->qtdFilmesConta;
@@ -111,10 +123,14 @@ void Usuario::AdicionarFilmeAConta(Usuario* usuario, Filme& filme)
   }
 
    usuario->filmesConta[qtdFilmesConta-1] = filme;
+   delete [] auxFilme;
+  }
+
+ }else
+ {
+  cout << "Limite de filmes alcancado"    << endl;
  }
 
-// }
-   delete [] auxFilme;
 }
 
 void Usuario::setLogin(const string& login)
@@ -142,18 +158,7 @@ void Usuario::setSenha(const string& senha)
   this->senha = "Senha";
  }
 }
-/*
-void Usuario::setSaldoConta(const float& saldo)
-{
- if(saldo >= 0)
- {
-  this->saldoConta = saldo;
- }else
- {
-  cout << "Valor invalido para o saldo. Este sera definido como ""0"" " << endl;
-  this->saldoConta = 0;
- }
-}*/
+
 
 string Usuario::getLogin() const
 {
@@ -164,12 +169,7 @@ string Usuario::getSenha () const
 {
  return this->senha;
 }
-/*
-float Usuario::getSaldo () const
-{
- return this->saldoConta;
-}
-*/
+
 
 int Usuario::getQtdFilmes() const
 {
