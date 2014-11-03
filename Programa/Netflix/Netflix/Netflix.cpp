@@ -55,19 +55,21 @@ Netflix::~Netflix()
 ostream& operator<<(ostream& output, const Netflix& netflix)
 {
  int cont;
-
+ output << endl;
  output <<"Nome : "<< netflix.getNome() << endl;
  output <<"Cnpj: " << netflix.getCnpj() << endl;
  output <<"Descricao do netflix: " <<netflix.getDescricao() << endl;
- netflix.dataCriacao.print();
  output <<"Endereco de sua sede: " <<netflix.getEndereco() << endl;
- output <<"Numero de aparelhos aonde este netflix pode ser acessado: " << netflix.getNumeroAparelhos() << endl;
+ output <<"Numero de aparelhos aonde esta conta pode ser acessado: " << netflix.getNumeroAparelhos() << endl;
+ output <<"Data: ";
+ netflix.dataCriacao->print();
+ output << endl;
  if(netflix.aparelhos == NULL)
  {
   output << endl;
  }else if(netflix.numeroAparelhos == 0)
  {
-  output << "Nao existe aparelho registrado";
+  output << "Nao existe aparelho registrado" <<endl;
  }else
  {
   for(cont = 0; cont < netflix.numeroAparelhos; cont++)
@@ -80,10 +82,10 @@ ostream& operator<<(ostream& output, const Netflix& netflix)
  {
   output << "Saldo do mes :"<<cont << netflix.saldoEmpresaAno[cont] << endl;
  }
-
+ output << endl;
  for(cont = 0; cont < netflix.numUsuarios; cont++)
  {
-  output << "Usuario numero "<< cont <<": " << netflix.listaUsuarios[cont] << endl;
+  output << "Usuario numero "<< cont <<": " <<endl<< netflix.listaUsuarios[cont] << endl;
  }
   output << endl << "Numero de usuarios: " << netflix.numUsuarios << endl;
   output << "Media dos ultimos 12 meses: " << netflix.getMedia() << endl;
@@ -98,6 +100,7 @@ Netflix* Netflix::operator=(const Netflix& netflixCpy)
  auxNetflix->media = netflixCpy.media;
  auxNetflix->contadorSaldo = netflixCpy.contadorSaldo;
  auxNetflix->numUsuarios = netflixCpy.numUsuarios;
+ auxNetflix->dataCriacao = netflixCpy.dataCriacao;
  int cont;
  for(cont = 0; cont < auxNetflix->contadorSaldo; cont++)
  {
@@ -112,7 +115,7 @@ Netflix* Netflix::operator=(const Netflix& netflixCpy)
  return auxNetflix;
 }
 
-void Netflix::AdicionarUsuario(Netflix* netflix,const  Usuario usuario)
+void Netflix::AdicionarUsuario(Netflix* netflix,const  Usuario& usuario)
 {
   int cont;
   Usuario* auxUsuario = new Usuario[netflix->numUsuarios];
@@ -126,9 +129,8 @@ void Netflix::AdicionarUsuario(Netflix* netflix,const  Usuario usuario)
   {
    netflix->listaUsuarios[cont] = auxUsuario[cont];
   }
-
-   netflix->listaUsuarios[netflix->numUsuarios] = usuario;
-   delete [] auxUsuario;
+  netflix->listaUsuarios[netflix->numUsuarios-1] = usuario;
+  delete [] auxUsuario;
  }
 
 const void Netflix::MediaSaldoAnual(Netflix* netflix)

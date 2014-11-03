@@ -1,16 +1,18 @@
 #include <iostream>
-#include <cstdlib>
+#include "Servico.h"
 #include "Netflix.h"
 
-int main()
+using namespace std;
+
+int main(void)
 {
- Usuario* usuario= new Usuario("IUGUGPUG");
- Usuario* usuario2= new Usuario[3];
- //Netflix* netflix = new Netflix("MAMSMASA")   ;
- //Netflix* netflix2 = new Netflix("21312S")   ;
- //Servico* netflix = new Netflix("21312S")   ;
- //netflix2->AdicionarUsuario(netflix2, usuario);
- usuario2 = usuario;
- cout << usuario[0];
- return EXIT_SUCCESS;
+    //Servico(string, string, int, string, string, int/*dia*/, int/*mês*/, int/*anno*/);
+    Netflix * t = new Netflix("T", "Q",3,"V", "Z",1,1,1999, "V");
+    Netflix * x = new Netflix("X");
+    x = t;
+    cout << x[0];
+
+
+        //    cout << netflix[0];
 }
+

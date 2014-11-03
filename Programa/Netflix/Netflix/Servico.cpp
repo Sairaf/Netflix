@@ -3,7 +3,7 @@
 Servico::Servico(string nome, string cnpj)
 :nomeServico(nome), cnpj(cnpj)
 {
- Data auxData(1,1,1990);
+ this->dataCriacao = new Data(5,10,2010);
  this->setDescricao("Desconhecido");
  this->setEndereco("Desconhecido");
  this->numeroAparelhos = 0;
@@ -13,7 +13,8 @@ Servico::Servico(string nome, string cnpj)
 
 Servico::Servico(string nomeEmpresa, string cnpj, int numeroFuncionarios, string descricao, string endereco, int dia, int mes, int ano)
 {
- Data auxData(dia, mes,ano)	;
+
+ this->dataCriacao = new Data(dia,mes,ano);
  this->setNome(nomeEmpresa);
  this->setCnpj(cnpj);
  this->setDescricao(descricao);
@@ -48,7 +49,7 @@ ostream &operator<<(ostream& output, const Servico& servico)
  output <<"Nome do servico: "<< servico.getNome() << endl;
  output <<"Cnpj: " << servico.getCnpj() << endl;
  output <<"Descricao do servico: " <<servico.getDescricao() << endl;
- servico.dataCriacao.print();
+ servico.dataCriacao->print();
  output << endl;
  output <<"Endereco de sua sede: " <<servico.getEndereco() << endl;
  output <<"Numero de aparelhos aonde este servico pode ser acessado: " << servico.getNumeroAparelhos() << endl;
@@ -218,7 +219,7 @@ void Servico::setQuantidadeFuncionarios(const int& numFuncionarios)
   return this->numeroAparelhos;
  }
 
-Data Servico::getData() const
+int Servico::getData() const
 {
  return this->dataCriacao;
 }

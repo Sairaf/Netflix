@@ -1,3 +1,6 @@
+#ifndef SERVICO_H
+#define SERVICO_H
+
 #include <iostream>
 #include <cstdlib>
 #include <vector>
@@ -18,7 +21,7 @@ class Servico //ex: Amazon, Steam, Twitch,' Google Play
 		   string enderecoSede;
 		   string* aparelhos;// mudar este atributo para serviços podendo verificar mais tarde
            int numeroAparelhos;
-		   Data dataCriacao;
+		   Data* dataCriacao;
 
 
            //realizar um operator== para o USuario
@@ -41,16 +44,16 @@ class Servico //ex: Amazon, Steam, Twitch,' Google Play
 		   string   getCnpj 				    () const;
 		   string   getEndereco 			    () const;
 		   string   getDescricao 				() const;
-		   int      getNumeroUsuarios 			() const;
 		   int      getQuantidadeFuncionarios   () const;
 		   int      getNumeroAparelhos          () const;
-		   Data     getData 					() const;
+		   int     getData 					() const;
 
            virtual inline const void Welcome()
            {
             cout << "Bem vindo ao servico: " /*<< this->getNome()*/ << endl << endl;
            };
-
+           void teste() {cout<<"teste" <<endl;};
            void CadastrarAparelho (Servico*, const string&);
 		   virtual Servico* operator=(const Servico&);
 };
+#endif
