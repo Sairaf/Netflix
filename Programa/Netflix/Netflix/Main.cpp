@@ -1,7 +1,9 @@
-#include <stdio.h>
+#include <iostream>
+#include <cstdlib>
+#include "Netflix.h"
 
-int main(int argc, char **argv)
+int main()
 {
-	printf("hello world\n");
-	return 0;
+ cout <<" BOM DIA" << endl;
+ return EXIT_SUCCESS;
 }

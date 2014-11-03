@@ -1,0 +1,30 @@
+#ifndef NETFLIX_H
+#define NETFLIX_H
+
+#include "ServicoStreaming.h"
+
+using namespace std;
+
+class Netflix : public ServicoStreaming
+{
+ friend ostream& operator=(ostream&, const Netflix&);
+ protected:
+        float saldo;
+        const int MENSALIDADE;
+ public:
+        Netflix(const string&,const string&,const int&,const string&,const string&,const int &,const int&, const int&,const float&, const float&);
+        Netflix(string nome = "Netflix", string cnpj = "000.00.000/0000-00");
+        virtual ~Netflix();
+        Netflix(const Netflix&);
+        Netflix& operator=(const Netflix&);
+
+        void Setsaldo(float val);
+
+        float Getsaldo() ;
+        const int GetMENSALIDADE();
+
+        void AdicionarUsuario(Netflix*,const Usuario&);
+
+};
+
+#endif // NETFLIX_H

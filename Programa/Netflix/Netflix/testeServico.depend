@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1414266716 source:g:\abner\programação\programas feitos\testeservico\data.cpp
+	"Data.h"
+	<iostream>
+
+1414146351 g:\abner\programação\programas feitos\testeservico\data.h
+
+1414896013 source:g:\abner\programação\programas feitos\testeservico\filme.cpp
+	"Filme.h"
+
+1414878858 g:\abner\programação\programas feitos\testeservico\filme.h
+	<cstdlib>
+	<vector>
+	<iostream>
+	<string>
+
+1414961118 source:g:\abner\programação\programas feitos\testeservico\main.cpp
+	<iostream>
+	<cstdlib>
+	"Netflix.h"
+
+1414967025 g:\abner\programação\programas feitos\testeservico\netflix.h
+	<vector>
+	"ServicoStreaming.h"
+
+1414965446 g:\abner\programação\programas feitos\testeservico\servicostreaming.h
+	<iostream>
+	<cstdlib>
+	<vector>
+	"Filme.h"
+	"Servico.h"
+
+1414950621 g:\abner\programação\programas feitos\testeservico\servico.h
+	<iostream>
+	<cstdlib>
+	<vector>
+	<string.h>
+	"Data.h"
+	"Usuario.h"
+
+1414882240 g:\abner\programação\programas feitos\testeservico\usuario.h
+	<cstdlib>
+	<iostream>
+	<string>
+	"Filme.h"
+	"Data.h"
+
+1414950864 source:g:\abner\programação\programas feitos\testeservico\netflix.cpp
+	"Netflix.h"
+
+1414934193 source:g:\abner\programação\programas feitos\testeservico\servico.cpp
+	"Servico.h"
+
+1414945678 source:g:\abner\programação\programas feitos\testeservico\servicostreaming.cpp
+	"ServicoStreaming.h"
+
+1414895990 source:g:\abner\programação\programas feitos\testeservico\usuario.cpp
+	"Usuario.h"
+

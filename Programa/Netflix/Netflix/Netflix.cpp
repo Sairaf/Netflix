@@ -1,133 +1,46 @@
-#include <iostream>
 #include "Netflix.h"
 
-float Netflix::velMaxima = 15;
-
+//Netflix::MENSALIDADE = 17.90;
 Netflix::Netflix(string nome, string cnpj)
-:Empresa(nome, cnpj)
+:ServicoStreaming(nome, cnpj)
 {
- this->listaUsuario = NULL;
+ int cont;
+ this->saldoEmpresaAno.reserve(11);
+ this->numRecomendacoes = 0;
+ for(cont = 0; cont < this->saldoEmpresaAno.size(); cont++)
+ {
+  this->saldoEmpresaAno[cont] = 0.0;
+ }
 
+ this->Recomendacoes = new Filme[this->numRecomendacoes];
 }
 
-Netflix::Netflix( const string& nome,const string& cnpj,const int& numFuncionarios, const string& endereco)
-:Empresa(nome,cnpj, numFuncionarios, endereco)
+Netflix::Netflix(const string& nomeEmpresa,const string& cnpj,const int& numeroFuncionarios,const string& descricao,const string& endereco,const int& dia, const int& mes, const int& ano,const float& velocidade, const string& recomendacao)
+:ServicoStreaming(nomeEmpresa, cnpj, numeroFuncionarios, descricao, endereco, dia, mes, ano,velocidade )
 {
- this->listaUsuario = NULL;
+ int cont;
+ this->saldoEmpresaAno.reserve(11);
+ this->numRecomendacoes = 0;
+ for(cont = 0; cont < this->saldoEmpresaAno.size(); cont++)
+ {
+  this->saldoEmpresaAno[cont] = 0.0;
+ }
+ this->Recomendacoes = new Filme[this->numRecomendacoes];
+}
+
+Netflix::Netflix(const Netflix& netflixCpy)
+:ServicoStreaming(netflixCpy)
+{
+ int cont;
+ this->numRecomendacoes = netflixCpy.numRecomendacoes;
+ for(cont = 0 ; cont <this->numRecomendacoes; cont++)
+ {
+  this->Recomendacoes[cont] = netflixCpy.Recomendacoes[cont];
+ }
 }
 
 Netflix::~Netflix()
 {
- delete [] listaUsuario;
-
+ delete [] this->Recomendacoes;
 }
 
-Netflix::Netflix(const Netflix& netflixCpy)
-:Empresa(netflixCpy)
-{
- this->listaUsuario = netflixCpy.listaUsuario;                    
-}		
-
-
-void Netflix::AdicionarUsuario(Netflix*& netflix, Usuario usuario)
-{
- netflix->setUsuario(usuario);
- netflix->qtdUsuarios++;
-}
- 
- 
- float Netflix::CalculoDownload(float velMaxima, float velAtual)
- {
-  velAtual = -1;	 
-  float velDownload;
-  while(velAtual < 0)
-  {
-   cout << "Digite a velocidade de sua conexao"<< endl;
-   cin >> velAtual;	  
-  }
-  velDownload = velAtual/8;	 
-  return velDownload;
- }
- 
-float Netflix::CalculoGanhos(Netflix* netflix)
-{
- int i;      
- float saldo;
- for(i = 0; i <netflix->qtdUsuarios;i++)
- {
-  saldo+=netflix->listaUsuario[i].getMensalidade();     
- }  
- 
- return saldo;           
-}
-  
-ostream &operator<<(ostream &output, const Netflix& empresa)  
-{
-int i;         
- output << "Nome da Empresa: "<< empresa.getNome() << endl;         
- output << "Cnpj: " << empresa.getCnpj() <<endl;
- output << "Numero de Funcionarios: " << empresa.getNumFuncionarios() << endl;                
- output << "Endereco(s): " ;
- if(empresa.getQtdEnderecos() == 0 )
- {
-  output << endl;                                
- }else               
- for(i =0; i <empresa.qtdEnderecos; i++)
- {
-  output << empresa.enderecos[i] << endl;     
- }
- 
- output << "Usuarios: " ;
- if(empresa.getQtdUsuario() == 0 )
- {
-  output << endl;                                
- }else               
- for(i =0; i <empresa.getQtdUsuario(); i++)
- {
-  output << empresa.listaUsuario[i] << endl;     
- }
- 
- return output;
-}
-  
-Netflix Netflix::operator=(const Netflix& ntf) const
-{
- Netflix aux;	
- aux.listaUsuario = ntf.listaUsuario;
- return aux;
- 
-}
-  
-void Netflix::setUsuario(const Usuario& usuario)
-{
- int i;        
- Usuario* auxUsuario = new Usuario[this->qtdUsuarios];
- for(i = 0; i < this->qtdUsuarios; i++)
- {
-  auxUsuario[i] = this->listaUsuario[i];      
- }                
- 
- delete [] this->listaUsuario;
- this->listaUsuario = new Usuario[qtdUsuarios++];
-
- for(i = 0; i < this->qtdUsuarios-1; i++)
- {
-   this->listaUsuario[i] = auxUsuario[i];      
- }                
-  this->listaUsuario[this->qtdUsuarios] = usuario;
-}          
-  
-float Netflix::getVelMaxima() const
-{
- return velMaxima;	
-}
-   	 
-int Netflix::getQtdUsuario() const
-{
- return this->qtdUsuarios;         
-}     
-
-Usuario* Netflix::getLista() const
-{
- return this->listaUsuario;        
-}         
