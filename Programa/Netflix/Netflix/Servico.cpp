@@ -219,7 +219,7 @@ void Servico::setQuantidadeFuncionarios(const int& numFuncionarios)
   return this->numeroAparelhos;
  }
 
-int Servico::getData() const
+Data* Servico::getData() const
 {
  return this->dataCriacao;
 }

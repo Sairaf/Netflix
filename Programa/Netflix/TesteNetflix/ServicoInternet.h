@@ -45,4 +45,4 @@ class ServicoInternet //ex: Amazon, Steam, Twitch,' Google Play
 		   
 		   void Adicionar_Usuario_Ao_Servico(ServicoInternet *, Usuario*);
 		   ServicoInternet operator=(const ServicoInternet&);
-}
+};

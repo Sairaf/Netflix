@@ -5,8 +5,9 @@
 #include <cstdlib>
 #include <vector>
 #include <string.h>
-#include "Data.h"
 #include "Usuario.h"
+#include "Data.h"
+
 
 using namespace std;
 
@@ -19,7 +20,7 @@ class Servico //ex: Amazon, Steam, Twitch,' Google Play
 		   int numeroFuncionarios;
 		   string descricaoServico;
 		   string enderecoSede;
-		   string* aparelhos;// mudar este atributo para serviços podendo verificar mais tarde
+		   string* aparelhos;// mudar este atributo para serviÃ§os podendo verificar mais tarde
            int numeroAparelhos;
 		   Data* dataCriacao;
 
@@ -28,7 +29,7 @@ class Servico //ex: Amazon, Steam, Twitch,' Google Play
 		 //string* linkSite;
  public:
 		   Servico(string nomeServico = "Servico", string cnpj = "000-000-000/0000-00");
-		   Servico(string, string, int, string, string, int/*dia*/, int/*mês*/, int/*anno*/);
+		   Servico(string, string, int, string, string, int/*dia*/, int/*mÃªs*/, int/*anno*/);
 		   Servico(const Servico&);
 		   virtual ~Servico();
 
@@ -46,7 +47,7 @@ class Servico //ex: Amazon, Steam, Twitch,' Google Play
 		   string   getDescricao 				() const;
 		   int      getQuantidadeFuncionarios   () const;
 		   int      getNumeroAparelhos          () const;
-		   int     getData 					() const;
+		   Data*   getData 					() const;
 
            virtual inline const void Welcome()
            {

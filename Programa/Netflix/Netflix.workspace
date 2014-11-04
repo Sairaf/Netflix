@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="Netflix" Database="/Abner/Programacao/Programasfeitos/ProjetosGiteye/Netflix/Programa/Netflix/.codelite/Netflix.tags">
-  <Project Name="Netflix" Path="Netflix/Netflix.project" Active="No"/>
-  <Project Name="TesteNetflix" Path="TesteNetflix/TesteNetflix.project" Active="Yes"/>
+  <Project Name="Netflix" Path="Netflix/Netflix.project" Active="Yes"/>
+  <Project Name="TesteNetflix" Path="TesteNetflix/TesteNetflix.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Project Name="Netflix" ConfigName="Debug"/>

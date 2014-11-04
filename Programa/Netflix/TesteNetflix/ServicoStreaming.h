@@ -3,7 +3,7 @@
 #include <vector>
 #include "ServicoInternet.h"
 
-class ServicoStreaming: public ServicoInternet// ex: Twitch, Netflix, WebCast
+class ServicoStreaming: public Servico// ex: Twitch, Netflix, WebCast
 {
  protected:
 		   float velocidadeStreaming;   //55% da velocidade da conexão
