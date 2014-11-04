@@ -6,7 +6,7 @@
 #include "Filme.h"
 
 using namespace std;
-
+/*
 void IdentificarServico(Servico* s)
 {
  if(typeid(*s).name() == typeid(Netflix). name)	
@@ -14,11 +14,11 @@ void IdentificarServico(Servico* s)
   cout << "Este servico e o Netflix" << endl;	 
  }//else if(typeid(*s).name() == typeid(Netflix). name)	
 }	
-
+*/
 int main(void)
 {
-    Servico* sv = new Netflix("RAITONINGUE");
-	
+// Servico* t = new ServicoStreaming;
+
 
 
 

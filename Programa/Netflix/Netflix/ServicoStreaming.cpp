@@ -45,7 +45,7 @@ ostream& operator<<(ostream& output, const ServicoStreaming& ServicoStreaming)
  int cont;
  output << ServicoStreaming;
  output << "Velocidade de streaming: " << ServicoStreaming.velocidadeStreaming << endl;
- output << "Espaço consumido em disco: " << ServicoStreaming.espacoOcupado << endl;
+ output << "EspaÃ§o consumido em disco: " << ServicoStreaming.espacoOcupado << endl;
  if(ServicoStreaming.numProtocolos == NULL)
  {
   output << endl;
@@ -135,5 +135,6 @@ float ServicoStreaming::calcularVelocidadeStreaming(const float& velocidadeConex
 
 float ServicoStreaming::calcularEspacoOcupado(const int& encode, const int& duracao /* em minutos*/ , const int& numPessoas)
 {
- float espaco = (encode * duracao * numPessoas)/(8*1024*1024); return espaco;
+ float espaco = (encode * duracao * numPessoas)/(8*1024*1024);
+ return espaco;
 }

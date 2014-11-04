@@ -49,23 +49,11 @@ ostream &operator<<(ostream& output, const Servico& servico)
  output <<"Nome do servico: "<< servico.getNome() << endl;
  output <<"Cnpj: " << servico.getCnpj() << endl;
  output <<"Descricao do servico: " <<servico.getDescricao() << endl;
- servico.dataCriacao->print();
+ servico.getData();
  output << endl;
  output <<"Endereco de sua sede: " <<servico.getEndereco() << endl;
  output <<"Numero de aparelhos aonde este servico pode ser acessado: " << servico.getNumeroAparelhos() << endl;
- if(servico.aparelhos == NULL)
- {
-  output << endl;
- }else if(servico.numeroAparelhos == 0)
- {
-  output << "Nao existe aparelho registrado";
- }else
- {
-  for(cont = 0; cont < servico.numeroAparelhos; cont++)
-  {
-   output << "| "<<servico.aparelhos[cont] << " |" << endl;
-  }
- }
+ //output << servico.MostrarAparelhos(servico)
  return output;
 }
 
@@ -86,6 +74,18 @@ Servico* Servico::operator=(const Servico& servico)
  return auxServico;
 }
 
+void Servico::MostrarAparelhos(const Servico& servico)
+{
+ int cont;
+ if(servico.numeroAparelhos > 0 && servico.aparelhos != NULL)
+ {
+  for(cont =0; cont < servico.numeroAparelhos;cont++)	
+  {
+   cout << servico.aparelhos[cont]	;
+  }
+ }
+}
+/*
 void Servico::CadastrarAparelho(Servico* servico, const string& aparelho)
 {
  int cont;
@@ -107,7 +107,7 @@ void Servico::CadastrarAparelho(Servico* servico, const string& aparelho)
    delete [] auxAparelho;
  }
 }
-
+*/
 
 
  void Servico::setNome(const string& nomeServico)
@@ -189,6 +189,18 @@ void Servico::setQuantidadeFuncionarios(const int& numFuncionarios)
   this->numeroFuncionarios = 0;
  }
 }
+
+void Servico::setData(const Data& data)
+{
+ if(data.VerificaDia(4) != 1)	
+ {
+  this->dataCriacao[0] = data;	 
+ }else
+ {	 
+  this->dataCriacao = new Data(1,1,1990);
+ }
+}  
+
  string Servico::getNome() const
  {
   return this->nomeServico;
@@ -199,8 +211,8 @@ void Servico::setQuantidadeFuncionarios(const int& numFuncionarios)
   return this->cnpj;
  }
 
- string Servico::getEndereco() const
- {
+string Servico::getEndereco() const
+{
   return this->enderecoSede;
  }
 
@@ -223,3 +235,4 @@ Data* Servico::getData() const
 {
  return this->dataCriacao;
 }
+

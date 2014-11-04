@@ -63,7 +63,7 @@ AS       := C:/MinGW-4.8.1/bin/as.exe
 ##
 CodeLiteDir:=C:\Program Files (x86)\CodeLite
 UNIT_TEST_PP_SRC_DIR:=C:\UnitTest++-1.3
-Objects0=$(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Netflix.cpp$(ObjectSuffix) $(IntermediateDirectory)/Main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Filme.cpp$(ObjectSuffix) $(IntermediateDirectory)/Servico.cpp$(ObjectSuffix) $(IntermediateDirectory)/Usuario.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Netflix.cpp$(ObjectSuffix) $(IntermediateDirectory)/Main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Filme.cpp$(ObjectSuffix) $(IntermediateDirectory)/Usuario.cpp$(ObjectSuffix) $(IntermediateDirectory)/Servico.cpp$(ObjectSuffix) $(IntermediateDirectory)/ServicoStreaming.cpp$(ObjectSuffix) 
 
 
 
@@ -122,6 +122,14 @@ $(IntermediateDirectory)/Filme.cpp$(DependSuffix): Filme.cpp
 $(IntermediateDirectory)/Filme.cpp$(PreprocessSuffix): Filme.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Filme.cpp$(PreprocessSuffix) "Filme.cpp"
 
+$(IntermediateDirectory)/Usuario.cpp$(ObjectSuffix): Usuario.cpp $(IntermediateDirectory)/Usuario.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/PROPESPINFO/Documents/GitHub/Netflix/Programa/Netflix/Netflix/Usuario.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Usuario.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Usuario.cpp$(DependSuffix): Usuario.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Usuario.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Usuario.cpp$(DependSuffix) -MM "Usuario.cpp"
+
+$(IntermediateDirectory)/Usuario.cpp$(PreprocessSuffix): Usuario.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Usuario.cpp$(PreprocessSuffix) "Usuario.cpp"
+
 $(IntermediateDirectory)/Servico.cpp$(ObjectSuffix): Servico.cpp $(IntermediateDirectory)/Servico.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/PROPESPINFO/Documents/GitHub/Netflix/Programa/Netflix/Netflix/Servico.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Servico.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/Servico.cpp$(DependSuffix): Servico.cpp
@@ -130,13 +138,13 @@ $(IntermediateDirectory)/Servico.cpp$(DependSuffix): Servico.cpp
 $(IntermediateDirectory)/Servico.cpp$(PreprocessSuffix): Servico.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Servico.cpp$(PreprocessSuffix) "Servico.cpp"
 
-$(IntermediateDirectory)/Usuario.cpp$(ObjectSuffix): Usuario.cpp $(IntermediateDirectory)/Usuario.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/PROPESPINFO/Documents/GitHub/Netflix/Programa/Netflix/Netflix/Usuario.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Usuario.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Usuario.cpp$(DependSuffix): Usuario.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Usuario.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Usuario.cpp$(DependSuffix) -MM "Usuario.cpp"
+$(IntermediateDirectory)/ServicoStreaming.cpp$(ObjectSuffix): ServicoStreaming.cpp $(IntermediateDirectory)/ServicoStreaming.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/PROPESPINFO/Documents/GitHub/Netflix/Programa/Netflix/Netflix/ServicoStreaming.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/ServicoStreaming.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/ServicoStreaming.cpp$(DependSuffix): ServicoStreaming.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/ServicoStreaming.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/ServicoStreaming.cpp$(DependSuffix) -MM "ServicoStreaming.cpp"
 
-$(IntermediateDirectory)/Usuario.cpp$(PreprocessSuffix): Usuario.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Usuario.cpp$(PreprocessSuffix) "Usuario.cpp"
+$(IntermediateDirectory)/ServicoStreaming.cpp$(PreprocessSuffix): ServicoStreaming.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/ServicoStreaming.cpp$(PreprocessSuffix) "ServicoStreaming.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

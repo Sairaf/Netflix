@@ -1,9 +1,9 @@
-Debug/Servico.cpp.o: Servico.cpp Servico.h Data.h Usuario.h Filme.h
+Debug/Servico.cpp.o: Servico.cpp Servico.h Usuario.h Filme.h Data.h
 
 Servico.h:
-
-Data.h:
 
 Usuario.h:
 
 Filme.h:
+
+Data.h:

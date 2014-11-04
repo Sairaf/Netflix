@@ -99,10 +99,11 @@
     <File Name="Usuario.h"/>
     <File Name="Filme.h"/>
     <File Name="Filme.cpp"/>
+    <File Name="Usuario.cpp"/>
     <File Name="Servico.h"/>
     <File Name="Servico.cpp"/>
-    <File Name="../TesteNetflix/ServicoStreaming.h"/>
-    <File Name="Usuario.cpp"/>
+    <File Name="ServicoStreaming.h"/>
+    <File Name="ServicoStreaming.cpp"/>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>

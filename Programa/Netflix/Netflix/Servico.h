@@ -3,36 +3,32 @@
 
 #include <iostream>
 #include <cstdlib>
-#include <vector>
-#include <string.h>
+#include <string>
+
 #include "Usuario.h"
 #include "Data.h"
 
-
 using namespace std;
 
-class Servico //ex: Amazon, Steam, Twitch,' Google Play
+class Servico
 {
- friend ostream& operator<<(ostream&, const Servico&);
+// friend ostream& operator<<(ostream&, Servico);
+ 
  protected:
            string nomeServico;
 		   string cnpj;
 		   int numeroFuncionarios;
 		   string descricaoServico;
 		   string enderecoSede;
-		   string* aparelhos;// mudar este atributo para serviços podendo verificar mais tarde
+		   string* aparelhos;// mudar este atributo para serviÃ§os podendo verificar mais tarde
            int numeroAparelhos;
 		   Data* dataCriacao;
-
-
-           //realizar um operator== para o USuario
-		 //string* linkSite;
- public:
-		   Servico(string nomeServico = "Servico", string cnpj = "000-000-000/0000-00");
-		   Servico(string, string, int, string, string, int/*dia*/, int/*mês*/, int/*anno*/);
+public:
+           Servico(string nomeServico = "Servico", string cnpj = "000-000-000/0000-00");
+		   Servico(string, string, int, string, string, int/*dia*/, int/*mÃªs*/, int/*anno*/);
 		   Servico(const Servico&);
 		   virtual ~Servico();
-
+		   
 		   void setNome(const string&);
 		   void setCnpj(const string&);
 		   void setEndereco(const string&);
@@ -47,15 +43,12 @@ class Servico //ex: Amazon, Steam, Twitch,' Google Play
 		   string   getDescricao 				() const;
 		   int      getQuantidadeFuncionarios   () const;
 		   int      getNumeroAparelhos          () const;
-		   Data*   getData 					() const;
+		   Data*    getData 					() const;
 
-           virtual inline const void Welcome()
-           {
-            cout << "Bem vindo ao servico: " /*<< this->getNome()*/ << endl << endl;
-           };
-		
-		   virtual void CadastrarUsuario (Servico*, Usuario&) = 0;
-           void CadastrarAparelho (Servico*, const string&);
+		   virtual void CadastrarAparelho() = 0;
+		   virtual void CadastrarUsuario() = 0;
 		   virtual Servico* operator=(const Servico&);
+		   void MostrarAparelhos(const Servico&);
 };
+
 #endif
