@@ -40,31 +40,39 @@ ServicoStreaming::ServicoStreaming(const ServicoStreaming& streamingCpy)
  this->listaUsuarios = streamingCpy.listaUsuarios;
 }
 
-ostream& operator<<(ostream& output, const ServicoStreaming& ServicoStreaming)
+ostream& operator<<(ostream& output, const ServicoStreaming& servicoStreaming)
 {
  int cont;
- output << ServicoStreaming;
- output << "Velocidade de streaming: " << ServicoStreaming.velocidadeStreaming << endl;
- output << "Espaço consumido em disco: " << ServicoStreaming.espacoOcupado << endl;
- if(ServicoStreaming.numProtocolos == NULL)
+ //output << servicoStreaming;
+ output << "Velocidade de streaming: " << servicoStreaming.getVelocidade() << endl;
+ output << "Espaço consumido em disco: " << servicoStreaming.getEspaco() << endl;
+ string* auxProtocolo = new string;
+ auxProtocolo = servicoStreaming.getProtocolo();
+ if(auxProtocolo == NULL)
  {
   output << endl;
- } else if(ServicoStreaming.numProtocolos == 0)
+ } else if(servicoStreaming.getNumProtocolos() == 0)
  {
   output << "Nenum protocolo listado"    << endl;
  }else
  {
   output << "Protocolos utilizados:" << endl ;
-  for(cont = 0; cont <ServicoStreaming.numeroAparelhos; cont++)
+  for(cont = 0; cont <servicoStreaming.getNumeroAparelhos(); cont++)
   {
    output << "==========================="    << endl;
    output << "Dispositivo de numero "  << cont << ": " << endl;
-   output << ServicoStreaming.protocolos[cont] << endl;
+   output << auxProtocolo[cont] << endl;
    output << "==========================="    << endl;
   }
-  return output;
+ 
  }
-
+ if(servicoStreaming.getNumProtocolos() != 0)
+ {
+  delete []auxProtocolo;
+ 
+ }
+ cout << "SNAKE!!!" << endl;
+ return output;
 }
 
 ServicoStreaming* ServicoStreaming::operator=(const ServicoStreaming& streaming)
@@ -83,6 +91,11 @@ ServicoStreaming* ServicoStreaming::operator=(const ServicoStreaming& streaming)
  }
 
  return this;
+}
+
+void ServicoStreaming::CadastrarUsuario(Servico*, const Usuario&)
+{
+ cout << "MAH BOI!" << endl;	
 }
 
 void ServicoStreaming::AdicionarProtocolo(ServicoStreaming* streaming, const string& protocolo)
@@ -114,7 +127,7 @@ void ServicoStreaming::AdicionarProtocolo(ServicoStreaming* streaming, const str
     }
 
      streaming->protocolos[streaming->numProtocolos] = protocolo;
-
+     
      delete [] auxProtocolo;
   }
 
@@ -122,8 +135,6 @@ void ServicoStreaming::AdicionarProtocolo(ServicoStreaming* streaming, const str
  {
   cout << "Strign invalida" << endl;
  }
-
-
 
 }
 
@@ -137,4 +148,24 @@ float ServicoStreaming::calcularEspacoOcupado(const int& encode, const int& dura
 {
  float espaco = (encode * duracao * numPessoas)/(8*1024*1024);
  return espaco;
+}
+
+float ServicoStreaming::getVelocidade() const
+{
+ return this->velocidadeStreaming;	
+}
+
+float ServicoStreaming::getEspaco() const
+{
+ return this->espacoOcupado;	 
+}
+
+string* ServicoStreaming::getProtocolo() const
+{
+ return this->protocolos;	
+}
+
+int ServicoStreaming::getNumProtocolos() const
+{ 
+ return this->numProtocolos;	
 }

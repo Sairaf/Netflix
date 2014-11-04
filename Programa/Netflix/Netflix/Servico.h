@@ -12,7 +12,7 @@ using namespace std;
 
 class Servico
 {
-// friend ostream& operator<<(ostream&, Servico);
+  friend ostream& operator<<(ostream&,const Servico&);
  
  protected:
            string nomeServico;
@@ -44,9 +44,10 @@ public:
 		   int      getQuantidadeFuncionarios   () const;
 		   int      getNumeroAparelhos          () const;
 		   Data*    getData 					() const;
+		   string*  getAparelhos           () const;
 
-		   virtual void CadastrarAparelho() = 0;
-		   virtual void CadastrarUsuario() = 0;
+		   virtual void CadastrarAparelho(Servico*, const string&);
+		   virtual void CadastrarUsuario(Servico*, const Usuario&) = 0;
 		   virtual Servico* operator=(const Servico&);
 		   void MostrarAparelhos(const Servico&);
 };

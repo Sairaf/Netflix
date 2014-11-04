@@ -52,8 +52,32 @@ ostream &operator<<(ostream& output, const Servico& servico)
  servico.getData();
  output << endl;
  output <<"Endereco de sua sede: " <<servico.getEndereco() << endl;
- output <<"Numero de aparelhos aonde este servico pode ser acessado: " << servico.getNumeroAparelhos() << endl;
- //output << servico.MostrarAparelhos(servico)
+ string * auxAparelhos = new string;
+ auxAparelhos = servico.getAparelhos();
+ 
+ if(auxAparelhos != NULL)
+ {
+  if(servico.getNumeroAparelhos() == 0)	 
+  {
+	cout << "Nenhum aparelho foi registrado" << endl;  
+  }else
+  {
+   output <<"Numero de aparelhos aonde este servico pode ser acessado: " << servico.getNumeroAparelhos() << endl;	  
+	for(cont = 0; cont < servico.getNumeroAparelhos(); cont++)  
+	{
+	 
+	 output << auxAparelhos[cont]	<<endl;
+	}
+  }
+ }else
+ {
+  output << "Nao existe aparelho registrado." << endl;	 
+ }
+ cout <<"TESTE" <<endl;	
+ if(servico.getAparelhos() != 0)
+ {
+  delete [] auxAparelhos;
+ }
  return output;
 }
 
@@ -85,7 +109,7 @@ void Servico::MostrarAparelhos(const Servico& servico)
   }
  }
 }
-/*
+
 void Servico::CadastrarAparelho(Servico* servico, const string& aparelho)
 {
  int cont;
@@ -107,7 +131,7 @@ void Servico::CadastrarAparelho(Servico* servico, const string& aparelho)
    delete [] auxAparelho;
  }
 }
-*/
+
 
 
  void Servico::setNome(const string& nomeServico)
@@ -236,3 +260,7 @@ Data* Servico::getData() const
  return this->dataCriacao;
 }
 
+string* Servico::getAparelhos() const
+{
+ return this->aparelhos;	
+}

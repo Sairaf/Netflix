@@ -1,1 +1,1 @@
-./Debug/Data.cpp.o ./Debug/Netflix.cpp.o ./Debug/Main.cpp.o ./Debug/Filme.cpp.o ./Debug/Servico.cpp.o ./Debug/Usuario.cpp.o   
+./Debug/Data.cpp.o ./Debug/Netflix.cpp.o ./Debug/Main.cpp.o ./Debug/Filme.cpp.o ./Debug/Usuario.cpp.o ./Debug/Servico.cpp.o ./Debug/ServicoStreaming.cpp.o   

@@ -24,7 +24,9 @@ class Netflix : public Servico
 
 
         void setSaldoConta(const float&);
-
+        
+		 string* getLista () const;
+		 int getNumUsuarios () const;
         float getMedia () const;
         const float getMENSALIDADE() const;
 

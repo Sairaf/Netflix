@@ -17,11 +17,16 @@ void IdentificarServico(Servico* s)
 */
 int main(void)
 {
-// Servico* t = new ServicoStreaming;
+ Servico* t = new ServicoStreaming("P", "T");
+ 
+ServicoStreaming * strPtr = dynamic_cast<ServicoStreaming *>(t);
+if (strPtr != 0) 
+{
+ cout << strPtr[0];
+}
 
 
-
-
-        //    cout << netflix[0];
+  system("pause");
+  return EXIT_SUCCESS;
 }
 
