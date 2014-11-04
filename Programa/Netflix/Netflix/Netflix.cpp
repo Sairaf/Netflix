@@ -115,7 +115,7 @@ Netflix* Netflix::operator=(const Netflix& netflixCpy)
  return auxNetflix;
 }
 
-void Netflix::AdicionarUsuario(Netflix* netflix,const  Usuario& usuario)
+void Netflix::CadastrarUsuario(Netflix* netflix,const  Usuario& usuario)
 {
   int cont;
   Usuario* auxUsuario = new Usuario[netflix->numUsuarios];

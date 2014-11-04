@@ -33,7 +33,7 @@ class Netflix : public Servico
          cout << "Bem vindo ao teste: " /*<< this->getNome()*/ << endl << endl;
         };
 
-        void AdicionarUsuario(Netflix*,const Usuario&);
+        void CadastrarUsuario(Netflix*,const Usuario&);
         const void MediaSaldoAnual(Netflix* );
         Netflix* operator=(const Netflix&);
 };

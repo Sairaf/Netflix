@@ -53,7 +53,8 @@ class Servico //ex: Amazon, Steam, Twitch,' Google Play
            {
             cout << "Bem vindo ao servico: " /*<< this->getNome()*/ << endl << endl;
            };
-           void teste() {cout<<"teste" <<endl;};
+		
+		   virtual void CadastrarUsuario (Servico*, Usuario&) = 0;
            void CadastrarAparelho (Servico*, const string&);
 		   virtual Servico* operator=(const Servico&);
 };
