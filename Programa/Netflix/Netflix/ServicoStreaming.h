@@ -15,6 +15,7 @@ protected:
 	int numProtocolos ;
 	int numeroUsuarios;
 	Usuario* listaUsuarios;
+	
 public:
 	ServicoStreaming(string nomeServico = "Servico de Streaming", string cnpj = "000-000-000/0000-00");
 	ServicoStreaming(const string&,const string&,const int&,const string&,const string&,const int&,const int&,const int&,const float&);

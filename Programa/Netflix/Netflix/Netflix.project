@@ -93,8 +93,6 @@
   <VirtualDirectory Name="src">
     <File Name="Data.h"/>
     <File Name="Data.cpp"/>
-    <File Name="Netflix.h"/>
-    <File Name="Netflix.cpp"/>
     <File Name="Main.cpp"/>
     <File Name="Usuario.h"/>
     <File Name="Filme.h"/>
@@ -104,6 +102,7 @@
     <File Name="Servico.cpp"/>
     <File Name="ServicoStreaming.h"/>
     <File Name="ServicoStreaming.cpp"/>
+    <File Name="Netflix.h"/>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>

@@ -1,47 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Session Name="C:\Users\PROPESPINFO\Documents\GitHub\Netflix\Programa\Netflix\Netflix.workspace">
+<Session Name="C:\Users\LAB4-PROFESSOR\Documents\GitHub\Netflix\Programa\Netflix\Netflix.workspace">
   <int Value="1" Name="m_selectedTab"/>
-  <wxString Value="C:\Users\PROPESPINFO\Documents\GitHub\Netflix\Programa\Netflix\Netflix.workspace" Name="m_workspaceName"/>
+  <wxString Value="C:\Users\LAB4-PROFESSOR\Documents\GitHub\Netflix\Programa\Netflix\Netflix.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="C:\Users\PROPESPINFO\Documents\GitHub\Netflix\Programa\Netflix\Netflix\Servico.h" Name="FileName"/>
-      <int Value="38" Name="FirstVisibleLine"/>
-      <int Value="50" Name="CurrentLine"/>
+      <wxString Value="C:\Users\LAB4-PROFESSOR\Documents\GitHub\Netflix\Programa\Netflix\Netflix\ServicoStreaming.h" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="17" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\Users\PROPESPINFO\Documents\GitHub\Netflix\Programa\Netflix\Netflix\Servico.cpp" Name="FileName"/>
-      <int Value="46" Name="FirstVisibleLine"/>
-      <int Value="55" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\PROPESPINFO\Documents\GitHub\Netflix\Programa\Netflix\Netflix\ServicoStreaming.h" Name="FileName"/>
-      <int Value="6" Name="FirstVisibleLine"/>
-      <int Value="13" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\PROPESPINFO\Documents\GitHub\Netflix\Programa\Netflix\Netflix\ServicoStreaming.cpp" Name="FileName"/>
-      <int Value="3" Name="FirstVisibleLine"/>
-      <int Value="7" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\PROPESPINFO\Documents\GitHub\Netflix\Programa\Netflix\Netflix\Data.h" Name="FileName"/>
-      <int Value="3" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\PROPESPINFO\Documents\GitHub\Netflix\Programa\Netflix\Netflix\Main.cpp" Name="FileName"/>
-      <int Value="10" Name="FirstVisibleLine"/>
-      <int Value="19" Name="CurrentLine"/>
+      <wxString Value="C:\Users\LAB4-PROFESSOR\Documents\GitHub\Netflix\Programa\Netflix\Netflix\Netflix.h" Name="FileName"/>
+      <int Value="2" Name="FirstVisibleLine"/>
+      <int Value="20" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
