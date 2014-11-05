@@ -64,7 +64,7 @@ ostream& operator<<(ostream& output, const ServicoStreaming& servicoStreaming)
   output << endl;
  } else if(servicoStreaming.getNumProtocolos() == 0)
  {
-  output << "Nenum protocolo listado"    << endl;
+  output << "Nenhum protocolo listado"    << endl;
  }else
  {
   output << "Protocolos utilizados:" << endl ;
@@ -102,47 +102,7 @@ ServicoStreaming* ServicoStreaming::operator=(const ServicoStreaming& streaming)
 
  return this;
 }
-/*
-void ServicoStreaming::AdicionarProtocolo(ServicoStreaming* streaming, const string& protocolo)
-{
- int cont;
- if(protocolo.empty() == false)
- {
 
-  if(streaming->protocolos == 0)
-  {
-    cout << "Nao ha memoria suficiente para armazenadlo" << endl;
-  }
-
-  else
-  {
-   string* auxProtocolo = new string[streaming->numProtocolos]    ;
-
-   for(cont = 0; cont < streaming->numProtocolos; cont ++)
-   {
-    auxProtocolo[cont] = streaming->protocolos[cont];
-   }
-
-    delete [] streaming->protocolos;
-    streaming->protocolos = new string[++streaming->numProtocolos];
-
-    for(cont = 0; cont< streaming->numProtocolos - 1; cont++)
-    {
-     streaming->protocolos[cont] = auxProtocolo[cont];
-    }
-
-     streaming->protocolos[streaming->numProtocolos] = protocolo;
-
-     delete [] auxProtocolo;
-  }
-
- }else
- {
-  cout << "Strign invalida" << endl;
- }
-
-}
-*/
 
 float ServicoStreaming::CalcularVelocidadeStreaming(const float& velocidadeConexao)
 {
@@ -159,23 +119,23 @@ float ServicoStreaming::CalcularEspacoOcupado(const int& encode, const int& dura
 void ServicoStreaming::CalcularMediaAnual(const float* saldoAnual)
 {
  float maiorLucro;
- int posicao, cont;	
+ int posicao, cont;
  for(cont = 1; cont < 12; cont++)
  {
-  if(saldoAnual[cont-1] > saldoAnual[cont])	 
+  if(saldoAnual[cont-1] > saldoAnual[cont])
   {
    maiorLucro = saldoAnual[cont-1];
-   posicao = cont-1;	  
+   posicao = cont-1;
   }else
   {
    maiorLucro = saldoAnual[cont];
-   posicao = cont;	  	  
+   posicao = cont;
   }
  }
   cout << "O Mes com o maior lucro foi o mes" << posicao << ", com " << maiorLucro << " unidades monetarias de lucro" << endl;
 
 }
- 
+
 
 float ServicoStreaming::getVelocidade() const
 {

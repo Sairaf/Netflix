@@ -13,7 +13,7 @@ class Usuario
 		string login;
 		string senha;
 		int qtdFilmesConta;
-		static int maxFilmes;
+		const static int maxFilmes;
         Filme* filmesConta;
         Data data;
  public:

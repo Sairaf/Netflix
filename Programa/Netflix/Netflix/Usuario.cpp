@@ -1,7 +1,7 @@
 #include "Usuario.h"
 
 // Assumindo que todos os usuarios s?o usuarios normais
-int Usuario::maxFilmes = 10;
+const int Usuario::maxFilmes = 10;
 
 Usuario::Usuario(string login, string senha)
 :login(login), senha(senha)
