@@ -60,29 +60,30 @@ int cont;
 
 ostream& operator<<(ostream& output, const Netflix& netflix)
 {
- int cont;	
+ int cont;
  Filme* auxRecomendacoes = new Filme[netflix.getQtdRecomendacoes()];
  output << static_cast<const Servico&> (netflix) <<";\n";
  output <<"Saldo da conta: " << netflix.getSaldo() << endl;
  if(netflix.getRecomendacoes() == NULL)
  {
-  output << endl;	 
+  output << endl;
  }else if(netflix.getQtdRecomendacoes() == 0)
  {
-  output << "Nao existe recomendacoes para o Usuario" << endl;	 
- }else 
+  output << "Nao existe recomendacoes para o Usuario" << endl;
+ }else
  {
   output << "Recomendacoes:" << endl;
-  auxRecomendacoes = netflix.getRecomendacoes();	 
-  for(cont = 0; cont < netflix.getQtdRecomendacoes(); cont++)	 
+  auxRecomendacoes = netflix.getRecomendacoes();
+  for(cont = 0; cont < netflix.getQtdRecomendacoes(); cont++)
   {
    output << auxRecomendacoes[cont]<< endl;
   }
-  
+
  }
- delete []auxRecomendacoes; 
+ delete []auxRecomendacoes;
  return output;
 }
+
 void Netflix::CadastrarUsuario(const Usuario& usuario)
 {
  int cont;
@@ -96,7 +97,7 @@ void Netflix::CadastrarUsuario(const Usuario& usuario)
  this->listaUsuarios = new Usuario[++this->numeroUsuarios];
  for(cont = 0 ; cont < this->numeroUsuarios-1; cont++)
  {
-  this->listaUsuarios[cont] = auxUsuario[cont];	 
+  this->listaUsuarios[cont] = auxUsuario[cont];
  }
  this->listaUsuarios[this->numeroUsuarios-1] = usuario;
  delete [] auxUsuario;
@@ -136,16 +137,16 @@ const void Netflix::AdicionarProtocolo(const string& protocolo)
   {
    auxProtocolo[cont] = this->protocolos[cont];
   }
-  
+
   delete [] this->protocolos;
   this->protocolos = new string[++this->numProtocolos];
   for(cont = 0; cont < this->getNumProtocolos(); cont++)
   {
    this->protocolos[cont] = auxProtocolo[cont] ;
   }
-  
+
   this->protocolos[this->getNumProtocolos() -1] = protocolo;
-  
+
   delete [] auxProtocolo;
  }
 }
@@ -159,10 +160,10 @@ void Netflix::AdicionarRecomendacao(const Filme& recomendacao)
  {
   auxRecomendacao[cont] = this->recomendacoes[cont];
  }
- 
+
  delete [] this->recomendacoes;
  this->recomendacoes = new Filme[++this->qtdRecomendacoes];
- 
+
  for(cont = 0; cont < this->getQtdRecomendacoes()-1; cont++)
  {
    this->recomendacoes[cont] = auxRecomendacao[cont];
@@ -172,10 +173,10 @@ void Netflix::AdicionarRecomendacao(const Filme& recomendacao)
   delete [] auxRecomendacao;
 }
 
-	
+
 int Netflix::DuracaoSaldoConta(const float& saldo)
 {
- float duracao = (floor) (saldo/this->MENSALIDADE);	
+ float duracao = (floor) (saldo/this->MENSALIDADE);
  return duracao;
 }
 
@@ -200,10 +201,10 @@ int Netflix::getQtdRecomendacoes() const
 
 float Netflix::getSaldo () const
 {
- return this->saldo;	
+ return this->saldo;
 }
 
 Filme* Netflix::getRecomendacoes() const
 {
- return this->recomendacoes;	
+ return this->recomendacoes;
 }
