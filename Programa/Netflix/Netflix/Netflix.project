@@ -104,6 +104,7 @@
     <File Name="ServicoStreaming.cpp"/>
     <File Name="Netflix.h"/>
     <File Name="Netflix.cpp"/>
+    <File Name="Youtube.h"/>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>

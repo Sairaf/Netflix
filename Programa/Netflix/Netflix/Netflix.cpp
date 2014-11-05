@@ -45,7 +45,6 @@ int cont;
  Netflix* auxNetflix;
  Netflix::operator=(netflix);
  Netflix::operator=(netflix);
- return auxNetflix;
 
  auxNetflix->saldo = netflix.getSaldo();
  auxNetflix->qtdRecomendacoes = netflix.getQtdRecomendacoes();
@@ -180,25 +179,8 @@ int Netflix::DuracaoSaldoConta(const float& saldo)
  return duracao;
 }
 
-void Netflix::MesMaisLucrativo(const float* saldoAnual)
-{
- float maiorLucro;
- int posicao, cont;	
- for(cont = 1; cont < 12; cont++)
- {
-  if(saldoAnual[cont-1] > saldoAnual[cont])	 
-  {
-   maiorLucro = saldoAnual[cont-1];
-   posicao = cont-1;	  
-  }else
-  {
-   maiorLucro = saldoAnual[cont];
-   posicao = cont;	  	  
-  }
- }
- 
- cout << "O Mes com o maior lucro foi o mes" << posicao << ", com " << maiorLucro << " unidades monetarias de lucro" << endl;
-}	
+
+
 
 void Netflix::setSaldo(const float& saldo)
 {

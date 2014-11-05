@@ -34,8 +34,7 @@ class Netflix: public ServicoStreaming
              void  AdicionarRecomendacao(const Filme&); /**/
              void  CadastrarUsuario(const Usuario&);/**/
 			 int   DuracaoSaldoConta(const float&);/**/
-			 void  MesMaisLucrativo(const float[]);/**/
-             const void AdicionarProtocolo(const string&);/**/
+		     const void AdicionarProtocolo(const string&);/**/
 			 Netflix* operator=(const Netflix&);/**/
 };
 

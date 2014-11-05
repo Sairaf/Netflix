@@ -88,16 +88,16 @@ ostream& operator<<(ostream& output, const ServicoStreaming& servicoStreaming)
 ServicoStreaming* ServicoStreaming::operator=(const ServicoStreaming& streaming)
 {
  int cont;
- ServicoStreaming* auxStreaming;
+ //ServicoStreaming* auxStreaming = new ServicoStreaming;
  ServicoStreaming::operator=(streaming);
- auxStreaming->velocidadeStreaming = streaming.velocidadeStreaming;
- auxStreaming->espacoOcupado = streaming.espacoOcupado;
- auxStreaming->numProtocolos = streaming.numProtocolos;
- auxStreaming->numeroUsuarios = streaming.numeroUsuarios;
+ this->velocidadeStreaming = streaming.velocidadeStreaming;
+ this->espacoOcupado = streaming.espacoOcupado;
+ this->numProtocolos = streaming.numProtocolos;
+ this->numeroUsuarios = streaming.numeroUsuarios;
 
- for(cont = 0; cont < auxStreaming->numProtocolos; cont++)
+ for(cont = 0; cont < this->numProtocolos; cont++)
  {
-  auxStreaming->protocolos[cont] = streaming.protocolos[cont];
+  this->protocolos[cont] = streaming.protocolos[cont];
  }
 
  return this;
@@ -155,6 +155,27 @@ float ServicoStreaming::CalcularEspacoOcupado(const int& encode, const int& dura
  float espaco = (encode * duracao * numPessoas)/(8*1024*1024);
  return espaco;
 }
+
+void ServicoStreaming::CalcularMediaAnual(const float* saldoAnual)
+{
+ float maiorLucro;
+ int posicao, cont;	
+ for(cont = 1; cont < 12; cont++)
+ {
+  if(saldoAnual[cont-1] > saldoAnual[cont])	 
+  {
+   maiorLucro = saldoAnual[cont-1];
+   posicao = cont-1;	  
+  }else
+  {
+   maiorLucro = saldoAnual[cont];
+   posicao = cont;	  	  
+  }
+ }
+  cout << "O Mes com o maior lucro foi o mes" << posicao << ", com " << maiorLucro << " unidades monetarias de lucro" << endl;
+
+}
+ 
 
 float ServicoStreaming::getVelocidade() const
 {

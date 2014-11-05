@@ -20,7 +20,7 @@ protected:
 	int numeroUsuarios;
 	Usuario* listaUsuarios;
     vector <float> SaldoAnualServico;
-
+    const MAXSALDO = 11;
 public:
     ServicoStreaming();
 	ServicoStreaming(string nomeServico = "Servico de Streaming", string cnpj = "000-000-000/0000-00");
@@ -31,6 +31,7 @@ public:
 
 
 	void setProtocolo(const string&);
+	void setSaldoMes(const float&); /* Falta realizar sto*/
 
 	string* getProtocolo	 () const;
 	float   getVelocidade   () const;
@@ -39,11 +40,11 @@ public:
     float   getSaldo         () const;
 
 	virtual const void AdicionarProtocolo(const string&)= 0 ; /**/
-	virtual void CadastrarUsuario(const Usuario&) = 0;
-	float CalcularEspacoOcupado(const int&,const int&, const int&); // velocidade do encode, duracao do filme em segundos e numero de pessoas assistindo
-	float CalcularVelocidadeStreaming(const float&);
-    float CalcularMedia(const float[]);
+	virtual void CadastrarUsuario(const Usuario&) = 0;/**/
+	float CalcularEspacoOcupado(const int&,const int&, const int&);/**/ // velocidade do encode, duracao do filme em segundos e numero de pessoas assistindo
+	float CalcularVelocidadeStreaming(const float&);/**/
+    void CalcularMediaAnual(const float[]);/**/
 
-	ServicoStreaming* operator=(const ServicoStreaming&);
+	ServicoStreaming* operator=(const ServicoStreaming&);/**/
 };
 #endif // SERVICOSTREAMING_H
