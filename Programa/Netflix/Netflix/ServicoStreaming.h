@@ -38,7 +38,7 @@ public:
 	int     getNumProtocolos() const;
     float   getSaldo         () const;
 
-	virtual const void AdicionarProtocolo(ServicoStreaming*,const string&)= 0 ;
+	virtual const void AdicionarProtocolo(const string&)= 0 ; /**/
 	virtual void CadastrarUsuario(const Usuario&) = 0;
 	float CalcularEspacoOcupado(const int&,const int&, const int&); // velocidade do encode, duracao do filme em segundos e numero de pessoas assistindo
 	float CalcularVelocidadeStreaming(const float&);

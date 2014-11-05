@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <math.h>
 #include "ServicoStreaming.h"
 
 class Netflix: public ServicoStreaming
@@ -29,13 +30,13 @@ class Netflix: public ServicoStreaming
              int         getQtdRecomendacoes   () const;
 
 
-             void  CadastrarAparelho(const string&) ;
-             void  AdicionarRecomendacao(Netflix*, Filme&);
-             void  CadastrarUsuario(const Usuario&);
-			 int   DuracaoSaldoConta(const float&);
-			 void  MesMaisLucrativo(const float&);
-             const void AdicionarProtocolo(ServicoStreaming*,const string&)= 0 ;
-			 Netflix* operator=(const Netflix&);
+             void  CadastrarAparelho(const string&) ;/**/
+             void  AdicionarRecomendacao(const Filme&); /**/
+             void  CadastrarUsuario(const Usuario&);/**/
+			 int   DuracaoSaldoConta(const float&);/**/
+			 void  MesMaisLucrativo(const float[]);/**/
+             const void AdicionarProtocolo(const string&);/**/
+			 Netflix* operator=(const Netflix&);/**/
 };
 
 #endif
