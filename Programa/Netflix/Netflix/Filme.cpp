@@ -144,25 +144,28 @@ void Filme::setSinopse(const string& sinopse)
 void Filme::setAtores(const string& ator)
 {
  int cont;
+ if(ator.empty() == false)
+ {
  if(this->numAtores < MAXATORES)
  {
+  string* auxAtores = new string[numAtores];
+  for(cont = 0; cont < numAtores; cont++)
+  {
+   auxAtores[cont] = this->atores[cont];
+  }
 
- string* auxAtores = new string[numAtores];
- for(cont = 0; cont < numAtores; cont++)
- {
-  auxAtores[cont] = this->atores[cont];
+  delete [] this->atores;
+  this->atores = new string[++numAtores];
+
+  for(cont = 0; cont < numAtores-1;cont++)
+  {
+   this->atores[cont] = auxAtores[cont];
+  }
+  this->atores[numAtores-1] = ator;
+  delete [] auxAtores;
+  }
  }
 
- delete [] this->atores;
- this->atores = new string[++numAtores];
-
- for(cont = 0; cont < numAtores-1;cont++)
- {
-  this->atores[cont] = auxAtores[cont];
- }
- this->atores[numAtores-1] = ator;
- delete [] auxAtores;
- }
 }
 
 string Filme::getNomeFilme() const

@@ -5,7 +5,7 @@
 
 1415140731 c:\users\abgerson\git\netflix\programa\netflix\netflix\data.h
 
-1414987839 source:c:\users\abgerson\git\netflix\programa\netflix\netflix\filme.cpp
+1415157524 source:c:\users\abgerson\git\netflix\programa\netflix\netflix\filme.cpp
 	"Filme.h"
 
 1415149508 c:\users\abgerson\git\netflix\programa\netflix\netflix\filme.h
@@ -22,7 +22,7 @@
 	"Usuario.h"
 	"Filme.h"
 
-1415143023 c:\users\abgerson\git\netflix\programa\netflix\netflix\servico.h
+1415159733 c:\users\abgerson\git\netflix\programa\netflix\netflix\servico.h
 	<iostream>
 	<cstdlib>
 	<string>
@@ -36,24 +36,28 @@
 	"Filme.h"
 	"Data.h"
 
-1415149552 c:\users\abgerson\git\netflix\programa\netflix\netflix\servicostreaming.h
+1415160290 c:\users\abgerson\git\netflix\programa\netflix\netflix\servicostreaming.h
 	<iostream>
 	<cstdlib>
 	<vector>
+	<string.h>
 	"Servico.h"
 
-1415151077 c:\users\abgerson\git\netflix\programa\netflix\netflix\netflix.h
+1415160290 c:\users\abgerson\git\netflix\programa\netflix\netflix\netflix.h
 	<iostream>
 	<cstdlib>
 	<string>
 	"ServicoStreaming.h"
 
-1415141820 source:c:\users\abgerson\git\netflix\programa\netflix\netflix\servico.cpp
+1415159921 source:c:\users\abgerson\git\netflix\programa\netflix\netflix\servico.cpp
 	"Servico.h"
 
-1415142965 source:c:\users\abgerson\git\netflix\programa\netflix\netflix\servicostreaming.cpp
+1415160012 source:c:\users\abgerson\git\netflix\programa\netflix\netflix\servicostreaming.cpp
 	"ServicoStreaming.h"
 
 1415140732 source:c:\users\abgerson\git\netflix\programa\netflix\netflix\usuario.cpp
 	"Usuario.h"
+
+1415160075 source:c:\users\abgerson\git\netflix\programa\netflix\netflix\netflix.cpp
+	"Netflix.h"
 

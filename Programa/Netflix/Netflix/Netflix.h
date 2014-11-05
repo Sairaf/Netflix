@@ -26,13 +26,15 @@ class Netflix: public ServicoStreaming
              float       getSaldo             () const;
 			 const float getMensalidade       () const;
              Filme*      getRecomendacoes     () const;
-             int         getQtRecomendacoes   () const;
+             int         getQtdRecomendacoes   () const;
 
+
+             void  CadastrarAparelho(const string&) ;
              void  AdicionarRecomendacao(Netflix*, Filme&);
-             void  CadastrarUsuario(Servico*, const Usuario&);
+             void  CadastrarUsuario(const Usuario&);
 			 int   DuracaoSaldoConta(const float&);
-			 void MesMaisLucrativo(const float&);
-
+			 void  MesMaisLucrativo(const float&);
+             const void AdicionarProtocolo(ServicoStreaming*,const string&)= 0 ;
 			 Netflix* operator=(const Netflix&);
 };
 

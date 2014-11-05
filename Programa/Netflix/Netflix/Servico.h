@@ -30,11 +30,12 @@ public:
 		   Servico(const Servico&);
 		   virtual ~Servico();
 
+
 		   void setNome(const string&);
 		   void setCnpj(const string&);
 		   void setEndereco(const string&);
 		   void setDescricao(const string&);
-		   void setaparelhos (const string&);
+		   void setAparelhos (const string&);
 		   void setQuantidadeFuncionarios(const int&);
 		   void setData(const Data&);
 
@@ -47,9 +48,12 @@ public:
 		   Data*    getData 					() const;
 		   string*  getAparelhos           () const;
 
-		   virtual void CadastrarAparelho(Servico*, const string&) = 0;
-		   virtual Servico* operator=(const Servico&);
+           const inline void Welcome(){cout << "BEM VINDO!" << endl;};
+
+		   virtual void CadastrarAparelho(const string&) = 0;
 		   void MostrarAparelhos(const Servico&);
+
+		   virtual Servico* operator=(const Servico&);
 };
 
 #endif

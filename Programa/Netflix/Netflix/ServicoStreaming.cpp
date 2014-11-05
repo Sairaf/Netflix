@@ -25,7 +25,7 @@ ServicoStreaming::ServicoStreaming(string nomeEmpresa, string cnpj)
 ServicoStreaming::ServicoStreaming(const string& nomeEmpresa,const string& cnpj,const int& numeroFuncionarios,const string& descricao,const string& endereco,const int& dia, const int& mes, const int& ano,const float& velocidade)
 :Servico(nomeEmpresa, cnpj,numeroFuncionarios, descricao, endereco, dia,mes,ano)
 {
- this->velocidadeStreaming= this->calcularVelocidadeStreaming(velocidade);
+ this->velocidadeStreaming= this->CalcularVelocidadeStreaming(velocidade);
  this->espacoOcupado = 0.0;
  this->numProtocolos = 0;
  this->numeroUsuarios = 0;
@@ -103,11 +103,6 @@ ServicoStreaming* ServicoStreaming::operator=(const ServicoStreaming& streaming)
  return this;
 }
 /*
-void ServicoStreaming::CadastrarUsuario(Servico*, const Usuario&)
-{
-
-}
-*/
 void ServicoStreaming::AdicionarProtocolo(ServicoStreaming* streaming, const string& protocolo)
 {
  int cont;
@@ -147,19 +142,15 @@ void ServicoStreaming::AdicionarProtocolo(ServicoStreaming* streaming, const str
  }
 
 }
-void ServicoStreaming::CadastrarAparelho(Servico*, const string&)
-{
+*/
 
-}
-
-
-float ServicoStreaming::calcularVelocidadeStreaming(const float& velocidadeConexao)
+float ServicoStreaming::CalcularVelocidadeStreaming(const float& velocidadeConexao)
 {
  float auxVelocidade = velocidadeConexao*0.55;
  return auxVelocidade;
 }
 
-float ServicoStreaming::calcularEspacoOcupado(const int& encode, const int& duracao /* em minutos*/ , const int& numPessoas)
+float ServicoStreaming::CalcularEspacoOcupado(const int& encode, const int& duracao /* em minutos*/ , const int& numPessoas)
 {
  float espaco = (encode * duracao * numPessoas)/(8*1024*1024);
  return espaco;

@@ -39,22 +39,22 @@ Netflix::Netflix(const Netflix& netflixCpy)
 }
 
 
-Netflix* operator=(const Netflix& netflix)
+Netflix* Netflix::operator=(const Netflix& netflix)
 {
 int cont;
  Netflix* auxNetflix;
  Netflix::operator=(netflix);
- Netflix::operator=(netflix)
+ Netflix::operator=(netflix);
  return auxNetflix;
 
  auxNetflix->saldo = netflix.getSaldo();
- auxNetflix->qtdRecomendacoes = netflix.getQtRecomendacoes();
+ auxNetflix->qtdRecomendacoes = netflix.getQtdRecomendacoes();
  delete auxNetflix->recomendacoes;
- auxNetflix->recomendacoes = new string[netflix.getQtRecomendacoes()];
+ auxNetflix->recomendacoes = new Filme[netflix.getQtdRecomendacoes()];
 
- for(cont = 0; cont < netflix.getQtdRecomendacoes; cont++)
+ for(cont = 0; cont < netflix.getQtdRecomendacoes(); cont++)
  {
-  auxNetflix->recomendacoes[cont] = netflix.recomendacoes;
+  auxNetflix->recomendacoes[cont] = netflix.recomendacoes[cont];
  }
  return auxNetflix;
 }
@@ -65,3 +65,55 @@ ostream& operator<<(ostream& output, const Netflix& netflix)
 }
 
 
+void Netflix::CadastrarAparelho(const string& aparelho)
+{
+int cont;
+if(aparelho.empty() )
+ {
+
+ string* auxAparelhos = new string[this->getNumeroAparelhos()];
+ for(cont = 0; cont < this->getNumeroAparelhos(); cont++)
+ {
+  auxAparelhos[cont] = this->aparelhos[cont];
+ }
+ delete [] this->aparelhos;
+ this->aparelhos = new string[this->getNumeroAparelhos()];
+ for(cont = 0; cont < this->getNumeroAparelhos()-1;cont++)
+ {
+  this->aparelhos[cont] = auxAparelhos[cont];
+ }
+  this->aparelhos[this->getNumeroAparelhos()-1] = aparelho;
+
+ delete [] auxAparelhos;
+ }
+}
+
+void Netflix::setSaldo(const float& saldo)
+{
+ if(saldo >= 0)
+ {
+  this->saldo = saldo;
+ }else
+ {
+  this->saldo = 0.0;
+ }
+}
+
+void Netflix::CadastrarUsuario(const Usuario& usuario)
+{
+ int cont;
+ Usuario * auxUsuario = new Usuario[this->numeroUsuarios];
+ for(cont = 0; cont < this->numeroUsuarios; cont++)
+ {
+  auxUsuario[cont] = this->listaUsuarios[cont]
+ }
+
+ delete [] this->listaUsuarios;
+ this->listaUsuarios = new Usuario[++this->numeroUsuarios];
+ //Falta acabar aqui
+}
+
+int Netflix::getQtdRecomendacoes() const
+{
+ return this->qtdRecomendacoes;
+}

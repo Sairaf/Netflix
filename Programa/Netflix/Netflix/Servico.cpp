@@ -189,7 +189,7 @@ void Servico::CadastrarAparelho(Servico* servico, const string& aparelho)
   }
  }
 
- void Servico::setaparelhos(const string& aparelho)
+ void Servico::setAparelhos(const string& aparelho)
  {
   int cont;
   string* auxAparelho = new string;

@@ -32,7 +32,19 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="main.cpp" />
+		<Unit filename="Data.cpp" />
+		<Unit filename="Data.h" />
+		<Unit filename="Filme.cpp" />
+		<Unit filename="Filme.h" />
+		<Unit filename="Main.cpp" />
+		<Unit filename="Netflix.cpp" />
+		<Unit filename="Netflix.h" />
+		<Unit filename="Servico.cpp" />
+		<Unit filename="Servico.h" />
+		<Unit filename="ServicoStreaming.cpp" />
+		<Unit filename="ServicoStreaming.h" />
+		<Unit filename="Usuario.cpp" />
+		<Unit filename="Usuario.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
