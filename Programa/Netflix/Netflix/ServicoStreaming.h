@@ -20,7 +20,7 @@ protected:
 	int numeroUsuarios;
 	Usuario* listaUsuarios;
     vector <float> SaldoAnualServico;
-    const MAXSALDO = 11;
+    const int MAXSALDO = 11;
 public:
     ServicoStreaming();
 	ServicoStreaming(string nomeServico = "Servico de Streaming", string cnpj = "000-000-000/0000-00");

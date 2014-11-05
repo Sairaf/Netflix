@@ -105,6 +105,7 @@
     <File Name="Netflix.h"/>
     <File Name="Netflix.cpp"/>
     <File Name="Youtube.h"/>
+    <File Name="Youtube.cpp"/>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>

@@ -63,7 +63,7 @@ AS       := C:/MinGW-4.8.1/bin/as.exe
 ##
 CodeLiteDir:=C:\Program Files (x86)\CodeLite
 UNIT_TEST_PP_SRC_DIR:=C:\UnitTest++-1.3
-Objects0=$(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Filme.cpp$(ObjectSuffix) $(IntermediateDirectory)/Usuario.cpp$(ObjectSuffix) $(IntermediateDirectory)/Servico.cpp$(ObjectSuffix) $(IntermediateDirectory)/ServicoStreaming.cpp$(ObjectSuffix) $(IntermediateDirectory)/Netflix.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Filme.cpp$(ObjectSuffix) $(IntermediateDirectory)/Usuario.cpp$(ObjectSuffix) $(IntermediateDirectory)/Servico.cpp$(ObjectSuffix) $(IntermediateDirectory)/ServicoStreaming.cpp$(ObjectSuffix) $(IntermediateDirectory)/Netflix.cpp$(ObjectSuffix) $(IntermediateDirectory)/Youtube.cpp$(ObjectSuffix) 
 
 
 
@@ -145,6 +145,14 @@ $(IntermediateDirectory)/Netflix.cpp$(DependSuffix): Netflix.cpp
 
 $(IntermediateDirectory)/Netflix.cpp$(PreprocessSuffix): Netflix.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Netflix.cpp$(PreprocessSuffix) "Netflix.cpp"
+
+$(IntermediateDirectory)/Youtube.cpp$(ObjectSuffix): Youtube.cpp $(IntermediateDirectory)/Youtube.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/PROPESPINFO/Documents/GitHub/Netflix/Programa/Netflix/Netflix/Youtube.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Youtube.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Youtube.cpp$(DependSuffix): Youtube.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Youtube.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Youtube.cpp$(DependSuffix) -MM "Youtube.cpp"
+
+$(IntermediateDirectory)/Youtube.cpp$(PreprocessSuffix): Youtube.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Youtube.cpp$(PreprocessSuffix) "Youtube.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
