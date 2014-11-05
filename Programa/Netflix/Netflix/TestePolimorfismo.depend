@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1415140731 source:c:\users\abgerson\git\netflix\programa\netflix\netflix\data.cpp
+	"Data.h"
+	<iostream>
+
+1415140731 c:\users\abgerson\git\netflix\programa\netflix\netflix\data.h
+
+1414987839 source:c:\users\abgerson\git\netflix\programa\netflix\netflix\filme.cpp
+	"Filme.h"
+
+1415149508 c:\users\abgerson\git\netflix\programa\netflix\netflix\filme.h
+	<cstdlib>
+	<vector>
+	<iostream>
+	<string>
+
+1415146318 source:c:\users\abgerson\git\netflix\programa\netflix\netflix\main.cpp
+	<iostream>
+	"Servico.h"
+	"ServicoStreaming.h"
+	"Netflix.h"
+	"Usuario.h"
+	"Filme.h"
+
+1415143023 c:\users\abgerson\git\netflix\programa\netflix\netflix\servico.h
+	<iostream>
+	<cstdlib>
+	<string>
+	"Usuario.h"
+	"Data.h"
+
+1414987365 c:\users\abgerson\git\netflix\programa\netflix\netflix\usuario.h
+	<cstdlib>
+	<iostream>
+	<string>
+	"Filme.h"
+	"Data.h"
+
+1415149552 c:\users\abgerson\git\netflix\programa\netflix\netflix\servicostreaming.h
+	<iostream>
+	<cstdlib>
+	<vector>
+	"Servico.h"
+
+1415151077 c:\users\abgerson\git\netflix\programa\netflix\netflix\netflix.h
+	<iostream>
+	<cstdlib>
+	<string>
+	"ServicoStreaming.h"
+
+1415141820 source:c:\users\abgerson\git\netflix\programa\netflix\netflix\servico.cpp
+	"Servico.h"
+
+1415142965 source:c:\users\abgerson\git\netflix\programa\netflix\netflix\servicostreaming.cpp
+	"ServicoStreaming.h"
+
+1415140732 source:c:\users\abgerson\git\netflix\programa\netflix\netflix\usuario.cpp
+	"Usuario.h"
+

@@ -13,7 +13,7 @@ using namespace std;
 class Servico
 {
   friend ostream& operator<<(ostream&,const Servico&);
- 
+
  protected:
            string nomeServico;
 		   string cnpj;
@@ -24,11 +24,12 @@ class Servico
            int numeroAparelhos;
 		   Data* dataCriacao;
 public:
+           Servico();
            Servico(string nomeServico = "Servico", string cnpj = "000-000-000/0000-00");
 		   Servico(string, string, int, string, string, int/*dia*/, int/*mÃªs*/, int/*anno*/);
 		   Servico(const Servico&);
 		   virtual ~Servico();
-		   
+
 		   void setNome(const string&);
 		   void setCnpj(const string&);
 		   void setEndereco(const string&);
@@ -46,8 +47,7 @@ public:
 		   Data*    getData 					() const;
 		   string*  getAparelhos           () const;
 
-		   virtual void CadastrarAparelho(Servico*, const string&);
-		   virtual void CadastrarUsuario(Servico*, const Usuario&) = 0;
+		   virtual void CadastrarAparelho(Servico*, const string&) = 0;
 		   virtual Servico* operator=(const Servico&);
 		   void MostrarAparelhos(const Servico&);
 };

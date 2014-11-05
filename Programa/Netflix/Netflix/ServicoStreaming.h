@@ -1,3 +1,6 @@
+#ifndef SERVICOSTREAMING_H
+#define SERVICOSTREAMING_H
+
 #include <iostream>
 #include <cstdlib>
 #include <vector>
@@ -15,8 +18,10 @@ protected:
 	int numProtocolos ;
 	int numeroUsuarios;
 	Usuario* listaUsuarios;
-	
+
+
 public:
+    ServicoStreaming();
 	ServicoStreaming(string nomeServico = "Servico de Streaming", string cnpj = "000-000-000/0000-00");
 	ServicoStreaming(const string&,const string&,const int&,const string&,const string&,const int&,const int&,const int&,const float&);
 	ServicoStreaming(const ServicoStreaming&);
@@ -30,10 +35,12 @@ public:
 	float   getEspaco		 () const;
 	int     getNumProtocolos() const;
 
-   void CadastrarUsuario(Servico*, const Usuario&);
-	virtual void AdicionarProtocolo(ServicoStreaming*,const string&);
+    virtual void CadastrarUsuario(Servico*, const Usuario&) = 0;
+    void CadastrarAparelho(Servico*, const string&);
+	void AdicionarProtocolo(ServicoStreaming*,const string&);
 	float calcularEspacoOcupado(const int&,const int&, const int&); // velocidade do encode, duracao do filme em segundos e numero de pessoas assistindo
 	float calcularVelocidadeStreaming(const float&);
-	
+
 	ServicoStreaming* operator=(const ServicoStreaming&);
 };
+#endif // SERVICOSTREAMING_H

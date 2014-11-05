@@ -1,5 +1,16 @@
 #include "ServicoStreaming.h"
 
+ServicoStreaming::ServicoStreaming()
+:Servico("Desconhecido", "00.000.000/0000-00")
+{
+ this->velocidadeStreaming = 0.0;
+ this->espacoOcupado = 0.0;
+ this->numProtocolos = 0;
+ this->protocolos = new string;
+ this->numeroUsuarios = 0;
+ this->listaUsuarios = new Usuario[this->numeroUsuarios];
+}
+
 ServicoStreaming::ServicoStreaming(string nomeEmpresa, string cnpj)
 :Servico(nomeEmpresa, cnpj)
 {
@@ -43,7 +54,7 @@ ServicoStreaming::ServicoStreaming(const ServicoStreaming& streamingCpy)
 ostream& operator<<(ostream& output, const ServicoStreaming& servicoStreaming)
 {
  int cont;
- //output << servicoStreaming;
+ output << static_cast <const Servico&> (servicoStreaming) << ";\n";
  output << "Velocidade de streaming: " << servicoStreaming.getVelocidade() << endl;
  output << "Espaço consumido em disco: " << servicoStreaming.getEspaco() << endl;
  string* auxProtocolo = new string;
@@ -64,15 +75,14 @@ ostream& operator<<(ostream& output, const ServicoStreaming& servicoStreaming)
    output << auxProtocolo[cont] << endl;
    output << "==========================="    << endl;
   }
- 
+
  }
  if(servicoStreaming.getNumProtocolos() != 0)
  {
   delete []auxProtocolo;
- 
+
  }
- cout << "SNAKE!!!" << endl;
- return output;
+  return output;
 }
 
 ServicoStreaming* ServicoStreaming::operator=(const ServicoStreaming& streaming)
@@ -92,12 +102,12 @@ ServicoStreaming* ServicoStreaming::operator=(const ServicoStreaming& streaming)
 
  return this;
 }
-
+/*
 void ServicoStreaming::CadastrarUsuario(Servico*, const Usuario&)
 {
- cout << "MAH BOI!" << endl;	
-}
 
+}
+*/
 void ServicoStreaming::AdicionarProtocolo(ServicoStreaming* streaming, const string& protocolo)
 {
  int cont;
@@ -127,7 +137,7 @@ void ServicoStreaming::AdicionarProtocolo(ServicoStreaming* streaming, const str
     }
 
      streaming->protocolos[streaming->numProtocolos] = protocolo;
-     
+
      delete [] auxProtocolo;
   }
 
@@ -137,6 +147,11 @@ void ServicoStreaming::AdicionarProtocolo(ServicoStreaming* streaming, const str
  }
 
 }
+void ServicoStreaming::CadastrarAparelho(Servico*, const string&)
+{
+
+}
+
 
 float ServicoStreaming::calcularVelocidadeStreaming(const float& velocidadeConexao)
 {
@@ -152,20 +167,20 @@ float ServicoStreaming::calcularEspacoOcupado(const int& encode, const int& dura
 
 float ServicoStreaming::getVelocidade() const
 {
- return this->velocidadeStreaming;	
+ return this->velocidadeStreaming;
 }
 
 float ServicoStreaming::getEspaco() const
 {
- return this->espacoOcupado;	 
+ return this->espacoOcupado;
 }
 
 string* ServicoStreaming::getProtocolo() const
 {
- return this->protocolos;	
+ return this->protocolos;
 }
 
 int ServicoStreaming::getNumProtocolos() const
-{ 
- return this->numProtocolos;	
+{
+ return this->numProtocolos;
 }

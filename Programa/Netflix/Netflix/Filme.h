@@ -26,7 +26,6 @@ private:
 	const static int MAXATORES;
 	float avaliacaoCritica;
     float bilheteria;
-    int duracao;
 public:
 	//construtores
 	Filme(string nomeFilme = "Default", string sinopse = "Default");

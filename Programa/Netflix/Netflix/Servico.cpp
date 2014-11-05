@@ -1,5 +1,16 @@
 #include "Servico.h"
 
+Servico::Servico()
+{
+ this->setNome("Desconhecido")   ;
+ this->setCnpj("00.000.000/0000-00");
+ this->dataCriacao = new Data(5,10,2010);
+ this->setDescricao("Desconhecido");
+ this->setEndereco("Desconhecido");
+ this->numeroAparelhos = 0;
+ this->aparelhos = new string[this->numeroAparelhos];
+}
+
 Servico::Servico(string nome, string cnpj)
 :nomeServico(nome), cnpj(cnpj)
 {
@@ -54,30 +65,30 @@ ostream &operator<<(ostream& output, const Servico& servico)
  output <<"Endereco de sua sede: " <<servico.getEndereco() << endl;
  string * auxAparelhos = new string;
  auxAparelhos = servico.getAparelhos();
- 
+
  if(auxAparelhos != NULL)
  {
-  if(servico.getNumeroAparelhos() == 0)	 
+  if(servico.getNumeroAparelhos() == 0)
   {
-	cout << "Nenhum aparelho foi registrado" << endl;  
+	cout << "Nenhum aparelho foi registrado" << endl;
   }else
   {
-   output <<"Numero de aparelhos aonde este servico pode ser acessado: " << servico.getNumeroAparelhos() << endl;	  
-	for(cont = 0; cont < servico.getNumeroAparelhos(); cont++)  
+   output <<"Numero de aparelhos aonde este servico pode ser acessado: " << servico.getNumeroAparelhos() << endl;
+	for(cont = 0; cont < servico.getNumeroAparelhos(); cont++)
 	{
-	 
+
 	 output << auxAparelhos[cont]	<<endl;
 	}
   }
  }else
  {
-  output << "Nao existe aparelho registrado." << endl;	 
+  output << "Nao existe aparelho registrado." << endl;
  }
- cout <<"TESTE" <<endl;	
+ cout <<"TESTE" <<endl;
  if(servico.getAparelhos() != 0)
  {
   delete [] auxAparelhos;
- }
+     }
  return output;
 }
 
@@ -103,13 +114,13 @@ void Servico::MostrarAparelhos(const Servico& servico)
  int cont;
  if(servico.numeroAparelhos > 0 && servico.aparelhos != NULL)
  {
-  for(cont =0; cont < servico.numeroAparelhos;cont++)	
+  for(cont =0; cont < servico.numeroAparelhos;cont++)
   {
    cout << servico.aparelhos[cont]	;
   }
  }
 }
-
+/*
 void Servico::CadastrarAparelho(Servico* servico, const string& aparelho)
 {
  int cont;
@@ -131,7 +142,7 @@ void Servico::CadastrarAparelho(Servico* servico, const string& aparelho)
    delete [] auxAparelho;
  }
 }
-
+*/
 
 
  void Servico::setNome(const string& nomeServico)
@@ -216,14 +227,14 @@ void Servico::setQuantidadeFuncionarios(const int& numFuncionarios)
 
 void Servico::setData(const Data& data)
 {
- if(data.VerificaDia(4) != 1)	
+ if(data.VerificaDia(4) != 1)
  {
-  this->dataCriacao[0] = data;	 
+  this->dataCriacao[0] = data;
  }else
- {	 
+ {
   this->dataCriacao = new Data(1,1,1990);
  }
-}  
+}
 
  string Servico::getNome() const
  {
@@ -262,5 +273,5 @@ Data* Servico::getData() const
 
 string* Servico::getAparelhos() const
 {
- return this->aparelhos;	
+ return this->aparelhos;
 }
